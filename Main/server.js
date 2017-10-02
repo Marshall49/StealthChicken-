@@ -16,12 +16,19 @@ app.use(routes);
 // Set up promises with mongoose
 mongoose.Promise = global.Promise;
 // Connect to the Mongo DB
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/StealthChicken",
-  {
-    useMongoClient: true
-  }
-);
+var mongoose = require('mongoose');
+
+//Set up default mongoose connection
+var mongoDB = 'mongodb://127.0.0.1/Stealth_Chicken';
+mongoose.connect(mongoDB, {
+  useMongoClient: true
+});
+
+//Get the default connection
+var db = mongoose.connection;
+
+//Bind connection to error event (to get notification of connection errors)
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // Start the API server
 app.listen(PORT, function() {

@@ -35,10 +35,13 @@ db.once("open", function() {
 });
 
 var exampleUser = new physician({
-  category: "cardiovascular",
-  physician: "Malcolm Strong",
-  comment: "Patient has heart problems",
-  date : ""
+  category: "Optometry",
+  physician: "Jason Conner",
+  comment: {
+    date: new Date(Date.now()),
+    userId: "String",
+    content: "Patient is having Eye trouble"
+  }
 });
 // Using the save method in mongoose, we create our example user in the db
 exampleUser.save(function(error, doc) {
@@ -51,9 +54,6 @@ exampleUser.save(function(error, doc) {
     console.log(doc);
   }
 });
-
-
-
 
 // Start the API server
 app.listen(PORT, function() {

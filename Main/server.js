@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const routes = require("./routes");
+const physician =require("./models/physician.js");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -15,11 +16,9 @@ app.use(routes);
 
 // Set up promises with mongoose
 mongoose.Promise = global.Promise;
-// Connect to the Mongo DB
-var mongoose = require('mongoose');
 
 //Set up default mongoose connection
-var mongoDB = 'mongodb://127.0.0.1/Stealth_Chicken';
+var mongoDB = 'mongodb://localhost/Stealth_Chicken';
 mongoose.connect(mongoDB, {
   useMongoClient: true
 });
@@ -29,6 +28,32 @@ var db = mongoose.connection;
 
 //Bind connection to error event (to get notification of connection errors)
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+//Once the mongodb is rendered it will console.log successful
+db.once("open", function() {
+  console.log("Mongoose connection successful.");
+});
+
+var exampleUser = new physician({
+  category: "cardiovascular",
+  physician: "Malcolm Strong",
+  comment: "Patient has heart problems",
+  date : ""
+});
+// Using the save method in mongoose, we create our example user in the db
+exampleUser.save(function(error, doc) {
+  // Log any errors
+  if (error) {
+    console.log(error);
+  }
+  // Or log the doc
+  else {
+    console.log(doc);
+  }
+});
+
+
+
 
 // Start the API server
 app.listen(PORT, function() {

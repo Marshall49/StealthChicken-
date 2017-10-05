@@ -67,12 +67,34 @@ var patientAuth = new ClientOAuth2({ //should we use let? const?
   scopes: ['offline_access']
 });
 
-// Get the authorization code
+// Get the authorization code ?
 app.get('/auth/patientAuth', function (req, res) {
-  var uri = githubAuth.code.getUri()
+  var uri = patientAuth.code.getUri()
 
   res.redirect(uri)
 }))
+
+app.get('/auth/patientAuth/callback', function (req, res) { // Need Help
+  patientAuth.code.getToken(req.originalUrl)
+    .then(function (user) {
+      console.log(user) //=> { accessToken: '...', tokenType: 'bearer', ... }
+
+      // Refresh the current users access token.
+      user.refresh().then(function (updatedUser) {
+        console.log(updatedUser !== user) //=> true
+        console.log(updatedUser.accessToken)
+      })
+
+      // Sign API requests on behalf of the current user.
+      user.sign({
+        method: 'get',
+        url: 'http://example.com'
+      })
+
+      // We should store the token into a database.
+      return res.send(user.accessToken)
+    })
+})
 
 // Start the API server
 app.listen(PORT, function() {

@@ -60,11 +60,11 @@ exampleUser.save(function(error, doc) {
 //==================Authentication==============================================
 const userAuth = new ClientOAuth2({
   clientId: 'KGkhhNwb8IkWa9WYH9ibHfLTONzAAdGr',
-  clientSecret: '123',
-  accessTokenUri: 'https://github.com/login/oauth/access_token',
-  authorizationUri: 'https://github.com/login/oauth/authorize',
+  clientSecret: '123', //Need to see about best way to add client secret
+  accessTokenUri: 'https://sandbox-api.dexcom.com', // https://api.dexcom.com/v1/oauth2/token is used for non sandox
+  authorizationUri: 'https://sandbox-api.dexcom.com',
   redirectUri: 'http://example.com/auth/github/callback',
-  scopes: ['notifications', 'gist']
+  scopes: ['offline_access']
 });
 
 // Start the API server

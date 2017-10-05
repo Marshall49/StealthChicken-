@@ -1,1 +1,3 @@
-export { default } from './AcctForm';
+export * from './FormBtn';
+export * from './Input';
+export * from './TextArea';

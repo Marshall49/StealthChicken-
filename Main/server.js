@@ -58,14 +58,21 @@ exampleUser.save(function(error, doc) {
 
 
 //==================Authentication==============================================
-const userAuth = new ClientOAuth2({
+var patientAuth = new ClientOAuth2({ //should we use let? const?
   clientId: 'KGkhhNwb8IkWa9WYH9ibHfLTONzAAdGr',
   clientSecret: '123', //Need to see about best way to add client secret
   accessTokenUri: 'https://sandbox-api.dexcom.com', // https://api.dexcom.com/v1/oauth2/token is used for non sandox
   authorizationUri: 'https://sandbox-api.dexcom.com',
-  redirectUri: 'http://example.com/auth/github/callback',
+  redirectUri: 'http://example.com/auth/github/callback', //Need to make a redirectUri
   scopes: ['offline_access']
 });
+
+// Get the authorization code
+app.get('/auth/patientAuth', function (req, res) {
+  var uri = githubAuth.code.getUri()
+
+  res.redirect(uri)
+}))
 
 // Start the API server
 app.listen(PORT, function() {

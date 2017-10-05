@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const physician =require("./models/physician.js");
+const clientOAuth2 = require('client-oauth2');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -53,6 +54,17 @@ exampleUser.save(function(error, doc) {
   else {
     console.log(doc);
   }
+});
+
+
+//==================Authentication==============================================
+const userAuth = new ClientOAuth2({
+  clientId: 'KGkhhNwb8IkWa9WYH9ibHfLTONzAAdGr',
+  clientSecret: '123',
+  accessTokenUri: 'https://github.com/login/oauth/access_token',
+  authorizationUri: 'https://github.com/login/oauth/authorize',
+  redirectUri: 'http://example.com/auth/github/callback',
+  scopes: ['notifications', 'gist']
 });
 
 // Start the API server

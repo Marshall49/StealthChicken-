@@ -9,13 +9,13 @@ const caseSchema = new Schema({
   description: { type: String, required: false },
   dateCreated: { type: Date, default: Date.now },
   physicianId: { type: String, required: true, ref: '' },
-  dexcom: { type: [{}]} // get data from dexcom.js?
+  dexcom: {}, // get data from dexcom.js?
   detailedDescription: { type: String },
-  comments: {[
+  comment: {type:[{
     date:{type: Date,default: Date.now},
-    pID: {type: String, required: true},
-    content: {type: String, required: true)
-  ]},
+    userId: {type: String},
+    content: {type: String}
+  }]},
   age: { type: Number, required: true },
   sex: {type: , },
   pastHx: {[

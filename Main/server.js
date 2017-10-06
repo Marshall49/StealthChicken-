@@ -6,6 +6,7 @@ const physician =require("./models/physician.js");
 const clientOAuth2 = require('client-oauth2');
 const app = express();
 const PORT = process.env.PORT || 3001;
+const CLIENTSECRET= process.env.CLIENTSECRET || "";
 
 // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -58,9 +59,9 @@ exampleUser.save(function(error, doc) {
 
 
 //==================Authentication==============================================
-var patientAuth = new ClientOAuth2({ //should we use let? const?
+var patientAuth = new clientOAuth2({ //should we use let? const?
   clientId: 'KGkhhNwb8IkWa9WYH9ibHfLTONzAAdGr',
-  clientSecret: '123', //Need to see about best way to add client secret
+  clientSecret: CLIENTSECRET, //Need to see about best way to add client secret
   accessTokenUri: 'https://sandbox-api.dexcom.com', // https://api.dexcom.com/v1/oauth2/token is used for non sandox
   authorizationUri: 'https://sandbox-api.dexcom.com',
   redirectUri: 'http://example.com/auth/github/callback', //Need to make a redirectUri
@@ -72,7 +73,7 @@ app.get('/auth/patientAuth', function (req, res) {
   var uri = patientAuth.code.getUri()
 
   res.redirect(uri)
-}))
+});
 
 app.get('/auth/patientAuth/callback', function (req, res) { // Need Help
   patientAuth.code.getToken(req.originalUrl)

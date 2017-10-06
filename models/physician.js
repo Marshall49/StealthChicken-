@@ -1,6 +1,9 @@
+//Here we are exporting the physician schema
 module.exports = {
   physician: require("./physician"),
 };
+
+//Requiring Mongoose and creating a new schema
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const physicianSchema = new Schema({

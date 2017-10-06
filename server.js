@@ -1,3 +1,4 @@
+//Here are all of the dependencies
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -6,6 +7,7 @@ const physician =require("./models/physician.js");
 const clientOAuth2 = require('client-oauth2');
 const app = express();
 const PORT = process.env.PORT || 3001;
+//Here are the Heroku deploy "Mlab" Mongo URI for the Dexcom Client Secret and the mongo lab
 const CLIENTSECRET = process.env.DEXCOM_CLIENT_SECRET || "";
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/Stealth_Chicken'
 
@@ -37,6 +39,7 @@ db.once("open", function() {
   console.log("Mongoose connection successful.");
 });
 
+//Here is the dummy data to make sure that it post to the mongo database, pulling from the ../models/physician.js folder
 var exampleUser = new physician({
   category: "Optometry",
   physician: "Jason Conner",

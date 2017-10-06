@@ -3,12 +3,10 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const physician =require("./models/physician.js");
-<<<<<<< HEAD
-=======
 const clientOAuth2 = require('client-oauth2');
->>>>>>> cdff4377c0d123a57205516a7e3abd16392e9af0
 const app = express();
 const PORT = process.env.PORT || 3001;
+const CLIENTSECRET = process.env.DEXCOM_CLIENT_SECRET || "";
 
 // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -59,13 +57,11 @@ exampleUser.save(function(error, doc) {
   }
 });
 
-<<<<<<< HEAD
-=======
 
 //==================Authentication==============================================
 const userAuth = new ClientOAuth2({
   clientId: 'KGkhhNwb8IkWa9WYH9ibHfLTONzAAdGr',
-  clientSecret: '123', //Need to see about best way to add client secret
+  clientSecret: CLIENTSECRET,
   accessTokenUri: 'https://sandbox-api.dexcom.com', // https://api.dexcom.com/v1/oauth2/token is used for non sandox
   authorizationUri: 'https://sandbox-api.dexcom.com',
   redirectUri: 'http://example.com/auth/github/callback', //Need to make a redirectUri
@@ -75,7 +71,6 @@ const userAuth = new ClientOAuth2({
 // Get the author
 
 
->>>>>>> cdff4377c0d123a57205516a7e3abd16392e9af0
 // Start the API server
 app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);

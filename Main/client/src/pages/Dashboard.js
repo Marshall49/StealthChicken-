@@ -16,22 +16,33 @@ import CommentFeed from '../../components/CommentFeed';
 <Modal>
 	<ModalHeader text="Modal Header" />
 	<ModalBody>
+
+        <h1>A Closer Look</h1>
+
+        <ArticleList>
+            <Article>
+                {/* need states set up for this logic */}
+            </Article>
+
+            <CommentFeed>
+                 {/* need states set up for this logic */}
+            </CommentFeed>
+        </ArticleList>
         
         
 	</ModalBody>
 	<ModalFooter>
-		<Button type="primary">Modal Footer</Button>
-		<Button type="link-cancel">Button</Button>
+		<Button type="primary">Close</Button>
 	</ModalFooter>
 </Modal>
 
 
-// modal for adding a case
+{/* modal for adding a case */}
 <Modal>
 	<ModalHeader text="Modal Header" />
 	<ModalBody>
 
-        <h2>Add Your Thoughts To The Discussion</h2>
+        <h2>Add Your Thoughts To The Discussion!</h2>
 
         <form>
             <TextArea
@@ -40,17 +51,17 @@ import CommentFeed from '../../components/CommentFeed';
                 name="comment"
                 placeholder="Add comment here..."
             />
-            <FormBtn 
-                disabled={}
-                onClick={}
-            >
-            Submit
-            </FormBtn>
+
         </form>
 
 	</ModalBody>
 	<ModalFooter>
-		<Button type="primary">Modal Footer</Button>
+        <FormBtn 
+            disabled={}
+            onClick={}
+        >
+        Submit
+        </FormBtn>
 		<Button type="link-cancel">Button</Button>
 	</ModalFooter>
 </Modal>

@@ -7,6 +7,7 @@ const clientOAuth2 = require('client-oauth2');
 const app = express();
 const PORT = process.env.PORT || 3001;
 const CLIENTSECRET = process.env.DEXCOM_CLIENT_SECRET || "";
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/Stealth_Chicken'
 
 // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: false }));

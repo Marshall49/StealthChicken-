@@ -3,7 +3,10 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const physician =require("./models/physician.js");
+<<<<<<< HEAD
+=======
 const clientOAuth2 = require('client-oauth2');
+>>>>>>> cdff4377c0d123a57205516a7e3abd16392e9af0
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -56,6 +59,8 @@ exampleUser.save(function(error, doc) {
   }
 });
 
+<<<<<<< HEAD
+=======
 
 //==================Authentication==============================================
 const userAuth = new ClientOAuth2({
@@ -70,6 +75,7 @@ const userAuth = new ClientOAuth2({
 // Get the author
 
 
+>>>>>>> cdff4377c0d123a57205516a7e3abd16392e9af0
 // Start the API server
 app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);

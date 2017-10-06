@@ -1,5 +1,5 @@
 module.exports = {
-  physician: require("./physician")
+  physician: require("./physician"),
   case: require("./case")
 };
 const mongoose = require("mongoose");

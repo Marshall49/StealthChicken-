@@ -39,6 +39,8 @@ db.once("open", function() {
 var exampleUser = new physician({
   category: "Optometry",
   physician: "Jason Conner",
+  email: "kcbskchbwkd",
+  username: "wgkvk",
   comment: {
     date: new Date(Date.now()),
     userId: "String",
@@ -59,7 +61,7 @@ exampleUser.save(function(error, doc) {
 
 
 //==================Authentication==============================================
-const userAuth = new ClientOAuth2({
+const userAuth = new clientOAuth2({
   clientId: 'KGkhhNwb8IkWa9WYH9ibHfLTONzAAdGr',
   clientSecret: CLIENTSECRET,
   accessTokenUri: 'https://sandbox-api.dexcom.com', // https://api.dexcom.com/v1/oauth2/token is used for non sandox

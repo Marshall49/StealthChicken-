@@ -2,8 +2,12 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const routes = require("./routes");
-const physician =require("./models/physician.js");
-
+const http = require('https');
+//Mongoose Models
+const physician = require("./models/physician.js");
+const case = require("./models/case.js");
+const dexcom = require("./models/dexcom.js");
+// Oauth2 library
 const clientOAuth2 = require('client-oauth2');
 
 const app = express();
@@ -62,7 +66,7 @@ exampleUser.save(function(error, doc) {
 
 
 //==================Authentication==============================================
-const userAuth = new ClientOAuth2({
+const pAuth = new ClientOAuth2({
   clientId: 'KGkhhNwb8IkWa9WYH9ibHfLTONzAAdGr',
   clientSecret: '123', //use environmental variable
   accessTokenUri: 'https://sandbox-api.dexcom.com', // https://api.dexcom.com/v1/oauth2/token is used for non sandox
@@ -72,17 +76,14 @@ const userAuth = new ClientOAuth2({
 });
 
 // Get the authorization code, token, and
-var express = require('express')
-var app = express()
-
-app.get('/auth/github', function (req, res) {
-  var uri = githubAuth.code.getUri()
+app.get('/auth/dexcom', function (req, res) {
+  var uri = pAuth.code.getUri()
 
   res.redirect(uri)
 })
 
-app.get('/auth/github/callback', function (req, res) {
-  githubAuth.code.getToken(req.originalUrl)
+app.get('/auth/dexcom/callback', function (req, res) {
+  pAuth.code.getToken(req.originalUrl)
     .then(function (user) {
       console.log(user) //=> { accessToken: '...', tokenType: 'bearer', ... }
 

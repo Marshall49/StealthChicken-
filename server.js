@@ -8,6 +8,9 @@ const clientOAuth2 = require('client-oauth2');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+//Here are the Heroku deploy "Mlab" Mongo URI for the Dexcom Client Secret and the mongo lab
+const CLIENTSECRET = process.env.DEXCOM_CLIENT_SECRET || "";
+const MONGODB_URI = process.env.PROD_MONGODB || 'mongodb://localhost/Stealth_Chicken'
 
 // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -21,8 +24,7 @@ app.use(routes);
 mongoose.Promise = global.Promise;
 
 //Set up default mongoose connection
-var mongoDB = 'mongodb://localhost/Stealth_Chicken';
-mongoose.connect(mongoDB, {
+mongoose.connect(MONGODB_URI, {
   useMongoClient: true
 });
 

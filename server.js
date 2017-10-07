@@ -68,7 +68,7 @@ exampleUser.save(function(error, doc) {
 //==================Authentication==============================================
 const pAuth = new ClientOAuth2({
   clientId: 'KGkhhNwb8IkWa9WYH9ibHfLTONzAAdGr',
-  clientSecret: '123', //use environmental variable
+  clientSecret: CLIENTSECRET, //use environmental variable
   accessTokenUri: 'https://sandbox-api.dexcom.com', // https://api.dexcom.com/v1/oauth2/token is used for non sandox
   authorizationUri: 'https://sandbox-api.dexcom.com',
   redirectUri: 'http://example.com/auth/github/callback', //Need to make a redirectUri
@@ -92,12 +92,31 @@ app.get('/auth/dexcom/callback', function (req, res) {
         console.log(updatedUser !== user) //=> true
         console.log(updatedUser.accessToken)
       })
+    // API request
+      let options = {
+        "method": "GET",
+        "hostname": "sandbox-api.dexcom.com",
+        "port": null,
+        "path": "/v1/users/self/egvs", //see authentication at developer.dexcom.com for how to use specific dates
+        "headers": {
+          "authorization": "Bearer +" user.accessToken,
+          }
+      };
 
-      // Sign API requests on behalf of the current user.
-      user.sign({
-        method: 'get',
-        url: 'http://example.com'
-      })
+      var req = http.request(options, function (res) {
+        var chunks = [];
+
+        res.on("data", function (chunk) {
+          chunks.push(chunk);
+        });
+
+        res.on("end", function () {
+          var body = Buffer.concat(chunks);
+          console.log(body.toString());
+        });
+      });
+
+      req.end();
 
       // We should store the token into a database.
       return res.send(user.accessToken)

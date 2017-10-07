@@ -64,14 +64,44 @@ exampleUser.save(function(error, doc) {
 //==================Authentication==============================================
 const userAuth = new ClientOAuth2({
   clientId: 'KGkhhNwb8IkWa9WYH9ibHfLTONzAAdGr',
-  clientSecret: '123', //Need to see about best way to add client secret
+  clientSecret: '123', //use environmental variable
   accessTokenUri: 'https://sandbox-api.dexcom.com', // https://api.dexcom.com/v1/oauth2/token is used for non sandox
   authorizationUri: 'https://sandbox-api.dexcom.com',
   redirectUri: 'http://example.com/auth/github/callback', //Need to make a redirectUri
   scopes: ['offline_access']
 });
 
-// Get the author
+// Get the authorization code, token, and
+var express = require('express')
+var app = express()
+
+app.get('/auth/github', function (req, res) {
+  var uri = githubAuth.code.getUri()
+
+  res.redirect(uri)
+})
+
+app.get('/auth/github/callback', function (req, res) {
+  githubAuth.code.getToken(req.originalUrl)
+    .then(function (user) {
+      console.log(user) //=> { accessToken: '...', tokenType: 'bearer', ... }
+
+      // Refresh the current users access token.
+      user.refresh().then(function (updatedUser) {
+        console.log(updatedUser !== user) //=> true
+        console.log(updatedUser.accessToken)
+      })
+
+      // Sign API requests on behalf of the current user.
+      user.sign({
+        method: 'get',
+        url: 'http://example.com'
+      })
+
+      // We should store the token into a database.
+      return res.send(user.accessToken)
+    })
+})
 
 // Start the API server
 app.listen(PORT, function() {

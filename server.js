@@ -23,8 +23,8 @@ app.use(routes);
 mongoose.Promise = global.Promise;
 
 //Set up default mongoose connection
-var mongoDB = 'mongodb://localhost/Stealth_Chicken';
-mongoose.connect(mongoDB, {
+// var mongoDB = 'mongodb://localhost/Stealth_Chicken';
+mongoose.connect(MONGODB_URI, {
   useMongoClient: true
 });
 

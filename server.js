@@ -1,10 +1,11 @@
-//Here are all of the dependencies
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const physician =require("./models/physician.js");
+
 const clientOAuth2 = require('client-oauth2');
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 //Here are the Heroku deploy "Mlab" Mongo URI for the Dexcom Client Secret and the mongo lab
@@ -38,12 +39,9 @@ db.once("open", function() {
   console.log("Mongoose connection successful.");
 });
 
-//Here is the dummy data to make sure that it post to the mongo database, pulling from the ../models/physician.js folder
 var exampleUser = new physician({
   category: "Optometry",
   physician: "Jason Conner",
-  email: "kcbskchbwkd",
-  username: "wgkvk",
   comment: {
     date: new Date(Date.now()),
     userId: "String",
@@ -64,9 +62,9 @@ exampleUser.save(function(error, doc) {
 
 
 //==================Authentication==============================================
-const userAuth = new clientOAuth2({
+const userAuth = new ClientOAuth2({
   clientId: 'KGkhhNwb8IkWa9WYH9ibHfLTONzAAdGr',
-  clientSecret: CLIENTSECRET,
+  clientSecret: '123', //Need to see about best way to add client secret
   accessTokenUri: 'https://sandbox-api.dexcom.com', // https://api.dexcom.com/v1/oauth2/token is used for non sandox
   authorizationUri: 'https://sandbox-api.dexcom.com',
   redirectUri: 'http://example.com/auth/github/callback', //Need to make a redirectUri
@@ -74,7 +72,6 @@ const userAuth = new clientOAuth2({
 });
 
 // Get the author
-
 
 // Start the API server
 app.listen(PORT, function() {

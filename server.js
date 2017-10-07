@@ -9,7 +9,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 //Here are the Heroku deploy "Mlab" Mongo URI for the Dexcom Client Secret and the mongo lab
 const CLIENTSECRET = process.env.DEXCOM_CLIENT_SECRET || "";
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/Stealth_Chicken'
+const MONGODB_URI = process.env.PROD_MONGODB || 'mongodb://localhost/Stealth_Chicken'
 
 // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: false }));

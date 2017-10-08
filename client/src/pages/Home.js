@@ -35,6 +35,8 @@ export default class Home extends Component {
 
     render() {
         return (
+            
+            <h3>Sign up below!</h3>
             //Here is where an account is created 
             <form>
                 <Input 

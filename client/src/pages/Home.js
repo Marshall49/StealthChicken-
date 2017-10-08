@@ -26,7 +26,7 @@ export default class Home extends Component {
         });
     };
 
-    handleFromSubmit(event) {
+    handleFormSubmit(event) {
         event.preventDefault();
         if (this.state.userName && this.state.password) {
             //set up API 
@@ -38,39 +38,54 @@ export default class Home extends Component {
             
             <h3>Sign up below!</h3>
             //Here is where an account is created 
-            <form>
-                <Input 
-                    value={this.state.userName}
-                    onChange={this.handleInputChange}
-                    name="username"
-                    placeholder="Username (required)"
-                />
-                <Input 
-                    value={this.state.email}
-                    onChange={this.handleInputChange}
-                    name="email"
-                    placeholder="Email Address"
-                />
-                <Input
-                    value={this.state.password}
-                    onChange={this.state.handleInputChange}
-                    name="password"
-                    placeholder="Password (required)"
-                />
-                <Input
-                    value={this.state.repeatPass}
-                    onChange={this.state.handleInputChange}
-                    name="repeat password"
-                    placeholder="Repeat Password (required)"
-                />
-                <FormSelect options={[
-                        { label: 'Endocrinologist', value: 'endo' },
-                        { label: 'Primary Care Physician', value: 'primary' },
-                        { label: 'Cardiologist', value: 'cardio' },
-                        { label: 'Certified Diabetes Educator', value: 'CDE', disabled: true },
-                    ]} 
-                    firstOption="Select" 
-                    onChange={this.handleSelect} />
+            <form onSubmit={this.}>
+                <label>
+                    Username:
+                    <Input 
+                        value={this.state.userName}
+                        onChange={this.handleInputChange}
+                        name="username"
+                        placeholder="Username (required)"
+                    />
+                </label>
+                <label>
+                    Email Address:
+                    <Input 
+                        value={this.state.email}
+                        onChange={this.handleInputChange}
+                        name="email"
+                        placeholder="Email Address"
+                    />
+                </label>
+                <label>
+                    Create Password:
+                    <Input
+                        value={this.state.password}
+                        onChange={this.state.handleInputChange}
+                        name="password"
+                        placeholder="Password (required)"
+                    />
+                </label>
+                <label>
+                    Re-enter Password:
+                    <Input
+                        value={this.state.repeatPass}
+                        onChange={this.state.handleInputChange}
+                        name="repeat password"
+                        placeholder="Repeat Password (required)"
+                    />
+                </label>
+                <label>
+                    Select Specialty:
+                    <FormSelect options={[
+                            { label: 'Endocrinologist', value: 'endo' },
+                            { label: 'Primary Care Physician', value: 'primary' },
+                            { label: 'Cardiologist', value: 'cardio' },
+                            { label: 'Certified Diabetes Educator', value: 'CDE', disabled: true },
+                        ]} 
+                        firstOption="Select" 
+                        onChange={this.handleSelect} />
+                </label>
                 <FormBtn
                     disabled={!(this.state.userName && this.state.password)}
                     onClick={this.handleFromSubmit}

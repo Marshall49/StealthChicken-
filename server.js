@@ -103,11 +103,24 @@ app.get('/auth/dexcom/callback', function (req, res) {
           }
       };
 
+      // make API call with http request
       var req = http.request(options, function (res) {
-        var chunks = [];
-
+        // create an empty object to store the result
+        var result = {};
+        // on receipt of the data, push it into "result"
         res.on("data", function (chunk) {
-          chunks.push(chunk);
+          result.push(chunk);
+        });
+        // fit the result data into the dexcom schema
+        let newPat = new dexcom(result);
+        // Save the data to the db
+        newPat.save(function(err, doc) {
+          if (err) {
+            console.log(err);
+          }
+          else {
+            console.log(doc);
+          }
         });
 
         res.on("end", function () {
@@ -118,7 +131,7 @@ app.get('/auth/dexcom/callback', function (req, res) {
 
       req.end();
 
-      // We should store the token into a database.
+      // Should we store the token into a database?  Future feature allowing API calls from the app using stored tokens?
       return res.send(user.accessToken)
     })
 })

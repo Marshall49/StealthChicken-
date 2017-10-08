@@ -17,3 +17,8 @@ const dexcomSchema = new Schema({
     trendRate: { type: Number, required: true }
   ]}
 })
+
+
+const dexcom = mongoose.model("dexcom", dexcomSchema);
+
+module.exports = dexcom;

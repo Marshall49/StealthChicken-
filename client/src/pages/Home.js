@@ -62,10 +62,10 @@ export default class Home extends Component {
                     placeholder="Repeat Password (required)"
                 />
                 <FormSelect options={[
-                        { label: 'Endocrinologist',    value: 'endo' },
+                        { label: 'Endocrinologist', value: 'endo' },
                         { label: 'Primary Care Physician', value: 'primary' },
-                        { label: 'Cardiologist',    value: 'cardio' },
-                        { label: 'Certified Diabetes Educator',  value: 'CDE', disabled: true },
+                        { label: 'Cardiologist', value: 'cardio' },
+                        { label: 'Certified Diabetes Educator', value: 'CDE', disabled: true },
                     ]} 
                     firstOption="Select" 
                     onChange={this.handleSelect} />

@@ -61,10 +61,20 @@ export default class Home extends Component {
                     name="repeat password"
                     placeholder="Repeat Password (required)"
                 />
+                <FormSelect options={[
+                        { label: 'Endocrinologist',    value: 'endo' },
+                        { label: 'Primary Care Physician', value: 'primary' },
+                        { label: 'Cardiologist',    value: 'cardio' },
+                        { label: 'Certified Diabetes Educator',  value: 'CDE', disabled: true },
+                    ]} 
+                    firstOption="Select" 
+                    onChange={this.handleSelect} />
                 <FormBtn
-                disabled={!(this.state.userName && this.state.password)}
-                onClick={this.handleFromSubmit}
-                >Create Account</FormBtn>
+                    disabled={!(this.state.userName && this.state.password)}
+                    onClick={this.handleFromSubmit}
+                >
+                    Create Account
+                </FormBtn>
             </form>
         )
     }

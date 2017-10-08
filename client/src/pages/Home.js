@@ -55,7 +55,7 @@ export default class Home extends Component {
                             placeholder="Username (required)"
                         />
                     </label>
-                    <br>
+                    <br />
                     <label>
                         Email Address:
                         <Input 
@@ -65,7 +65,7 @@ export default class Home extends Component {
                             placeholder="Email Address"
                         />
                     </label>
-                    <br>
+                    <br />
                     <label>
                         Create Password:
                         <Input
@@ -75,7 +75,7 @@ export default class Home extends Component {
                             placeholder="Password (required)"
                         />
                     </label>
-                    <br>
+                    <br />
                     <label>
                         Re-enter Password:
                         <Input
@@ -85,7 +85,7 @@ export default class Home extends Component {
                             placeholder="Repeat Password (required)"
                         />
                     </label>
-                    <br>
+                    <br />
                     <label>
                         Select Specialty:
                         <FormSelect options={[
@@ -97,8 +97,8 @@ export default class Home extends Component {
                             firstOption="Select" 
                             onChange={this.handleSelect} />
                     </label>
-                    <br>
-                    <br>
+                    <br/>
+                    <br/>
                     <FormBtn
                         disabled={!(this.state.userName && this.state.password)}
                         onClick={this.handleFromSubmit}

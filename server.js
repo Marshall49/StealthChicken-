@@ -97,12 +97,26 @@ app.get('/auth/dexcom/callback', function (req, res) {
         "method": "GET",
         "hostname": "sandbox-api.dexcom.com",
         "port": null,
-        "path": "/v1/users/self/egvs", //see authentication at developer.dexcom.com for how to use specific dates
+        "path": "/v1/users/self/egvs?startDate=2017-06-16T15:30:00&endDate=2017-07-16T15:45:00", //testing with just one month data to show concept.  Future: ability to select dates, then later make API calls using user token
         "headers": {
-          "authorization": "Bearer +" user.accessToken,
+          "authorization": "Bearer" + user.accessToken,
           }
       };
 
+      var req = http.request(options, function (res) {
+        var chunks = [];
+
+        res.on("data", function (chunk) {
+          chunks.push(chunk);
+        });
+
+        res.on("end", function () {
+          var body = Buffer.concat(chunks);
+          console.log(body.toString());
+        });
+      });
+
+      req.end();
       // make API call with http request
       var req = http.request(options, function (res) {
         // create an empty object to store the result

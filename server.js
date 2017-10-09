@@ -65,7 +65,7 @@ exampleUser.save(function(error, doc) {
 });
 
 
-//==================Authentication==============================================
+//=================Patient Data Authentication and Authorization==============================================
 const pAuth = new ClientOAuth2({
   clientId: 'KGkhhNwb8IkWa9WYH9ibHfLTONzAAdGr',
   clientSecret: CLIENTSECRET, //use environmental variable
@@ -132,9 +132,10 @@ app.get('/auth/dexcom/callback', function (req, res) {
       req.end();
 
       // Should we store the token into a database?  Future feature allowing API calls from the app using stored tokens?
-      return res.send(user.accessToken)
+      // return res.send(user.accessToken)
     })
 })
+// ==========================End Patient Data Authentication and Authorization ===================================
 
 // Start the API server
 app.listen(PORT, function() {

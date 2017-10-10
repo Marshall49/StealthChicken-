@@ -5,7 +5,7 @@ const routes = require("./routes");
 const http = require('https');
 //Mongoose Models
 const physician = require("./models/physician.js");
-const case = require("./models/case.js");
+const dCase = require("./models/dCase.js");
 const dexcom = require("./models/dexcom.js");
 // Oauth2 library
 const clientOAuth2 = require('client-oauth2');
@@ -71,7 +71,7 @@ const pAuth = new ClientOAuth2({
   clientSecret: CLIENTSECRET, //use environmental variable
   accessTokenUri: 'https://sandbox-api.dexcom.com', // https://api.dexcom.com/v1/oauth2/token is used for non sandox
   authorizationUri: 'https://sandbox-api.dexcom.com',
-  redirectUri: 'http://example.com/auth/github/callback', //Need to make a redirectUri
+  redirectUri: 'http://example.com/auth/dexcom/callback', //Need to make a redirectUri
   scopes: ['offline_access']
 });
 
@@ -103,20 +103,19 @@ app.get('/auth/dexcom/callback', function (req, res) {
           }
       };
 
-      var req = http.request(options, function (res) {
-        var chunks = [];
+      // var req = http.request(options, function (res) {
+      //   var chunks = [];
+      //
+      //   res.on("data", function (chunk) {
+      //     chunks.push(chunk);
+      //   });
+      //
+      //   res.on("end", function () {
+      //     var body = Buffer.concat(chunks);
+      //     console.log(body.toString());
+      //   });
+      // });
 
-        res.on("data", function (chunk) {
-          chunks.push(chunk);
-        });
-
-        res.on("end", function () {
-          var body = Buffer.concat(chunks);
-          console.log(body.toString());
-        });
-      });
-
-      req.end();
       // make API call with http request
       var req = http.request(options, function (res) {
         // create an empty object to store the result

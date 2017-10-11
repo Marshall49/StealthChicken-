@@ -41,71 +41,74 @@ export default class Home extends Component {
                     <p>Already a member?</p>
                     <button type="button" class="btn btn-dark">Sign In</button>
                 </div>
+                
+            {/* box to contain sign up form */}
+                <div className="form-container">
+                    <h3>Sign up below!</h3>
 
-                <h3>Sign up below!</h3>
-
-                {/* //Here is where an account is created  */}
-                <form onSubmit={this.handleFormSubmit}>
-                    <label>
-                        Username:
-                        <Input 
-                            value={this.state.userName}
-                            onChange={this.handleInputChange}
-                            name="username"
-                            placeholder="Username (required)"
-                        />
-                    </label>
-                    <br />
-                    <label>
-                        Email Address:
-                        <Input 
-                            value={this.state.email}
-                            onChange={this.handleInputChange}
-                            name="email"
-                            placeholder="Email Address"
-                        />
-                    </label>
-                    <br />
-                    <label>
-                        Create Password:
-                        <Input
-                            value={this.state.password}
-                            onChange={this.state.handleInputChange}
-                            name="password"
-                            placeholder="Password (required)"
-                        />
-                    </label>
-                    <br />
-                    <label>
-                        Re-enter Password:
-                        <Input
-                            value={this.state.repeatPass}
-                            onChange={this.state.handleInputChange}
-                            name="repeat password"
-                            placeholder="Repeat Password (required)"
-                        />
-                    </label>
-                    <br />
-                    <label>
-                        Select Specialty:
-                        <FormSelect options={[
-                                { label: 'Endocrinologist', value: 'endo' },
-                                { label: 'Primary Care Physician', value: 'primary' },
-                                { label: 'Cardiologist', value: 'cardio' },
-                                { label: 'Certified Diabetes Educator', value: 'CDE', disabled: true },
-                            ]} 
-                            firstOption="Select" 
-                            onChange={this.handleSelect} />
-                    </label>
-                    <br/>
-                    <br/>
-                    <FormBtn
-                        disabled={!(this.state.userName && this.state.password)}
-                        onClick={this.handleFromSubmit}
-                    >
-                        Create Account
-                    </FormBtn>
-                </form>
+                    {/* //Here is where an account is created  */}
+                    <form onSubmit={this.handleFormSubmit}>
+                        <label>
+                            Username:
+                            <Input 
+                                value={this.state.userName}
+                                onChange={this.handleInputChange}
+                                name="username"
+                                placeholder="Username (required)"
+                            />
+                        </label>
+                        <br />
+                        <label>
+                            Email Address:
+                            <Input 
+                                value={this.state.email}
+                                onChange={this.handleInputChange}
+                                name="email"
+                                placeholder="Email Address"
+                            />
+                        </label>
+                        <br />
+                        <label>
+                            Create Password:
+                            <Input
+                                value={this.state.password}
+                                onChange={this.state.handleInputChange}
+                                name="password"
+                                placeholder="Password (required)"
+                            />
+                        </label>
+                        <br />
+                        <label>
+                            Re-enter Password:
+                            <Input
+                                value={this.state.repeatPass}
+                                onChange={this.state.handleInputChange}
+                                name="repeat password"
+                                placeholder="Repeat Password (required)"
+                            />
+                        </label>
+                        <br />
+                        <label>
+                            Select Specialty:
+                            <FormSelect options={[
+                                    { label: 'Endocrinologist', value: 'endo' },
+                                    { label: 'Primary Care Physician', value: 'primary' },
+                                    { label: 'Cardiologist', value: 'cardio' },
+                                    { label: 'Certified Diabetes Educator', value: 'CDE', disabled: true },
+                                ]} 
+                                firstOption="Select" 
+                                onChange={this.handleSelect} />
+                        </label>
+                        <br/>
+                        <br/>
+                        <FormBtn
+                            disabled={!(this.state.userName && this.state.password)}
+                            onClick={this.handleFromSubmit}
+                        >
+                            Create Account
+                        </FormBtn>
+                    </form>
+                </div>
             </div>
         )
     }

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default {
-//pertaining to Physician data
+//pertaining to PHYSICIAN data
     //Sends user data (Person, email, speciality, member since date, maybe pic) to backend for the LOGIN 
 	sendUser: function(userData) {
 		return axios.post("/api/physician", userData);
@@ -15,7 +15,7 @@ export default {
         return axios.post("/api/physician", userData);
     } 
 
-// pertaining to cases physician has uploaded 
+// pertaining to CASES physician has uploaded 
     // save case to db
     saveCase: function(caseData) {
         return axios.post("/api/dashboard", caseData);
@@ -33,7 +33,7 @@ export default {
         return axios.delete("/api/dashboard" + id)
     } 
 
-// pertaining to cases physician has commented on
+// pertaining to cases physician has COMMENTED on
     // save comment to db
     saveComment: function(commentData) {
         return axios.post("/api/dashboad", commentData);

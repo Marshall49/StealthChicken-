@@ -7,6 +7,7 @@ export default class Home extends Component {
     state = {
         userName: "",
         email: "",
+        specialty: null,
         password: "",
         repeatPass: ""
     };
@@ -69,6 +70,18 @@ export default class Home extends Component {
                         </label>
                         <br />
                         <label>
+                            Select Specialty:
+                            <FormSelect options={[
+                                    { label: 'Endocrinologist', value: 'endo' },
+                                    { label: 'Primary Care Physician', value: 'primary' },
+                                    { label: 'Cardiologist', value: 'cardio' },
+                                    { label: 'Certified Diabetes Educator', value: 'CDE', disabled: true },
+                                ]} 
+                                firstOption="Select" 
+                                onChange={this.handleSelect} />
+                        </label>
+                        <br/>
+                        <label>
                             Create Password:
                             <Input
                                 value={this.state.password}
@@ -88,19 +101,7 @@ export default class Home extends Component {
                             />
                         </label>
                         <br />
-                        <label>
-                            Select Specialty:
-                            <FormSelect options={[
-                                    { label: 'Endocrinologist', value: 'endo' },
-                                    { label: 'Primary Care Physician', value: 'primary' },
-                                    { label: 'Cardiologist', value: 'cardio' },
-                                    { label: 'Certified Diabetes Educator', value: 'CDE', disabled: true },
-                                ]} 
-                                firstOption="Select" 
-                                onChange={this.handleSelect} />
-                        </label>
-                        <br/>
-                        <br/>
+                        <br />
                         <FormBtn
                             disabled={!(this.state.userName && this.state.password)}
                             onClick={this.handleFromSubmit}

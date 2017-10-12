@@ -51,4 +51,4 @@ export default {
         return axios.delete("/api/dashboard" + id)
     } 
 
-}
+};

@@ -4,7 +4,7 @@ import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
 import { Input, FormBtn } from "../../components/Form";
 import { Link } from "react-router-dom";
-import UserRoutes from "../../utils/API";
+import API from "../../utils/API";
 
 class Login extends Component {
 	state= {
@@ -33,7 +33,7 @@ class Login extends Component {
 		event.preventDefault();
 
 		if(this.state.userName && this.state.password) {
-			UserRoutes.getUser({
+			API.getUser({
 				username: this.state.username,
 				password: this.state.password
 			})

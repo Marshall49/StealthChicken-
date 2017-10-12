@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export default {
+  
 //pertaining to PHYSICIAN data
     //Sends user data (Person, email, speciality, member since date, maybe pic) to backend for the LOGIN 
 	sendUser: function(userData) {
@@ -52,3 +53,4 @@ export default {
     } 
 
 };
+

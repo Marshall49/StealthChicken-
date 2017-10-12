@@ -4,6 +4,7 @@ import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
 import { Input, FormBtn } from "../../components/Form";
 import { Link } from "react-router-dom";
+import API from "../../utils/API";
 
 class Login extends Component {
 	state= {
@@ -11,13 +12,13 @@ class Login extends Component {
 		password: ""
 	};
 
-	componentDidMount() {
-		this.letMeIn();
-	};
+	// componentDidMount() {
+	// 	this.letMeIn();
+	// };
 
-	letMeIn() {
-		//api call to check password & username
-	};
+	// letMeIn() {
+	// 	//api call to check password & username
+	// };
 
 	handleInputChange(event) {
 		const { name, value } =event.target;
@@ -27,13 +28,17 @@ class Login extends Component {
 		});
 	};
 
-	handleFormSubmit(event) {
+	handleFormSubmit(event);
+	 {
 		event.preventDefault();
 
 		if(this.state.userName && this.state.password) {
-			//need api call to log in
-		} else {
-			//display error message?
+			API.getUser({
+				username: this.state.username,
+				password: this.state.password
+			})
+				.then(res => console.log(this.state.username))
+				.catch(err => console.log(err));
 		}
 	};
 
@@ -42,7 +47,7 @@ class Login extends Component {
 			<div className="wrapper">
 				<h3>Log In Now</h3>
 
-				//Log in form
+				// Log in form
 				<form>
 					<Input
 						value={this.state.username}

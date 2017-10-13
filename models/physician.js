@@ -8,13 +8,13 @@ const SALT_WORK_FACTOR = 10;
 var bcrypt = require('bcrypt-nodejs');
 
 
-const physicianSchema = new Schema({
+const PhysicianSchema = new Schema({
   // category: { type: String, required: false },
   username: { type: String, required: true, index: { unique: true } },
   password: { type: String, required: true },
     date:{ type: Date,default: Date.now },
 });
-physicianSchema.pre('save', function(next) {
+PhysicianSchema.pre('save', function(next) {
     var physician = this;
     // only hash the password if it has been modified (or is new)
     if (!physician.isModified('password')) return next();
@@ -30,11 +30,11 @@ physicianSchema.pre('save', function(next) {
         });
     });
 });
-physicianSchema.methods.comparePassword = function(candidatePassword, cb) {
+PhysicianSchema.methods.comparePassword = function(candidatePassword, cb) {
     bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
         if (err) return cb(err);
         cb(null, isMatch);
     });
 };
-const physician = mongoose.model("physician", physicianSchema);
+const physician = mongoose.model("physician", PhysicianSchema);
 module.exports = physician;

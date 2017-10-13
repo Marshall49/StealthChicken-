@@ -5,7 +5,7 @@ module.exports = {
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const caseSchema = new Schema({
+const CaseSchema = new Schema({
   description: { type: String, required: false },
   dateCreated: { type: Date, default: Date.now },
   physicianId: { type: String, required: true, ref: '' },

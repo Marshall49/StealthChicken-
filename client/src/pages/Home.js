@@ -40,8 +40,6 @@ export default class Home extends Component {
     render() {
         return (
             <div className="container-fluid">
-                <Nav />
-
                 <div className="pull-right">
                     <p>Already a member?</p>
                     <button type="button" className="btn btn-dark">Sign In</button>

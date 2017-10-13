@@ -1,9 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Link } from "react-router-dom";
-import Footer from '../../components/Footer';
-import Nav from '../../components/Nav';
-import { Article, ArticleList } from '../../components/ArticleFeed';
-import CommentFeed from '../../components/CommentFeed';
+import UserInfo from "../components/UserInfo";
 
 export default class Profile extends Component {
     state = {

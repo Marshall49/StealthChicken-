@@ -1,5 +1,6 @@
 import axios from "axios";
 
+export default {
 // pertaining to cases physician has COMMENTED on
     // save comment to db
     saveComment: function(commentData) {

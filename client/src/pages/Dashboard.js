@@ -19,10 +19,10 @@ class Dashboard extends Component {
     };
 
     componentDidMount(){
-        this.loadArticles();
+        this.loadCases();
     }
 
-    loadArticles(){
+    loadCases(){
         API.getCases()
             .then(res => this.setState ({ cases: res.data, description}))
     }

@@ -7,11 +7,13 @@ import { Link } from "react-router-dom";
 import API from "../../utils/API";
 
 class Login extends Component {
-	state= {
-		username: "",
-		password: ""
-	};
-
+	constructor(props) {
+		super(props);
+		this.state={
+			username:"",
+			password: ""
+		}
+	}
 	// componentDidMount() {
 	// 	this.letMeIn();
 	// };
@@ -45,6 +47,7 @@ class Login extends Component {
 	render() {
 		return(
 			<div className="wrapper">
+				<Nav />
 				<h3>Log In Now</h3>
 
 				// Log in form
@@ -66,6 +69,7 @@ class Login extends Component {
 						onClick=(this.handleFormSubmit)
 					/>
 				</form>
+				<Footer />
 			</div>
 		)			
 	}

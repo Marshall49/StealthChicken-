@@ -9,8 +9,9 @@ const PhysicianSchema = new Schema({
   // category: { type: String, required: false },
   username: { type: String, required: true, index: { unique: true } },
   password: { type: String, required: true },
-    date:{ type: Date,default: Date.now },
+  date: { type: Date, default: Date.now },
 });
+
 PhysicianSchema.pre('save', function(next) {
     var physician = this;
     // only hash the password if it has been modified (or is new)

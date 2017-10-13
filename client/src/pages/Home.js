@@ -37,7 +37,7 @@ export default class Home extends Component {
     render() {
         return (
             <div className="container-fluid">
-
+                
                 <div className="pull-right">
                     <p>Already a member?</p>
                     <button type="button" class="btn btn-dark">Sign In</button>

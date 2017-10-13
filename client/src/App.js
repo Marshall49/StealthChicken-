@@ -10,7 +10,7 @@ const App = () =>
         <Route exact path="/" component={Home} />
         <Route exact path="/physician" component={LogInPage} />
         <Route exact path="/physician/:id" component={Profile} />
-        <Route exact path="/physician/:???????" component={Dashboard} />
+        <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/about" component={About} />
         {/* redirect to acct creation */}
         <Route component={} />

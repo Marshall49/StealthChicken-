@@ -1,6 +1,3 @@
-module.exports = {
-  physician: require("./physician")
-};
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const bcrypt = require("bcrypt");
@@ -36,5 +33,6 @@ PhysicianSchema.methods.comparePassword = function(candidatePassword, cb) {
         cb(null, isMatch);
     });
 };
-const physician = mongoose.model("physician", PhysicianSchema);
-module.exports = physician;
+
+const Physician = mongoose.model("Physician", PhysicianSchema);
+module.exports = Physician;

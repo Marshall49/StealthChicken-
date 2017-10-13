@@ -1,14 +1,10 @@
-module.exports = {
-    comment: require('./comment')
-};
-
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const CommentSchema = new Schema({
     physicianId: { 
         type: Schema.Types.ObjectId,
-        ref: "physician"
+        ref: "Physician"
     },
     dateCreated: { 
         type: Date, 
@@ -18,3 +14,6 @@ const CommentSchema = new Schema({
         type: String
     }
 });
+
+const Comment = mongoose.model("Comment", CommentSchema);
+module.exports = Comment;

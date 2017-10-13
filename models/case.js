@@ -1,7 +1,3 @@
-module.exports = {
-  case: require("./case")
-};
-
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -11,13 +7,12 @@ const CaseSchema = new Schema({
   physicianId: { type: String, required: true, ref: '' },
   dexcom: {}, // get data from dexcom.js?
   detailedDescription: { type: String },
-  comment: {type:[{
-    date:{type: Date,default: Date.now},
-    userId: {type: String},
-    content: {type: String}
-  }]},
+  comment: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Comment',
+  }],
   age: { type: Number, required: true },
-  sex: {type: , },
+  sex: {type:  },
   pastHx: {[
     diabetes: {type: Boolean, required: false},
     highBP: {type: Boolean, required: false},
@@ -155,6 +150,6 @@ const CaseSchema = new Schema({
   ]}
 });
 
-const case = mongoose.model("case", caseSchema);
+const Case = mongoose.model("Case", CaseSchema);
 
-module.exports = case;
+module.exports = Case;

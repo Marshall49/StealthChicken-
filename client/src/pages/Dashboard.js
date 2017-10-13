@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
-import Footer from '../../components/Footer';
-import Nav from '../../components/Nav';
-import { FormBtn, Input, TextArea } from '../../components/Form';
-import { Article, ArticleList } from '../../components/ArticleList';
-import Comment from '../../components/AddComment';
-import CommentFeed from '../../components/CommentFeed';
-import API from "../../utils/API";
+import Footer from '../components/Footer';
+import Nav from '../components/Nav';
+import { FormBtn, Input, TextArea } from '../components/Form';
+import { Article, ArticleList } from '../components/ArticleList';
+import CommentFeed from '../components/CommentFeed';
+import API from "../utils/API";
 
 
 class Dashboard extends Component {
-
-    state = {
-        cases: [],
-        description: "",
-        dataCreated: "",
-        dexcom: {},
-        detailedDescription: ""
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            cases: [],
+            description: "",
+            dataCreated: "",
+            dexcom: {},
+            detailedDescription: ""
+        }
+    }
 
     componentDidMount(){
         this.loadCases();
@@ -24,61 +25,20 @@ class Dashboard extends Component {
 
     loadCases(){
         API.getCases()
-            .then(res => this.setState ({ cases: res.data, description}))
+            .then(res => this.setState ({ cases: res.data}))
     }
 
-    // Modal for article detail
-    <Modal>
-    	<ModalHeader text="Modal Header" />
-    	<ModalBody>
 
-            <h1>A Closer Look</h1>
+    render() {
+        return(
+            <div className="wrapper">
+                <Nav />
+                <h1>Welcome to DIAlogs</h1>
 
-            <ArticleList>
-                <Article>
-                    {/* need states set up for this logic */}
-                </Article>
+            </div>    
+        )
+    }
+    
+};
 
-                <CommentFeed>
-                     {/* need states set up for this logic */}
-                </CommentFeed>
-            </ArticleList>
-            
-            
-    	</ModalBody>
-    	<ModalFooter>
-    		<Button type="primary">Close</Button>
-    	</ModalFooter>
-    </Modal>
-
-
-    {/* modal for adding a case */}
-    <Modal>
-    	<ModalHeader text="Modal Header" />
-    	<ModalBody>
-
-            <h2>Add Your Thoughts To The Discussion!</h2>
-
-            <form>
-                <TextArea
-                    value={}
-                    onChange={}
-                    name="comment"
-                    placeholder="Add comment here..."
-                />
-
-            </form>
-
-    	</ModalBody>
-    	<ModalFooter>
-            <FormBtn 
-                disabled={}
-                onClick={}
-            >
-            Submit
-            </FormBtn>
-    		<Button type="link-cancel">Button</Button>
-    	</ModalFooter>
-    </Modal>
-
-}
+export default Dashboard;

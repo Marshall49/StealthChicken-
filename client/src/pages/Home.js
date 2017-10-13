@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
-import Footer from '../../components/Footer';
-import Nav from '../../components/Nav';
-import { FormBtn, Input, TextArea } from '../../components/Form';
+import Footer from '../components/Footer';
+import Nav from '../components/Nav';
+import { FormBtn, Input, TextArea, FormSelect } from '../components/Form';
 
 export default class Home extends Component {
-    state = {
-        userName: "",
-        email: "",
-        specialty: null,
-        password: "",
-        repeatPass: ""
-    };
+    constructor(props) { 
+        super(props);
+        this.state = {
+            userName: "",
+            email: "",
+            specialty: null,
+            password: "",
+            repeatPass: ""
+        };
+    }    
 
     componentDidMount() {
         this.letMeIn();
@@ -20,10 +23,10 @@ export default class Home extends Component {
         //api call to retrieve login authorization 
     };
 
-    handleInputChange(event) {
-        const { name, value } =event.target;
+    handleInputChange = event => {
+        const { name, value } = event.target;
         this.setState({
-            [name]: value
+        [name]: value
         });
     };
 
@@ -37,10 +40,9 @@ export default class Home extends Component {
     render() {
         return (
             <div className="container-fluid">
-                
                 <div className="pull-right">
                     <p>Already a member?</p>
-                    <button type="button" class="btn btn-dark">Sign In</button>
+                    <button type="button" className="btn btn-dark">Sign In</button>
                 </div>
                 
             {/* box to contain sign up form */}
@@ -54,8 +56,8 @@ export default class Home extends Component {
                             <Input 
                                 value={this.state.userName}
                                 onChange={this.handleInputChange}
-                                name="username"
-                                placeholder="Username (required)"
+                                name="userName"
+                                placeholder="Username"
                             />
                         </label>
                         <br />
@@ -85,9 +87,9 @@ export default class Home extends Component {
                             Create Password:
                             <Input
                                 value={this.state.password}
-                                onChange={this.state.handleInputChange}
+                                onChange={this.handleInputChange}
                                 name="password"
-                                placeholder="Password (required)"
+                                placeholder="Password"
                             />
                         </label>
                         <br />
@@ -95,9 +97,9 @@ export default class Home extends Component {
                             Re-enter Password:
                             <Input
                                 value={this.state.repeatPass}
-                                onChange={this.state.handleInputChange}
-                                name="repeat password"
-                                placeholder="Repeat Password (required)"
+                                onChange={this.handleInputChange}
+                                name="repeatPass"
+                                placeholder="Repeat Password"
                             />
                         </label>
                         <br />
@@ -110,6 +112,7 @@ export default class Home extends Component {
                         </FormBtn>
                     </form>
                 </div>
+                <Footer />
             </div>
         )
     }

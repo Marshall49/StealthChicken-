@@ -1,10 +1,10 @@
 import React, { Component} from "react";
-import LoginBtn from "../../components/LoginBtn";
-import Nav from "../../components/Nav";
-import Footer from "../../components/Footer";
-import { Input, FormBtn } from "../../components/Form";
+import LoginBtn from "../components/LoginBtn";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
+import { Input, FormBtn } from "../components/Form";
 import { Link } from "react-router-dom";
-import API from "../../utils/API";
+import API from "../utils/API";
 
 class Login extends Component {
 	constructor(props) {
@@ -30,8 +30,7 @@ class Login extends Component {
 		});
 	};
 
-	handleFormSubmit(event);
-	 {
+	handleFormSubmit(event){
 		event.preventDefault();
 
 		if(this.state.userName && this.state.password) {
@@ -64,9 +63,9 @@ class Login extends Component {
 						name="password"
 						placeholder="Password (required)"
 					/>	
-					<LoginBtn 
+					<FormBtn 
 						disabled={!(this.state.username && this.state.password)}
-						onClick=(this.handleFormSubmit)
+						onClick={this.handleFormSubmit}
 					/>
 				</form>
 				<Footer />

@@ -42,9 +42,11 @@ export default class Home extends Component {
     render() {
         return (
             <div className="container-fluid">
+          
                 <Nav />
 
              {/* Sign In Button */}    
+
                 <div className="pull-right">
                     <p>Already a member?</p>
                     <Link to="/physician">    

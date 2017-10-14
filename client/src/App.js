@@ -23,6 +23,7 @@ const App = () =>
         {/* redirect to acct creation */}
         
       </Switch>
+      <Footer />
     </div>
   </Router>;
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Footer from '../components/Footer';
 import Nav from '../components/Nav';
-import { Article, ArticleList } from '../components/ArticleList';
+import { Case, CaseList } from '../components/CaseList';
 import CommentFeed from '../components/CommentFeed';
 import Button from '../components/Button';
 import { Link } from "react-router-dom";
@@ -51,17 +51,17 @@ class Dashboard extends Component {
                 <div className="row justify-content-md-center">
                     <div className="col col-md-8">
                         {this.state.cases.length ? (    
-                            <ArticleList>
-                                {this.state.cases.map(case =>(
-                                    <Article key={case._id}>
-                                        <Link to={"/cases/" + case._id}>
+                            <CaseList>
+                                {this.state.cases.map(icase => (
+                                    <Case key={icase._id}>
+                                        <Link to={"/cases/" + icase._id}>
                                             <strong>
-                                                {case.description}  
+                                                {icase.description}  
                                             </strong>
                                         </Link>
-                                    </Article>              
+                                    </Case>              
                                 ))}
-                            </ArticleList>
+                            </CaseList>
                         ) : (
                             <h3>No Cases to Display</h3>
                         )}

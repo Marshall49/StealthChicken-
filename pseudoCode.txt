@@ -1,0 +1,32 @@
+Plan to scale up data called for dexcom
+Step 1
+- Data pulled by API is limited to one month
+- Requirements to achieve before next step
+  - API call pulls data and stores it to a MongoDB document
+  - Data can be pulled up from Mongo DB to a case document
+  - Data can be displayed using chart.js on case
+
+Step 2
+- Pull all 2 years of data for patient to MongoDB document
+- Add a patient identifier (Patient 1, 2, etc.) for physician to choose between patients
+- Allow physician to choose dates for data to pull from Mongo for chosen patient
+- Requirements to achieve before next step
+  - Allow doctor to choose from list of patients (drop down, search, etc)
+  - Allow doctor to choose date range for patient data
+  - Step 1 requirements
+
+Step 3
+- Use API call to get patient's user access token
+- Use API call to dexcom to get data and input directly into case document
+- Requirements to achieve before next step
+  - Step 1 and 2 requirements achieved using Access token and API call
+
+Step 4
+- Add physician code to profile that only physician can see
+- Patient can be given code and will be prompted for physician code when authorizing data
+- This will allow only entered doctor to use patient data for case
+- Requirements
+  - Patient prompted for doctor code
+  - Doctor code successfully applied to object with patient access token
+  - Doctor patient list propagated with only patients entering the doctor's code
+  - Steps 1,2,3 requirements

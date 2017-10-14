@@ -25,6 +25,7 @@ export default class Profile extends Component {
         return (
             <div className="container-fluid">
                 <UserInfo key={physician._id}>
+                    <img src="" />
                     <Link to={"/physician/" + physician._id}>
                         <strong>
                             {userName}

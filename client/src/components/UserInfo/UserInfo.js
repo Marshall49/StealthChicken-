@@ -1,11 +1,10 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 
 const UserInfo = (props) => {
     return(
         <div className='userInfo'>
-            <h2> {props.username} </h2>
+            <h2> {props.userName} </h2>
             <h4> {props.date} </h4>
-            {/* <img src={this.props.imgURL} /> */}
         </div>
     )
 };

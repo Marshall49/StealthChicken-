@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const bcrypt = require("bcrypt");
 const SALT_WORK_FACTOR = 10;
-var bcrypt = require('bcrypt-nodejs');
+var bcryptNode = require('bcrypt-nodejs');
 
 
 const PhysicianSchema = new Schema({

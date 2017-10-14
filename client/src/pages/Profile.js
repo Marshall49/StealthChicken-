@@ -6,7 +6,7 @@ import UserInfo from "../components/UserInfo";
 
 export default class Profile extends Component {
     state = {
-        username: "",
+        userName: "",
         date: ""
     }
 
@@ -25,9 +25,10 @@ export default class Profile extends Component {
         return (
             <div className="container-fluid">
                 <UserInfo key={physician._id}>
+                    <img src="" />
                     <Link to={"/physician/" + physician._id}>
                         <strong>
-                            {username}
+                            {userName}
                             <br />
                             Member since: {date}
                         </strong>

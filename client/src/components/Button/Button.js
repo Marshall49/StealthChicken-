@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Button = ({ type, className, children onClick }) => (
+const Button = ({ type, className, children, onClick }) => (
 	<button 
 		onClick={onClick}
 		className={`btn btn-${type ? type : "default"}${className ? " " + className : ""}`}

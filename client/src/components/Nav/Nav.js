@@ -12,6 +12,10 @@ const Nav = () =>
                 </button>
                 <a href='/' className='navbar-brand'>
                 </a>
+                <ul className="nav navbar-nav navbar-right">
+                    <li><a href="#"><span className="glyphicon glyphicon-user"></span>Log out</a></li>
+                    <li><a href="#"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
             </div>
         </div>
     </nav>;

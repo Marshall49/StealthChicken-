@@ -1,32 +1,39 @@
-module.exports = {
-  physician: require("./physician")
-  case: require("./case")
-};
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const physicianSchema = new Schema({
-  category: { type: String, required: false },
-  username: { type: String, required: true },
-  email: { type: String, required: true },
-    date:{ type: Date,default: Date.now },
-});
-const caseSchema = new Schema({
-  description: { type: String, required: false },
-  dateCreated: { type: Date,default: Date.now },
-  physicianId: { type: String, required: true, ref: '' },
-    dexcom: { type: [{
-    }]}
-    patientHistory: { type: [{
-    }]}
-  detailedDescription: { type: String },
-    comments: { type: [{
-      content: { type: String },
-    }]}
+const bcrypt = require("bcrypt");
+const SALT_WORK_FACTOR = 10;
+var bcryptNode = require('bcrypt-nodejs');
+
+
+const PhysicianSchema = new Schema({
+  // category: { type: String, required: false },
+  username: { type: String, required: true, index: { unique: true } },
+  password: { type: String, required: true },
+  date: { type: Date, default: Date.now },
 });
 
+PhysicianSchema.pre('save', function(next) {
+    var physician = this;
+    // only hash the password if it has been modified (or is new)
+    if (!physician.isModified('password')) return next();
+    // generate a salt
+    bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
+        if (err) return next(err);
+        // hash the password using our new salt
+        bcrypt.hash(physician.password, salt, function(err, hash) {
+            if (err) return next(err);
+            // override the cleartext password with the hashed one
+            physician.password = hash;
+            next();
+        });
+    });
+});
+PhysicianSchema.methods.comparePassword = function(candidatePassword, cb) {
+    bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+        if (err) return cb(err);
+        cb(null, isMatch);
+    });
+};
 
-const physician = mongoose.model("physician", physicianSchema);
-const case = mongoose.model("case", caseSchema);
-
-module.exports = physician;
-module.exports = case;
+const Physician = mongoose.model("Physician", PhysicianSchema);
+module.exports = Physician;

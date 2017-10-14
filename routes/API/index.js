@@ -91,7 +91,7 @@ app.get('/auth/dexcom/callback', function (req, res) {
 })
 
 
-// Book routes
+// Physician routes
 router.use("/physician", physicianRoutes);
 // router.use("/oauth2", oauth2Routes);
 module.exports = router;

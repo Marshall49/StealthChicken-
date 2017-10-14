@@ -1,67 +1,103 @@
 import React, { Component } from 'react';
-import Footer from '../../components/Footer';
-import Nav from '../../components/Nav';
-import { FormBtn, Input, TextArea } from '../../components/Form';
-import { Article, ArticleList } from '../../components/ArticleFeed';
-import Comment from '../../components/AddComment';
-import CommentFeed from '../../components/CommentFeed';
+import Footer from '../components/Footer';
+import Nav from '../components/Nav';
+import { Case, CaseList } from '../components/CaseList';
+import { Comment, CommentFeed } from '../components/CommentFeed';
+import Button from '../components/Button';
+import { Link } from "react-router-dom";
+import API from "../utils/API";
 
 
+class Dashboard extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            cases: [],
+            title: "",
+            dataCreated: "",
+            dexcom: {},
+            description: "",
+            comments:[]
+        }
+    }
 
+    componentDidMount(){
+        this.loadCases();
+    }
 
+    loadCases(){
+        API.getCases()
+            .then(res => 
+                this.setState({ 
+                    cases: res.data, 
+                    title: "", 
+                    dateCreated: "", 
+                    description: ""
+                })
+            )
+            .catch(err => console.log(err));
+    };
 
+    render() {
+        return(
+            <div className="wrapper">
+                <Nav />
 
+                <div className="row justify-content-md-center">    
+                    <h1>Welcome to DIAlogs</h1>
+                </div>
+               
+            {/* List of Cases */}
+                <div className="row justify-content-md-center">
+                    <div className="col col-md-8">
+                        {this.state.cases.length ? (    
+                            <CaseList>
+                                {this.state.cases.map(icase => (
+                                    <Case key={icase._id}>
+                                        <Link to={"/cases/" + icase._id}>
+                                            <strong>
+                                                {icase.title}  
+                                            </strong>
+                                        </Link>
+                                    </Case>              
+                                ))}
+                            </CaseList>
+                        ) : (
+                            <h3>No Cases to Display</h3>
+                        )}
+                    </div>            
 
-// Modal for article detail
-<Modal>
-	<ModalHeader text="Modal Header" />
-	<ModalBody>
+                {/* Add New Case Button */}    
+                    <div className="col col-md-4">
+                        <Link to="/addcase">
+                            <Button className="btn-primary btn-lg">
+                                Add a New Case
+                            </Button>
+                        </Link>    
+                    </div>
+                </div>  
 
-        <h1>A Closer Look</h1>
+            {/* Case Detail Modal */}
+                <div className="modal fade" id="myModal" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <button type="button" className="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span className="sr-only">Close</span></button>
+                                        <h4 className="modal-title" id="myModalLabel">Modal title</h4>
+                            </div>
+                        {/* Need to add in the form here */}
+                            <div className="modal-body">
+                                {/* route to case/:id, get indivual case data with comments and dexcom. need ability to add comment here as well */}
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+        );
+    }   
+};
 
-        <ArticleList>
-            <Article>
-                {/* need states set up for this logic */}
-            </Article>
-
-            <CommentFeed>
-                 {/* need states set up for this logic */}
-            </CommentFeed>
-        </ArticleList>
-        
-        
-	</ModalBody>
-	<ModalFooter>
-		<Button type="primary">Close</Button>
-	</ModalFooter>
-</Modal>
-
-
-{/* modal for adding a case */}
-<Modal>
-	<ModalHeader text="Modal Header" />
-	<ModalBody>
-
-        <h2>Add Your Thoughts To The Discussion!</h2>
-
-        <form>
-            <TextArea
-                value={}
-                onChange={}
-                name="comment"
-                placeholder="Add comment here..."
-            />
-
-        </form>
-
-	</ModalBody>
-	<ModalFooter>
-        <FormBtn 
-            disabled={}
-            onClick={}
-        >
-        Submit
-        </FormBtn>
-		<Button type="link-cancel">Button</Button>
-	</ModalFooter>
-</Modal>
+export default Dashboard;

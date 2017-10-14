@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const ArticleList = ({ children }) => {
+export const CaseList = ({ children }) => {
     return (
         <div className="list-overflow-container">
             <ul className="list-group">

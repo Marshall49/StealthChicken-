@@ -25,16 +25,46 @@ class Dashboard extends Component {
 
     loadCases(){
         API.getCases()
-            .then(res => this.setState ({ cases: res.data}))
-    }
-
+            .then(res => 
+                this.setState({ 
+                    cases: res.data, 
+                    description: "", 
+                    dateCreated: "", 
+                    dexcom: {},
+                    detailedDescription: "" })
+            )
+            .catch(err => console.log(err));
+    };
 
     render() {
         return(
             <div className="wrapper">
                 <Nav />
-                <h1>Welcome to DIAlogs</h1>
 
+                <div className="row justify-content-md-center">    
+                    <h1>Welcome to DIAlogs</h1>
+                </div>
+                
+                <div className="row justify-content-md-center">
+                    <div className="col col-md-8">
+                        {this.state.cases.length ? (    
+                            <ArticleList>
+                                {this.state.cases.map(case =>(
+                                    <Article key={case._id}>
+                                        <Link to={"/cases/" + case._id}>
+                                            <strong>
+                                                {case.description}  
+                                            </strong>
+                                        </Link>
+                                    </Article>              
+                                ))}
+                            </ArticleList>
+                        ) : (
+                            <h3>No Cases to Display</h3>
+                        )}
+                    </div>            
+
+                    <div className="col col-md-4"    
             </div>    
         )
     }

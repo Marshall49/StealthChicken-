@@ -19,6 +19,7 @@ const App = () =>
         <Route exact path="/physician/:id" component={Profile} />
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/about" component={About} />
+        <Route exact path="/addcase" component={AddCase} />
         {/* redirect to acct creation */}
         
       </Switch>

@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const CaseSchema = new Schema({
-  description: { type: String, required: false },
+  title: { type: String, required: false },
   dateCreated: { type: Date, default: Date.now },
   physicianId: { type: String, required: true, ref: '' },
   dexcom: {}, // get data from dexcom.js?
-  detailedDescription: { type: String },
+  description: { type: String },
   comment: [{
     type: Schema.Types.ObjectId,
     ref: 'Comment',

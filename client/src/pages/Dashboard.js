@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Footer from '../components/Footer';
 import Nav from '../components/Nav';
 import { Case, CaseList } from '../components/CaseList';
-import CommentFeed from '../components/CommentFeed';
+import { Comment, CommentFeed } from '../components/CommentFeed';
 import Button from '../components/Button';
 import { Link } from "react-router-dom";
 import API from "../utils/API";
@@ -13,11 +13,11 @@ class Dashboard extends Component {
         super(props);
         this.state = {
             cases: [],
-            description: "",
+            title: "",
             dataCreated: "",
             dexcom: {},
-            detailedDescription: "",
-            comment:[]
+            description: "",
+            comments:[]
         }
     }
 
@@ -30,10 +30,10 @@ class Dashboard extends Component {
             .then(res => 
                 this.setState({ 
                     cases: res.data, 
-                    description: "", 
+                    title: "", 
                     dateCreated: "", 
-                    dexcom: {},
-                    detailedDescription: "" })
+                    description: ""
+                })
             )
             .catch(err => console.log(err));
     };
@@ -56,7 +56,7 @@ class Dashboard extends Component {
                                     <Case key={icase._id}>
                                         <Link to={"/cases/" + icase._id}>
                                             <strong>
-                                                {icase.description}  
+                                                {icase.title}  
                                             </strong>
                                         </Link>
                                     </Case>              
@@ -87,7 +87,7 @@ class Dashboard extends Component {
                             </div>
                         {/* Need to add in the form here */}
                             <div className="modal-body">
-
+                                {/* route to case/:id, get indivual case data with comments and dexcom. need ability to add comment here as well */}
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>

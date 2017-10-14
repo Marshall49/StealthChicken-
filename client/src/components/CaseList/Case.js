@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Article = props =>
+export const Case = props =>
     <li className="list-group-item">
         {props.children}
     </li>;

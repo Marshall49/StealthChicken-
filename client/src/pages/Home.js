@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Footer from '../components/Footer';
 import Nav from '../components/Nav';
 import { FormBtn, Input, TextArea, FormSelect } from '../components/Form';
+import Button from '../components/Button';
+import { Link } from "react-router-dom"; 
 
 export default class Home extends Component {
     constructor(props) { 
@@ -42,9 +44,14 @@ export default class Home extends Component {
             <div className="container-fluid">
                 <Nav />
 
+             {/* Sign In Button */}    
                 <div className="pull-right">
                     <p>Already a member?</p>
-                    <button type="button" className="btn btn-dark">Sign In</button>
+                    <Link to="/physician">    
+                        <Button className="btn-dark">
+                            Sign In
+                        </Button>
+                    </Link>    
                 </div>
                 
             {/* box to contain sign up form */}

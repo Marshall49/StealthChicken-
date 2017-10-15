@@ -49,24 +49,32 @@ class Login extends Component {
 				<Nav />
 				<h3>Log In Now</h3>
 
-				// Log in form
+				{/* Log in form */}
 				<form>
-					<Input
-						value={this.state.username}
-						onChange={this.handleInputChange}
-						name="username"
-						placeholder="Username (required)"
-					/>
-					<Input
-						value={this.state.password}	
-						onChange={this.handleInputChange}
-						name="password"
-						placeholder="Password (required)"
-					/>	
+					<label>
+                        Username:
+                            <Input 
+                                value={this.state.userName}
+                                onChange={this.handleInputChange}
+                                name="userName"
+                                placeholder="Username"
+                            />
+                    </label>
+                    <br />
+					<label>
+                        Password:
+                            <Input 
+                                value={this.state.password}
+                                onChange={this.handleInputChange}
+                                name="password"
+                                placeholder="Password"
+                            />
+                    </label>
+                    <br />	
 					<FormBtn 
 						disabled={!(this.state.username && this.state.password)}
 						onClick={this.handleFormSubmit}
-					/>
+					> Log In </FormBtn>
 				</form>
 				<Footer />
 			</div>

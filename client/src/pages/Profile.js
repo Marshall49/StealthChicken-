@@ -1,8 +1,7 @@
-import Footer from '../components/Footer';
-import Nav from '../components/Nav';
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import UserInfo from "../components/UserInfo";
+import API from "../utils/API";
 
 export default class Profile extends Component {
     state = {
@@ -24,18 +23,20 @@ export default class Profile extends Component {
     render() {
         return (
             <div className="container-fluid">
-                <UserInfo key={physician._id}>
-                    <img src="" />
-                    <Link to={"/physician/" + physician._id}>
-                        <strong>
-                            {userName}
-                            <br />
-                            Member since: {date}
-                        </strong>
-                    </Link>
-                </UserInfo>
+                {this.state.userName.map(username => (
+                    <UserInfo key={username._id}>
+                        <img src="" alt="DIAlog logo" />
+                        <Link to={"/physician/:id"}>
+                            <strong>
+                                {username}
+                                <br />
+                                Member since: {username.date}
+                            </strong>
+                        </Link>
+                    </UserInfo>
+                ))}
             </div>
 
-        )
+        );
     }
 }

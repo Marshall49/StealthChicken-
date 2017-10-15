@@ -1,37 +1,37 @@
-const db = require("../models/physician.js");
+const db = require("../models/dexcom.js");
 
-// Defining methods for the physiciansController
+// Defining methods for the dexcomsController
 module.exports = {
   findAll: function(req, res) {
-    db.Physician
+    db.dexcom
       .find(req.query)
       .sort({ date: -1 })
-      .then(dbPhysician => res.json(dbPhysician))
+      .then(dbdexcom => res.json(dbdexcom))
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
-    db.Physician
+    db.dexcom
       .findById(req.params.id)
-      .then(dbPhysician => res.json(dbPhysician))
+      .then(dbdexcom => res.json(dbdexcom))
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    db.Physician
+    db.dexcom
       .create(req.body)
-      .then(dbPhysician => res.json(dbPhysician))
+      .then(dbdexcom => res.json(dbdexcom))
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
-    db.Physician
+    db.dexcom
       .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbPhysician => res.json(dbPhysician))
+      .then(dbdexcom => res.json(dbdexcom))
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
-    db.Physician
+    db.dexcom
       .findById({ _id: req.params.id })
-      .then(dbPhysician => dbPhysician.remove())
-      .then(dbPhysician => res.json(dbPhysician))
+      .then(dbdexcom => dbdexcom.remove())
+      .then(dbdexcom => res.json(dbdexcom))
       .catch(err => res.status(422).json(err));
   }
 };

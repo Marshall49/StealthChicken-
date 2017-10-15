@@ -1,3 +1,7 @@
+module.exports = {
+  dCase: require("./dCase")
+};
+
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -12,8 +16,8 @@ const CaseSchema = new Schema({
     ref: 'Comment',
   }],
   age: { type: Number, required: true },
-  sex: {type:  },
-  pastHx: {[
+  sex: {type: String, required: true },
+  pastHx: {
     diabetes: {type: Boolean, required: false},
     highBP: {type: Boolean, required: false},
     highChol: {type: Boolean, required: false},
@@ -41,55 +45,55 @@ const CaseSchema = new Schema({
     rhemFev: {type: Boolean, required: false},
     tuberc: {type: Boolean, required: false},
     hivAids: {type: Boolean, required: false}
-  ]},
-  recentHx: {[
-    general: {[
+  },
+  recentHx: {
+    general: {
       weightGain: {type: Boolean, required: false},
       weightLoss: {type: Boolean, required: false},
       fatigue: {type: Boolean, required: false},
       weakness: {type: Boolean, required: false},
       fever: {type: Boolean, required: false},
       nightSweats: {type: Boolean, required: false}
-    ]},
-    muscleJointBone: {[
+    },
+    muscleJointBone: {
       numbness: {type: Boolean, required: false},
       jointPain: {type: Boolean, required: false},
       muscleWeakenss: {type: Boolean, required: false},
       jointSwelling: {type: Boolean, required: false}
-    ]},
-    ears: {[
+    },
+    ears: {
       ringing: {type: Boolean, required: false},
       hearingLoss: {type: Boolean, required: false}
-    ]},
-    eyes: {[
+    },
+    eyes: {
       pain: {type: Boolean, required: false},
       redness: {type: Boolean, required: false},
       visionLoss: {type: Boolean, required: false},
       doubleBlur: {type: Boolean, required: false},
       dryness: {type: Boolean, required: false}
-    ]},
-    throat: {[
+    },
+    throat: {
       sore: {type: Boolean, required: false},
       hoarseness: {type: Boolean, required: false},
       swallowDifficult: {type: Boolean, required: false},
       jawPain: {type: Boolean, required: false}
-    ]},
-    heartLungs: {[
+    },
+    heartLungs: {
       chestPain: {type: Boolean, required: false},
       palpitations: {type: Boolean, required: false},
       shortBreath: {type: Boolean, required: false},
       faiting: {type: Boolean, required: false},
       swollenLegsFeet: {type: Boolean, required: false},
       cough: {type: Boolean, required: false}
-    ]},
-    nervous: {[
+    },
+    nervous: {
       headaches: {type: Boolean, required: false},
       dizziness: {type: Boolean, required: false},
       lossOfConc: {type: Boolean, required: false},
       tingling: {type: Boolean, required: false},
       memoryLoss: {type: Boolean, required: false}
-    ]},
-    stomachIntest: {[
+    },
+    stomachIntest: {
       nausea: {type: Boolean, required: false},
       heartburn: {type: Boolean, required: false},
       stomPain: {type: Boolean, required: false},
@@ -99,23 +103,23 @@ const CaseSchema = new Schema({
       diarrhea: {type: Boolean, required: false},
       bloodStool: {type: Boolean, required: false},
       blackStool: {type: Boolean, required: false}
-    ]},
-    skin: {[
+    },
+    skin: {
       redSkin: {type: Boolean, required: false},
       rash: {type: Boolean, required: false},
       nodulesBumps: {type: Boolean, required: false},
       hairloss: {type: Boolean, required: false},
       colorChange: {type: Boolean, required: false}
-    ]},
-    blood: {[
+    },
+    blood: {
       anemia: {type: Boolean, required: false},
       clots: {type: Boolean, required: false}
-    ]},
-    kidneyUrineBlad: {[
+    },
+    kidneyUrineBlad: {
       painfulUrine: {type: Boolean, required: false},
       bloodUrine: {type: Boolean, required: false}
-    ]},
-    psych: {[
+    },
+    psych: {
       depression: {type: Boolean, required: false},
       excessiveWorry: {type: Boolean, required: false},
       difficultyFallSleep: {type: Boolean, required: false},
@@ -136,20 +140,20 @@ const CaseSchema = new Schema({
       moodSwings: {type: Boolean, required: false},
       anxiety: {type: Boolean, required: false},
       riskBehav: {type: Boolean, required: false}
-    ]},
-    female: {[
+    },
+    female: {
       abPapSmear: {type: Boolean, required: false},
       irregPeriods: {type: Boolean, required: false},
       bleedBetweenPeriods: {type: Boolean, required: false},
       pms: {type: Boolean, required: false}
-    ]},
-  ]},
-  drugs: {[
+    },
+  },
+  drugs: {
     currentRx: {type: String, required: false},
     allergyRx: {type: String, required: false}
-  ]}
+  }
 });
 
-const Case = mongoose.model("Case", CaseSchema);
+const dCase = mongoose.model("dCase", caseSchema);
 
-module.exports = Case;
+module.exports = dCase;

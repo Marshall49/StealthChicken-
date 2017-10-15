@@ -18,6 +18,7 @@ class Dashboard extends Component {
             description: "",
             comments:[]
         }
+        this.loadCases = this.loadCases.bind(this);
     }
 
     componentDidMount(){

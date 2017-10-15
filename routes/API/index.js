@@ -19,7 +19,6 @@ const pAuth = new ClientOAuth2({
 // Redirect to Dexcom Auth --> Use hard code link instead
 router.get('/auth/dexcom', function (req, res) {
   var uri = pAuth.code.getUri();
-  console.log("IM OVER HERE!!!");
   res.redirect(uri);
 });
 
@@ -27,7 +26,7 @@ app.get('/auth/dexcom/callback', function (req, res) {
   pAuth.code.getToken(req.originalUrl)
     .then(function (user) {
       console.log(user); //=> { accessToken: '...', tokenType: 'bearer', ... }
-
+      console.log("IM OVER HERE!!!");
       // Refresh the current users access token.
       user.refresh().then(function (updatedUser) {
         console.log(updatedUser !== user); //=> true

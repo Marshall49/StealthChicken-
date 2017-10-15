@@ -9,9 +9,4 @@ const UserInfo = (props) => {
     )
 };
 
-UserInfo.propTypes = {
-    username: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired
-};
-
 export default UserInfo;

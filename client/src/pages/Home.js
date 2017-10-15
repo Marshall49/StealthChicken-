@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import Footer from '../components/Footer';
-import Nav from '../components/Nav';
-import { FormBtn, Input, TextArea, FormSelect } from '../components/Form';
+import { FormBtn, Input, FormSelect } from '../components/Form';
 import Button from '../components/Button';
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
+import API from "../utils/API"; 
 
 export default class Home extends Component {
     constructor(props) { 
@@ -17,12 +16,22 @@ export default class Home extends Component {
         };
     }    
 
-    componentDidMount() {
-        this.letMeIn();
-    };
+    componentDidMount(){
+        this.loadPhysician();
+    }
 
-    letMeIn() {
-        //api call to retrieve login authorization 
+    loadPhysician(){
+        API.sendUser()
+            .then(res => 
+                this.setState({ 
+                    userName: res.data,
+                    email: "",
+                    specialty: null,
+                    password: "",
+                    repeatPass: ""
+                })
+            )
+            .catch(err => console.log(err));
     };
 
     handleInputChange = event => {
@@ -34,17 +43,22 @@ export default class Home extends Component {
 
     handleFormSubmit(event) {
         event.preventDefault();
-        if (this.state.userName && this.state.password) {
-            //set up API 
+        if ((this.state.userName && this.state.password) && (this.state.password === this.state.repeatPass)) {
+            API.saveUser({
+                userName: this.state.userName,
+                email: this.state.email,
+                specialty: this.state.specialty,
+                password: this.state.password,
+                repeatPass: this.state.repeatPass
+            })
+            .then(res => this.loadPhysician())
+            .catch(err => console.log(err));
         }
     };
 
     render() {
         return (
             <div className="container-fluid">
-          
-                <Nav />
-
              {/* Sign In Button */}    
 
                 <div className="pull-right">
@@ -88,7 +102,7 @@ export default class Home extends Component {
                                     { label: 'Endocrinologist', value: 'endo' },
                                     { label: 'Primary Care Physician', value: 'primary' },
                                     { label: 'Cardiologist', value: 'cardio' },
-                                    { label: 'Certified Diabetes Educator', value: 'CDE', disabled: true },
+                                    { label: 'Certified Diabetes Educator', value: 'CDE' },
                                 ]} 
                                 firstOption="Select" 
                                 onChange={this.handleSelect} />
@@ -123,7 +137,7 @@ export default class Home extends Component {
                         </FormBtn>
                     </form>
                 </div>
-                <Footer />
+     
             </div>
         )
     }

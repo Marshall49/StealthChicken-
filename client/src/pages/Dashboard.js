@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import Footer from '../components/Footer';
-import Nav from '../components/Nav';
 import { Case, CaseList } from '../components/CaseList';
-import CommentFeed from '../components/CommentFeed';
+// import CommentFeed from '../components/CommentFeed';
 import Button from '../components/Button';
 import { Link } from "react-router-dom";
 import API from "../utils/API";
@@ -41,15 +39,15 @@ class Dashboard extends Component {
     render() {
         return(
             <div className="wrapper">
-                <Nav />
 
                 <div className="row justify-content-md-center">    
                     <h1>Welcome to DIAlogs</h1>
                 </div>
                
             {/* List of Cases */}
-                <div className="row justify-content-md-center">
-                    <div className="col col-md-8">
+            <div class="row row-flex">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="content colour-1">
                         {this.state.cases.length ? (    
                             <CaseList>
                                 {this.state.cases.map(icase => (
@@ -65,7 +63,9 @@ class Dashboard extends Component {
                         ) : (
                             <h3>No Cases to Display</h3>
                         )}
-                    </div>            
+                    </div>  
+                </div>
+            </div>          
 
                 {/* Add New Case Button */}    
                     <div className="col col-md-4">

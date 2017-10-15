@@ -3,35 +3,35 @@ const db = require("../models/physician.js");
 // Defining methods for the physiciansController
 module.exports = {
   findAll: function(req, res) {
-    db.physician
+    db.Physician
       .find(req.query)
       .sort({ date: -1 })
-      .then(dbphysician => res.json(dbphysician))
+      .then(dbPhysician => res.json(dbPhysician))
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
-    db.physician
+    db.Physician
       .findById(req.params.id)
-      .then(dbphysician => res.json(dbphysician))
+      .then(dbPhysician => res.json(dbPhysician))
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    db.physician
+    db.Physician
       .create(req.body)
-      .then(dbphysician => res.json(dbphysician))
+      .then(dbPhysician => res.json(dbPhysician))
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
-    db.physician
+    db.Physician
       .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbphysician => res.json(dbphysician))
+      .then(dbPhysician => res.json(dbPhysician))
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
-    db.physician
+    db.Physician
       .findById({ _id: req.params.id })
-      .then(dbphysician => dbphysician.remove())
-      .then(dbphysician => res.json(dbphysician))
+      .then(dbPhysician => dbPhysician.remove())
+      .then(dbPhysician => res.json(dbPhysician))
       .catch(err => res.status(422).json(err));
   }
 };

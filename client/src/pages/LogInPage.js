@@ -1,9 +1,7 @@
 import React, { Component} from "react";
-import LoginBtn from "../components/LoginBtn";
-import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import { Input, FormBtn } from "../components/Form";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import API from "../utils/API";
 
 class Login extends Component {
@@ -46,10 +44,9 @@ class Login extends Component {
 	render() {
 		return(
 			<div className="wrapper">
-				<Nav />
 				<h3>Log In Now</h3>
 
-				// Log in form
+				{/* // Log in form */}
 				<form>
 					<Input
 						value={this.state.username}

@@ -37,28 +37,28 @@ db.once("open", function() {
   console.log("Mongoose connection successful.");
 });
 
-var testUser = new physician({
-    username: 'jmar777',
-    password: 'hahahaha',
-});
-// save user to database
-testUser.save(function(err) {
-    if (err) throw err;
-    // fetch user and test password verification
-    physician.findOne({ username: 'jmar777' }, function(err, physician) {
-        if (err) throw err;
-        // test a matching password
-        physician.comparePassword('Password123', function(err, isMatch) {
-            if (err) throw err;
-            console.log('Password123:', isMatch); // -> Password123: true
-        });
-        // test a failing password
-        physician.comparePassword('123Password', function(err, isMatch) {
-            if (err) throw err;
-            console.log('123Password:', isMatch); // -> 123Password: false
-        });
-    });
-});
+// var testUser = new physician({
+//     username: 'jmar777',
+//     password: 'hahahaha',
+// });
+// // save user to database
+// testUser.save(function(err) {
+//     if (err) throw err;
+//     // fetch user and test password verification
+//     physician.findOne({ username: 'jmar777' }, function(err, physician) {
+//         if (err) throw err;
+//         // test a matching password
+//         physician.comparePassword('Password123', function(err, isMatch) {
+//             if (err) throw err;
+//             console.log('Password123:', isMatch); // -> Password123: true
+//         });
+//         // test a failing password
+//         physician.comparePassword('123Password', function(err, isMatch) {
+//             if (err) throw err;
+//             console.log('123Password:', isMatch); // -> 123Password: false
+//         });
+//     });
+// });
 
 // Start the API server
 app.listen(PORT, function() {

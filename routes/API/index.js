@@ -8,11 +8,11 @@ const REDIRECT_URL = process.env.REDIRECT_URL || ''
 const CLIENT_ID = process.env.DEXCOM_CLIENT_ID || ''
 
 const pAuth = new ClientOAuth2({
-  clientId: 'EOoo2Rk7zVA7oAA7kpFn9vDGwHzZ39u7',
+  clientId: CLIENT_ID,
   clientSecret: CLIENT_SECRET, //use environmental variable
   accessTokenUri: 'https://sandbox-api.dexcom.com/v1/oauth2/token', // https://api.dexcom.com/v1/oauth2/token is used for non sandox
   authorizationUri: 'https://sandbox-api.dexcom.com/v1/oauth2/login',
-  redirectUri: 'https://32623ad1.ngrok.io/auth/dexcom/callback', //Need to make a redirectUri
+  redirectUri: REDIRECT_URL, //Need to make a redirectUri
   scopes: ['offline_access']
 });
 

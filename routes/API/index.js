@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const physicianRoutes = require("./physician");
 const ClientOAuth2 = require('client-oauth2');
+const dCase = require("../../models/dexcom.js");
 
 // =============Patient Authentication=================================
 const CLIENT_SECRET = process.env.DEXCOM_CLIENT_SECRET || "";
@@ -22,7 +23,7 @@ router.get('/auth/dexcom', function (req, res) {
   res.redirect(uri);
 });
 
-app.get('/auth/dexcom/callback', function (req, res) {
+router.get('/auth/dexcom/callback', function (req, res) {
   pAuth.code.getToken(req.originalUrl)
     .then(function (user) {
       console.log(user); //=> { accessToken: '...', tokenType: 'bearer', ... }

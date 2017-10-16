@@ -27,7 +27,7 @@ class AddCase extends Component {
 		this.getDexcom = this.getDexcom.bind(this);
 	}
 
-{/* Handle form change input */}
+// {/* Handle form change input */}
 	handleInputChange = event => {
 		const { name, value } = event.target;
 		this.setState({
@@ -35,14 +35,14 @@ class AddCase extends Component {
 		});
 	};
 
-{/* Handle form submission */}
+// {/* Handle form submission */}
 	handleFormSubmit = event => {
 		event.preventDefault();
 
 		API.saveCase({
 			title: this.state.title,
 			dexcom: this.state.dexcom,
-			description: this.state.description.,
+			description: this.state.description,
 			age: this.state.age,
 			sex: this.state.sex,
 			pastHx: this.state.pastHx,

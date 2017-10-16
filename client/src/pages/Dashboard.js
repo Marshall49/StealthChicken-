@@ -48,8 +48,8 @@ class Dashboard extends Component {
                
             {/* List of Cases */}
             <div className="row row-flex">
-                <div className="col-md-4 col-sm-6 col-xs-12">
-                    <div className="content colour-1">
+                <div className="col-sm-6">
+                    <div className="content color-1">
                         {this.state.cases.length ? (    
                             <CaseList>
                                 {this.state.cases.map(icase => (

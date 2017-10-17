@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway+Dots');
+
+.footer {
+    font-size: 16px;
+    font-family: 'Raleway Dots', cursive;
+    color: #bb0a21;
+}
+
+.pull-l {
+    float: left; 
+    margin-left: 2.5%;
+}
+
+.pull-r {
+    float: right;
+    margin-right: 2.5%;
+}

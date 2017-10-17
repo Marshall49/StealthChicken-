@@ -145,6 +145,8 @@ export default class Home extends Component {
                                 Create Account
                             </FormBtn>
                         </form>
+                        <br />
+                        <br />
                     </div>
 
                 </div>

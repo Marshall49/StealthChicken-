@@ -154,6 +154,6 @@ const CaseSchema = new Schema({
   }
 });
 
-const dCase = mongoose.model("dCase", caseSchema);
+const dCase = mongoose.model("dCase", CaseSchema);
 
 module.exports = dCase;

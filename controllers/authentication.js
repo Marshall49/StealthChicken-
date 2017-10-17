@@ -1,5 +1,5 @@
 const jwt = require('jwt-simple');
-const Physician  = require('../models/Physician');
+const Physician  = require('../models/physician.js');
 // const config = require('../config');
 
 function tokenForUser(physician) {

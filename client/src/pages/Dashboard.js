@@ -58,41 +58,29 @@ class Dashboard extends Component {
                                                 <strong>
                                                     {icase.title}  
                                                 </strong>
-                                                    {icase.detailedDescription}
-                                            </Link>
+                                                <p>Description:    
+                                                    {icase.description}
+                                                </p>    
+                                            </Link> 
                                         </Case>              
                                     ))}
                                 </CaseList>
                             ) : (
-                                <h3>No Cases to Display</h3>
+                                <h3>There are currently no cases to display. Click the button the left to add a new one!</h3>
                             )}
                         </div>  
                     </div>
                 </div>  
 
                 {/* Add New Case Button */}
-                    <div className="col col-md-4">
-                        <Link to="/addcase">
-                            <Button className="btn-primary btn-lg">
-                                Add a New Case
-                            </Button>
-                        </Link>
-                    </div>
-
-            {/* Case Detail Modal */}
-                <div className="modal fade" id="myModal" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div className="modal-dialog">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <button type="button" className="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span className="sr-only">Close</span></button>
-                                        <h4 className="modal-title" id="myModalLabel">Case Detail</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                </div> 
+                <div className="col col-md-4">
+                    <Link to="/addcase">
+                        <Button className="btn-primary btn-lg">
+                            Add a New Case
+                        </Button>
+                    </Link>
+                </div>
             </div>                     
-
         );
     }
 };

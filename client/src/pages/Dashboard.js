@@ -45,15 +45,15 @@ class Dashboard extends Component {
 
                     <div className="col-sm-8">
 
-                {/* Add New Case Button */}    
+                {/* Add New Case Button */}
                     <div className="col col-md-4">
                         <Link to="/addcase">
                             <Button className="btn-primary btn-lg">
                                 Add a New Case
                             </Button>
-                        </Link>    
+                        </Link>
                     </div>
-                </div>  
+                </div>
 
             {/* Case Detail Modal */}
                 <div className="modal fade" id="myModal" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -65,7 +65,9 @@ class Dashboard extends Component {
                             </div>
                         </div>
                     </div>
-                </div>                   
+                </div>
+            </div>
+          </div>               
         );
     }
 };

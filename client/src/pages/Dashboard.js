@@ -53,7 +53,6 @@ class Dashboard extends Component {
                             </Button>
                         </Link>
                     </div>
-                </div>
 
             {/* Case Detail Modal */}
                 <div className="modal fade" id="myModal" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -61,13 +60,14 @@ class Dashboard extends Component {
                         <div className="modal-content">
                             <div className="modal-header">
                                 <button type="button" className="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span className="sr-only">Close</span></button>
-                                        <h4 className="modal-title" id="myModalLabel">Modal title</h4>
+                                        <h4 className="modal-title" id="myModalLabel">Case Detail</h4>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-          </div>               
+
+                </div> 
+            </div>                     
+
         );
     }
 };

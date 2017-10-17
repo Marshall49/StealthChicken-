@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FormBtn, Input, TextArea, FormSelect } from '../components/Form';
 import Button from '../components/Button';
 import { Link } from "react-router-dom";
-import API from "../utils/API"; 
+import API from "../utils/API";
 
 class AddCase extends Component {
 	constructor(props) {
@@ -18,7 +18,7 @@ class AddCase extends Component {
 			recentHx: "",
 			drugs: "",
 			dexcom: {},
-			patientId: ""	
+			patientId: ""
 		};
 		this.handleFormSubmit = this.handleFormSubmit.bind(this);
 		this.handleInputChange = this.handleInputChange.bind(this);
@@ -65,7 +65,7 @@ class AddCase extends Component {
 							<form>
 								<label>
 				                    Brief title of the case:
-				                        <Input 
+				                        <Input
 				                            value={this.state.title}
 				                            onChange={this.handleInputChange}
 				                            name="title"
@@ -75,7 +75,7 @@ class AddCase extends Component {
 				                <br />
 				                <label>
 				                    Age of patient:
-				                        <Input 
+				                        <Input
 				                            value={this.state.age}
 				                            onChange={this.handleInputChange}
 				                            name="age"
@@ -98,7 +98,7 @@ class AddCase extends Component {
 				                <br />
 				                <label>
 				                    Detailed description of the case:
-				                        <Input 
+				                        <Input
 				                            value={this.state.description}
 				                            onChange={this.handleInputChange}
 				                            name="description"
@@ -108,7 +108,7 @@ class AddCase extends Component {
 				                <br />
 				                 <label>
 				                    Pertinent patient history:
-				                        <TextArea 
+				                        <TextArea
 				                            value={this.state.pastHx}
 				                            onChange={this.handleInputChange}
 				                            name="pastHx"
@@ -118,7 +118,7 @@ class AddCase extends Component {
 				                <br />
 				                <label>
 				                    Recent changes in patient health:
-				                        <TextArea 
+				                        <TextArea
 				                            value={this.state.recentHx}
 				                            onChange={this.handleInputChange}
 				                            name="recentHx"
@@ -128,7 +128,7 @@ class AddCase extends Component {
 				                <br />
 				                 <label>
 				                    Current medications and drug allergies:
-				                        <TextArea 
+				                        <TextArea
 				                            value={this.state.drugs}
 				                            onChange={this.handleInputChange}
 				                            name="drugs"
@@ -138,7 +138,7 @@ class AddCase extends Component {
 				                <br />
 				                 <label>
 				                    Import patient's Dexcom data with the patient's id:
-				                        <Input 
+				                        <Input
 				                            value={this.state.patientId}
 				                            onChange={this.handleInputChange}
 				                            name="patientId"
@@ -154,14 +154,14 @@ class AddCase extends Component {
 				                	disabled={!(this.state.title && this.state.description)}
 				                	onClick={this.handleFormSubmit}
 				                >
-				                	Save Case	
-				                </FormBtn>	
+				                	Save Case
+				                </FormBtn>
 				            </form>
 				    </div>
-				</div> 
-			</div>	               
+				</div>
+			</div>
 		)
-	}	
+	}
 }
 
 export default AddCase;

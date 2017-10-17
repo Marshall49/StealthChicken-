@@ -16,7 +16,10 @@ export default class Profile extends Component {
     loadPhysician = () => {
         API.getUser()
             .then(res =>
-                this.setState({ username: res.data, date: '' })
+                this.setState({ 
+                    username: res.data, 
+                    date: '' 
+                })
             ).catch(err => console.log(err));
     };
 

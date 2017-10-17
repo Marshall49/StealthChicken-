@@ -1,5 +1,4 @@
 import React, { Component} from "react";
-import Footer from "../components/Footer";
 import { Input, FormBtn } from "../components/Form";
 // import { Link } from "react-router-dom";
 import API from "../utils/API";
@@ -71,7 +70,6 @@ class Login extends Component {
 						onClick={this.handleFormSubmit}
 					> Log In </FormBtn>
 				</form>
-				<Footer />
 			</div>
 		)			
 	}

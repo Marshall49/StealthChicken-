@@ -65,16 +65,14 @@ export default class Home extends Component {
             <div className="container-fluid">
              {/* Sign In Button */} 
                 <div className="row justify-content-center">
-                    
 
-                    <div className="jumbotron">
+                    <div className="jumbotron jumbotron-fluid">
                         <img src="https://vectr.com/champageonponce/a1ozpfdNiu.svg" alt="dialog logo" className=""/>
                     </div>
 
-
-             </div>
-            <div className="row">
-                <div className="pull-right">
+                </div>
+          
+                <div className="float-right">
                     <p>Already a member?</p>
                     <Link to="/physician">
                         <Button className="btn-dark">
@@ -82,15 +80,15 @@ export default class Home extends Component {
                         </Button>
                     </Link>
                 </div>
-            </div>
 
             {/* box to contain sign up form */}
                 <div className="col-md-6 col-md-offset-4">
                     <div className="form">
-                        <h3>Sign up below!</h3>
+                        
 
                         {/* //Here is where an account is created  */}
                         <form onSubmit={this.handleFormSubmit}>
+                        <h3>Sign up below!</h3>
                             <label>
                                 Username:
                                 <Input
@@ -137,16 +135,15 @@ export default class Home extends Component {
                                 />
                             </label>
                             <br />
-                            <br />
+                            <label>
                             <FormBtn
                                 disabled={!(this.state.userName && this.state.password)}
                                 onClick={this.handleFromSubmit}
                             >
                                 Create Account
                             </FormBtn>
+                            </label>
                         </form>
-                        <br />
-                        <br />
                     </div>
 
                 </div>

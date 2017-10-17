@@ -16,7 +16,7 @@ const Nav = () =>
             </ul>
             <ul className="nav navbar-nav navbar-right">
                 <li><a href='/LogOutPage'><span className="glyphicon glyphicon-user"></span>Log out</a></li>
-                <li><a href="/LogInPage"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href="/physician"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
             </ul>
         </div>
     </nav>

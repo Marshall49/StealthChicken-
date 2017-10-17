@@ -25,6 +25,7 @@ const App = () =>
         <Route exact path="/addcase" component={AddCase} />
         <Route exact path="/logout" component={LogOut} />
         {/* redirect to acct creation */}
+        <Route component={NoMatch}/>
         
       </Switch>
       <Footer />

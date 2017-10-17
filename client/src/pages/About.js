@@ -4,8 +4,7 @@ import Footer from "../components/Footer";
 
 const About = () =>
 	<div className="wrapper">
-		<Nav />
-
+		
 		<div className="row justify-content-md-center">
 			<div className="col col-lg-8 col-offset-2 text-center">
 				<h1>About DIAlogs</h1>
@@ -54,7 +53,6 @@ const About = () =>
 				</div>
 			</div>
 		</div>	
-		<Footer />
 	</div>;
 
 export default About;

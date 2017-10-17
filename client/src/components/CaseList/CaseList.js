@@ -1,4 +1,5 @@
 import React from 'react';
+import "./Case.css";
 
 export const CaseList = ({ children }) => {
     return (

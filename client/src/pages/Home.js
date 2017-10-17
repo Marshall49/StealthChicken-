@@ -35,6 +35,11 @@ export default class Home extends Component {
             .catch(err => console.log(err));
     };
 
+    handleSelect (option, event) {
+		if (!this.props.onValueClick) return;
+		this.props.onValueClick(option, event);
+	}
+
     handleInputChange = event => {
         const { name, value } = event.target.value;
         this.setState({
@@ -57,107 +62,104 @@ export default class Home extends Component {
         }
     };
 
-    handleSelect(event) {
-        
-    }
-
     render() {
         return (
             <div className="container-fluid">
              {/* Sign In Button */} 
-             <div className="row justify-content-center">
-                
+                <div className="row justify-content-center">
+                    
                     <div className="jumbotron">
-                        <img src="https://vectr.com/champageonponce/a1ozpfdNiu.svg?width=851&height=315&select=b294J6uj5M" alt="dialog logo" className=""/>
+                        <img src="https://vectr.com/champageonponce/a1ozpfdNiu.svg" alt="dialog logo" className=""/>
                     </div>
+                    
+                </div>
                 
-             </div>
-            <div className="row">
                 <div className="pull-right">
-                    <p>Already a member?</p>
-                    <Link to="/physician">    
-                        <Button className="btn-dark">
-                            Sign In
-                        </Button>
-                    </Link>    
+                    {/* <div className="col-md-12"> */}
+                        <h4>Already a member?</h4>
+                        <Link to="/physician">    
+                            <Button className="btn-dark">
+                                Sign In
+                            </Button>
+                        </Link>    
+                    {/* </div> */}
                 </div>
-            </div>
-                
-            {/* box to contain sign up form */}
-                <div className="col-md-6 col-md-offset-4">
-                    <div className="form">
-                        <h3>Sign up below!</h3>
+                    
+                {/* box to contain sign up form */}
+                    <div className="col-md-6 col-md-offset-4">
+                        <div className="form">
+                            <h3>Sign up below!</h3>
 
-                        {/* //Here is where an account is created  */}
-                        <form onSubmit={this.handleFormSubmit}>
-                            <label>
-                                Username:
-                                <Input 
-                                    value={this.state.userName}
-                                    onChange={this.handleInputChange}
-                                    name="userName"
-                                    placeholder="Username"
-                                />
-                            </label>
-                            <br />
-                            <label>
-                                Email Address:
-                                <Input 
-                                    value={this.state.email}
-                                    onChange={this.handleInputChange}
-                                    name="email"
-                                    placeholder="Email Address"
-                                />
-                            </label>
-                            <br />
-                            <label>
-                                Select Specialty:
-                                <FormSelect options={[
-                                        { label: 'Endocrinologist', value: 'endo' },
-                                        { label: 'Primary Care Physician', value: 'primary' },
-                                        { label: 'Cardiologist', value: 'cardio' },
-                                        { label: 'Certified Diabetes Educator', value: 'CDE' },
-                                    ]} 
-                                        value={this.state.specialty}
-                                        onChange={this.handleSelect}
-                                        name="specialty"
-                                        placeholder="Choose" 
+                            {/* //Here is where an account is created  */}
+                            <form onSubmit={this.handleFormSubmit}>
+                                <label>
+                                    Username:
+                                    <Input 
+                                        value={this.state.userName}
+                                        onChange={this.handleInputChange}
+                                        name="userName"
+                                        placeholder="Username"
                                     />
-                            </label>
-                            <br/>
-                            <label>
-                                Create Password:
-                                <Input
-                                    type="password"
-                                    value={this.state.password}
-                                    onChange={this.handleInputChange}
-                                    name="password"
-                                    placeholder="Password"
-                                />
-                            </label>
-                            <br />
-                            <label>
-                                Re-enter Password:
-                                <Input
-                                    type="password"
-                                    value={this.state.repeatPass}
-                                    onChange={this.handleInputChange}
-                                    name="repeatPass"
-                                    placeholder="Repeat Password"
-                                />
-                            </label>
-                            <br />
-                            <br />
-                            <FormBtn
-                                disabled={!(this.state.userName && this.state.password)}
-                                onClick={this.handleFromSubmit}
-                            >
-                                Create Account
-                            </FormBtn>
-                        </form>
+                                </label>
+                                <br />
+                                <label>
+                                    Email Address:
+                                    <Input 
+                                        value={this.state.email}
+                                        onChange={this.handleInputChange}
+                                        name="email"
+                                        placeholder="Email Address"
+                                    />
+                                </label>
+                                <br />
+                                <label>
+                                    Select Specialty:
+                                    <FormSelect options={[
+                                            { label: 'Endocrinologist', value: 'endo' },
+                                            { label: 'Primary Care Physician', value: 'primary' },
+                                            { label: 'Cardiologist', value: 'cardio' },
+                                            { label: 'Certified Diabetes Educator', value: 'CDE' },
+                                        ]} 
+                                            value={this.state.specialty}
+                                            onChange={this.handleSelect}
+                                            name="specialty"
+                                            placeholder="Choose" 
+                                        />
+                                </label>
+                                <br/>
+                                <label>
+                                    Create Password:
+                                    <Input
+                                        type="password"
+                                        value={this.state.password}
+                                        onChange={this.handleInputChange}
+                                        name="password"
+                                        placeholder="Password"
+                                    />
+                                </label>
+                                <br />
+                                <label>
+                                    Re-enter Password:
+                                    <Input
+                                        type="password"
+                                        value={this.state.repeatPass}
+                                        onChange={this.handleInputChange}
+                                        name="repeatPass"
+                                        placeholder="Repeat Password"
+                                    />
+                                </label>
+                                <br />
+                                <br />
+                                <FormBtn
+                                    disabled={!(this.state.userName && this.state.password)}
+                                    onClick={this.handleFromSubmit}
+                                >
+                                    Create Account
+                                </FormBtn>
+                            </form>
+                        </div>
+            
                     </div>
-        
-                </div>
             </div>
         )
     }

@@ -3,6 +3,8 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const http = require('https');
+const morgan = require('morgan');
+const cors = require('cors');
 //Mongoose Models
 const physician = require("./models/physician.js");
 const dCase = require("./models/dCase.js");
@@ -39,7 +41,9 @@ db.once("open", function() {
 
 var testUser = new physician({
     username: 'jmar777',
+    email: 'strong.malcolm@yahoo.com',
     password: 'hahahaha',
+    speciality: 'cardiologist'
 });
 // save user to database
 testUser.save(function(err) {

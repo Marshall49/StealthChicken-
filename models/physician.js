@@ -6,9 +6,10 @@ var bcryptNode = require('bcrypt-nodejs');
 
 
 const PhysicianSchema = new Schema({
-  // category: { type: String, required: false },
   username: { type: String, required: true, index: { unique: true } },
   password: { type: String, required: true },
+  email: { type: String, required: true },
+  specialty: { type: String, required: true},
   date: { type: Date, default: Date.now },
 });
 

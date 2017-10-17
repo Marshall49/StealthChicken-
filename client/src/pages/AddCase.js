@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import Footer from '../components/Footer';
-import Nav from '../components/Nav';
-import { FormBtn, Input, TextArea, FormSelect } from '../components/Form';
+import { FormBtn, Input, TextArea } from '../components/Form';
 import Button from '../components/Button';
 import { Link } from "react-router-dom";
 import API from "../utils/API"; 
@@ -24,10 +22,10 @@ class AddCase extends Component {
 		};
 		this.handleFormSubmit = this.handleFormSubmit.bind(this);
 		this.handleInputChange = this.handleInputChange.bind(this);
-		this.getDexcom = this.getDexcom.bind(this);
+		// this.getDexcom = this.getDexcom.bind(this);
 	}
 
-{/* Handle form change input */}
+// {/* Handle form change input */}
 	handleInputChange = event => {
 		const { name, value } = event.target;
 		this.setState({
@@ -35,14 +33,14 @@ class AddCase extends Component {
 		});
 	};
 
-{/* Handle form submission */}
+// {/* Handle form submission */}
 	handleFormSubmit = event => {
 		event.preventDefault();
 
 		API.saveCase({
 			title: this.state.title,
 			dexcom: this.state.dexcom,
-			description: this.state.description.,
+			description: this.state.description,
 			age: this.state.age,
 			sex: this.state.sex,
 			pastHx: this.state.pastHx,
@@ -53,14 +51,13 @@ class AddCase extends Component {
 			.catch(err => console.log(err));
 	};
 
-	getDexcom = event => {
-		API.
-	}
+	// getDexcom = event => {
+	// 	API.
+	// }
 
 	render() {
 		return(
 			<div className="container-fluid">
-				<Nav />
 
 				<div className="row justify-content-md-center">
 					<div className="col col-md-8">
@@ -144,10 +141,10 @@ class AddCase extends Component {
 				                            name="patientId"
 				                            placeholder="Patient Id"
 				                        />
-				                        <Button onClick:{this.getDexcom()} className:"btn-default"
+				                        {/* <Button onClick:{this.getDexcom()} className:"btn-default"
 				                        >
 				                        	Get Decom Data
-				                        </Button>     
+				                        </Button>      */}
 				                </label>
 				                <br />
 				                <FormBtn

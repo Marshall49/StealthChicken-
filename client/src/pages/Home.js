@@ -36,7 +36,7 @@ export default class Home extends Component {
     };
 
     handleInputChange = event => {
-        const { name, value } = event.target;
+        const { name, value } = event.target.value;
         this.setState({
         [name]: value
         });
@@ -56,6 +56,10 @@ export default class Home extends Component {
             .catch(err => console.log(err));
         }
     };
+
+    handleSelect(event) {
+        
+    }
 
     render() {
         return (
@@ -114,8 +118,11 @@ export default class Home extends Component {
                                         { label: 'Cardiologist', value: 'cardio' },
                                         { label: 'Certified Diabetes Educator', value: 'CDE' },
                                     ]} 
-                                    firstOption="Select" 
-                                    onChange={this.handleSelect} />
+                                        value={this.state.specialty}
+                                        onChange={this.handleSelect}
+                                        name="specialty"
+                                        placeholder="Choose" 
+                                    />
                             </label>
                             <br/>
                             <label>

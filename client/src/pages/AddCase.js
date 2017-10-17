@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormBtn, Input, TextArea } from '../components/Form';
+import { FormBtn, Input, TextArea, FormSelect } from '../components/Form';
 import Button from '../components/Button';
 import { Link } from "react-router-dom";
 import API from "../utils/API"; 
@@ -85,11 +85,14 @@ class AddCase extends Component {
 				                <br />
 				                <label>
 				                    Sex of patient:
-				                        <Input 
+				                        <FormSelect options={[
+											{ label: 'Female', value: 'female' },
+											{ label: 'Male', value: 'male' }
+										]} 
 				                            value={this.state.sex}
-				                            onChange={this.handleInputChange}
+				                            onChange={this.handleSelect}
 				                            name="sex"
-				                            placeholder="sex"
+				                            placeholder="Choose"
 				                        />
 				                </label>
 				                <br />

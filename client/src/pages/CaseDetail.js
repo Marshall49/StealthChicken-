@@ -28,7 +28,7 @@ class CaseDetail extends Component {
 
   	loadCase() {
   		API.getCase(this.props.match.params.id)
-      		.then(res => this.setState({ : res.data }))
+      		.then(res => this.setState({ icase: res.data }))
       		.catch(err => console.log(err));
   	};
 

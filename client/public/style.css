@@ -1,26 +1,21 @@
 /* Home Page display */
-.jumbotron {
 
+.jumbotron img{
   display: block;
-  height: 325px;
-
+  margin-left: auto;
+  margin-right: auto;
 }
 
-img {
-  /* display: inline-block; */
-  margin-left: 20%;
-}
-
-.pull-right {
-  display: inline;
+*, h1, h2, h3, h4, h5, h6 {
+  -webkit-font-smoothing: antialiased;
 }
 
 .form {
   border: 2px solid #aaaaaa;
 }
 
-.navbar-right {
-  align-content: right;
+.pull-right {
+  display: inline;
 }
 
 

@@ -1,9 +1,11 @@
 import React from 'react';
+import "./Nav.css";
 
 const Nav = () =>
-    <nav className="navbar navbar-inverse navbar-top">
-        <div className="container-fluid">
-            <div className="navbar-header">
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
                 <button type="button" className="collapsed navbar-toggle">
                     <span className="sr-only">Toggle navigation</span>
                     <span className="icon-bar" />
@@ -12,19 +14,19 @@ const Nav = () =>
                 </button>
                 <a href='/' className='navbar-brand'>
                 </a>
-                <ul className="nav navbar-nav navbar-left">
-                <li><a href='/Dashboard'><span className="glyphicon glyphicon-th-list"></span>Dashboard</a></li>
+                <a class="navbar-brand" href="#">DIAlogs</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href='/Dashboard'><span className="glyphicon glyphicon-th-list"></span>Home</a></li>
                 <li><a href='/Profile'><span className="glyphicon glyphicon-user"></span>Profile</a></li>
                 <li><a href='/AddCase'><span className="glyphicon glyphicon-upload"></span>Add a Case</a></li>
                 <li><a href='/About'><span className="glyphicon glyphicon-tint"></span>About</a></li>
-                </ul>
-
-                <ul className="nav navbar-nav navbar-right">
-                    <li><a href='/LogOutPage'><span className="glyphicon glyphicon-user"></span>Log out</a></li>
-                    <li><a href="/LogInPage"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
-                </ul>
-            </div>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href='/LogOutPage'><span className="glyphicon glyphicon-user"></span>Log out</a></li>
+                <li><a href="/LogInPage"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
         </div>
-    </nav>;
+    </nav>
 
     export default Nav;

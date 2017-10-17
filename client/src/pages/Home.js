@@ -65,20 +65,9 @@ export default class Home extends Component {
             <div className="container-fluid">
              {/* Sign In Button */} 
                 <div className="row justify-content-center">
-
-                    <div className="jumbotron jumbotron-fluid">
+                    <div className="jumbotron-fluid logo">
                         <img src="https://vectr.com/champageonponce/a1ozpfdNiu.svg" alt="dialog logo" className=""/>
                     </div>
-
-                </div>
-          
-                <div className="float-right">
-                    <p>Already a member?</p>
-                    <Link to="/physician">
-                        <Button className="btn-dark">
-                            Sign In
-                        </Button>
-                    </Link>
                 </div>
 
             {/* box to contain sign up form */}
@@ -143,6 +132,17 @@ export default class Home extends Component {
                                 Create Account
                             </FormBtn>
                             </label>
+                            <br />
+                            <div className="already">
+                                <p>Already a member?   
+                                    <Link to="/physician">
+                                        <Button className="btn-dark">
+                                            Sign In
+                                        </Button>
+                                    </Link>
+                                </p>
+                            </div>
+                            <br />
                         </form>
                     </div>
 

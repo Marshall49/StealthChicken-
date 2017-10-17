@@ -2,9 +2,9 @@
 
 form {
     border: 2px hsl(198, 37%, 46%) solid;
-    border-radius: 2px;
     text-align: center;
-    width: 70%;
+    width: 112.3%;
     margin-top: 0;
-    margin-left: 68%;
+    margin-left: 46%;
+    background-color: #eee;
 }

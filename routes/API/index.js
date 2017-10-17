@@ -1,21 +1,21 @@
 const router = require("express").Router();
-const physicianRoutes = require("./physician");
+// const physicianRoutes = require("./physician");
 
 
 // =============Patient Authentication=================================
-const CLIENT_SECRET = process.env.DEXCOM_CLIENT_SECRET || "";
-const REDIRECT_URL = process.env.REDIRECT_URL || ''
-const CLIENT_ID = process.env.DEXCOM_CLIENT_ID || ''
+// const CLIENT_SECRET = process.env.DEXCOM_CLIENT_SECRET || "";
+// const REDIRECT_URL = process.env.REDIRECT_URL || ''
+// const CLIENT_ID = process.env.DEXCOM_CLIENT_ID || ''
 const ClientOAuth2 = require('client-oauth2');
 const dexcom = require("../../models/dexcom.js");
 const https = require('https');
 
 const pAuth = new ClientOAuth2({
-  clientId: 'EOoo2Rk7zVA7oAA7kpFn9vDGwHzZ39u7',
-  clientSecret: 'jzmbcseSdEA9CKtA', //use environmental variable
+  clientId: CLIENT_ID,
+  clientSecret: CLIENT_SECRET, //use environmental variable
   accessTokenUri: 'https://sandbox-api.dexcom.com/v1/oauth2/token', // https://api.dexcom.com/v1/oauth2/token is used for non sandox
   authorizationUri: 'https://sandbox-api.dexcom.com/v1/oauth2/login',
-  redirectUri: 'https://gtbmed.ngrok.io/API/auth/dexcom/callback', //Need to make a redirectUri
+  redirectUri: REDIRECT_URL + '/auth/dexcom/callback', //Need to make a redirectUri
   scopes: ['offline_access']
 });
 
@@ -120,6 +120,6 @@ router.get('/auth/dexcom/callback', function (req, res) {
 
 
 // Physician routes
-router.use("/physician", physicianRoutes);
+// router.use("/physician", physicianRoutes);
 // router.use("/oauth2", oauth2Routes);
 module.exports = router;

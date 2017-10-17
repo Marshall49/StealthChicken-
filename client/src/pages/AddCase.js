@@ -16,7 +16,7 @@ class AddCase extends Component {
 			description: "",
 			age: 0,
 			sex: "",
-			pastHx: 
+			pastHx: false,
 		}
 	}
 }

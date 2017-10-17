@@ -77,9 +77,7 @@ class Dashboard extends Component {
                             </Button>
                         </Link>    
                     </div>
-                </div>  
-
-            {/* Case Detail Modal */}
+            
                 <div className="modal fade" id="myModal" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div className="modal-dialog">
                         <div className="modal-content">

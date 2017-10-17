@@ -40,10 +40,35 @@ class Dashboard extends Component {
 
     render() {
         return(
-            <div>
-                <div className="wrapper">
+            <div className="wrapper">
 
-                    <div className="col-sm-8">
+                <div className="row justify-content-md-center">    
+                    <h1>Welcome to DIAlogs</h1>
+                </div>
+               
+                {/* List of Cases */}
+                <div className="row row-flex">
+                    <div className="col-sm-6">
+                        <div className="content color-1">
+                            {this.state.cases.length ? (    
+                                <CaseList>
+                                    {this.state.cases.map(icase => (
+                                        <Case key={icase._id}>
+                                            <Link to={"/cases/" + icase._id}>
+                                                <strong>
+                                                    {icase.title}  
+                                                </strong>
+                                                    {icase.detailedDescription}
+                                            </Link>
+                                        </Case>              
+                                    ))}
+                                </CaseList>
+                            ) : (
+                                <h3>No Cases to Display</h3>
+                            )}
+                        </div>  
+                    </div>
+                </div>  
 
                 {/* Add New Case Button */}
                     <div className="col col-md-4">

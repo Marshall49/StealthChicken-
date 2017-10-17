@@ -25,7 +25,7 @@ class AddCase extends Component {
 		// this.getDexcom = this.getDexcom.bind(this);
 	}
 
-// {/* Handle form change input */}
+	/* Handle form change input */
 
 	handleInputChange = event => {
 		const { name, value } = event.target;

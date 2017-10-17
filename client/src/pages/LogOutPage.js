@@ -6,9 +6,7 @@ import Footer from "../components/Footer";
 
 
 const LogOut = () =>
-  <div>
-    <Nav />
-    {/* Sign In Button */}    
+  <div>    
 
     <div className="pull-right">
         <p>Need to sign back in?</p>
@@ -23,7 +21,6 @@ const LogOut = () =>
                 You have been logged out!
             </strong>
         </h2>
-    <Footer />
   </div>
 ;
 

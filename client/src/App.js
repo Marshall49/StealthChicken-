@@ -11,6 +11,7 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import AddCase from "./pages/AddCase";
 import LogOut from "./pages/LogOutPage";
+import NoMatch from "./pages/NoMatch";
 
 const App = () =>
   <Router>

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway+Dots');
+
 nav {
     width: 100%;
 }
@@ -11,6 +13,11 @@ nav li {
     padding: 10px 10px;
     font-size: 18px;
     font-family: 'Oxygen', sans-serif;
+}
+
+.navbar-brand {
+    color: #bb0a21;
+    font-family: 'Raleway Dots', cursive;
 }
 
 nav li a {

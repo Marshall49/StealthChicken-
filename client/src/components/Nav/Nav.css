@@ -1,0 +1,26 @@
+nav {
+    width: 100%;
+}
+
+.navbar {
+    display: inline-block;
+}
+
+nav li {
+    display: inline-block;
+    padding: 10px 10px;
+    font-size: 18px;
+    font-family: 'Oxygen', sans-serif;
+}
+
+nav li a {
+    color: #cebebe;
+}
+
+.nav, .navbar-nav {
+    display: inline-block;
+}
+
+.navbar-header {
+    margin-right: 10px;
+}

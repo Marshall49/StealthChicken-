@@ -33,6 +33,11 @@ export default class Home extends Component {
             .catch(err => console.log(err));
     };
 
+    handleSelect (option, event) {
+		if (!this.props.onValueClick) return;
+		this.props.onValueClick(option, event);
+	}
+
     handleInputChange = event => {
         const { name, value } = event.target.value;
         this.setState({
@@ -54,19 +59,18 @@ export default class Home extends Component {
         }
     };
 
-    handleSelect(event) {
-
-    }
 
     render() {
         return (
             <div className="container-fluid">
-             {/* Sign In Button */}
-             <div className="row justify-content-center">
+             {/* Sign In Button */} 
+                <div className="row justify-content-center">
+                    
 
                     <div className="jumbotron">
-                        <img src="https://vectr.com/champageonponce/a1ozpfdNiu.svg?width=851&height=315&select=b294J6uj5M" alt="dialog logo" className=""/>
+                        <img src="https://vectr.com/champageonponce/a1ozpfdNiu.svg" alt="dialog logo" className=""/>
                     </div>
+
 
              </div>
             <div className="row">
@@ -144,6 +148,7 @@ export default class Home extends Component {
                     </div>
 
                 </div>
+
             </div>
         )
     }

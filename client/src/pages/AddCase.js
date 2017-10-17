@@ -25,7 +25,8 @@ class AddCase extends Component {
 		// this.getDexcom = this.getDexcom.bind(this);
 	}
 
-// {/* Handle form change input */}
+{/* Handle form change input */}
+
 	handleInputChange = event => {
 		const { name, value } = event.target;
 		this.setState({
@@ -34,6 +35,7 @@ class AddCase extends Component {
 	};
 
 // {/* Handle form submission */}
+
 	handleFormSubmit = event => {
 		event.preventDefault();
 
@@ -51,9 +53,12 @@ class AddCase extends Component {
 			.catch(err => console.log(err));
 	};
 
-	// getDexcom = event => {
-	// 	API.
-	// }
+
+	getDexcom = event => {
+		API.getDexcom(this.props.match.params.id)
+			.then(res => this.setState({ dexcom : res.data }))
+      		.catch(err => console.log(err));
+	};
 
 	render() {
 		return(

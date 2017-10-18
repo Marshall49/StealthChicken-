@@ -62,7 +62,7 @@ var testUser = {
     specialty: 'cardiologist'
 };
 // save user to database
-physician.create(testUser)
+Physician.create(testUser)
 
 app.get("/api/dashboard", function(req, res) {
   Physician.find({})

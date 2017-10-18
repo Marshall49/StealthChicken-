@@ -35,4 +35,4 @@ module.exports = function(app) {
 //   .put(physicianController.update)
 //   .delete(physicianController.remove);
 
-module.exports = router;
+// module.exports = router;

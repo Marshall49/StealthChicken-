@@ -2,6 +2,7 @@
 
 *, h1, h2, h3, h4, h5, h6, p {
   -webkit-font-smoothing: antialiased;
+ 
 }
 
 .container-fluid {
@@ -49,6 +50,7 @@ Link {
   
   [class*="col-"] {
     margin-bottom: 30px;
+    
   }
   
   .content {
@@ -82,6 +84,15 @@ Link {
 
   /* Add Case Page */
 
-.underline {
+/* .underline {
     border-bottom: 2px #1a1a1d solid;
-  }
+  } */
+
+/* About us page */
+.col-md-3 {
+  display: inline-block;
+}
+
+.col {
+  color: #cebebe;
+}

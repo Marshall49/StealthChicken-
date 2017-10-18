@@ -1,6 +1,5 @@
 import React from 'react';
-import Nav from "../components/Nav";
-import Footer from "../components/Footer";
+import './style.css';
 
 const About = () =>
 	<div className="wrapper">
@@ -16,30 +15,30 @@ const About = () =>
 		<div className="row">
 			<div className="col col-lg-12 text-center">
 				<h2>Meet the Developers</h2>
+			</div>
+		</div>
 				<div class="row">
-					<div className="col">  
-						<img src="" alt="Jessica" />
+					<div className="col-md-3">  
+						<a href="https://www.linkedin.com/in/jessica-thompson-311b5647" alt="Jessica's LinkedIn" target="blank"><img src="https://i.imgur.com/H0NXyr7t.jpg" alt="Jessica" className="rounded-circle" /></a>
 						<h3>Jessica Thompson</h3>
 						<a id="mail" href="mailto:jessica@gmail.com?Subject=DIAlogs" target="_blank" rel="noopener noreferrer">Email Jessica</a>
 					</div>
-					<div className="col">  
-						<img src="" alt="John" />
+					<div className="col-md-3">   
+						<a href="https://www.linkedin.com/in/johnbarson/" alt="John's LinkedIn" target="blank"><img src="https://i.imgur.com/lnq2IG0t.jpg" alt="John" className="rounded-circle"/></a>
 						<h3>John Barson</h3>
 						<a id="mail" href="mailto:john@gmail.com?Subject=DIAlogs" target="_blank" rel="noopener noreferrer">Email John</a>
 					</div>
-					<div className="col">  
-						<img src="" alt="Malcolm" />
+					<div className="col-md-3">   
+						<a href="https://www.linkedin.com/in/malcolm-strong-78088a105/" alt="Malcolm's LinkedIn" target="blank"><img src="https://i.imgur.com/L5r9NhWt.jpg" alt="Malcolm" className="rounded-circle"/></a>
 						<h3>Malcolm Strong</h3>
 						<a id="mail" href="mailto:malcolm@gmail.com?Subject=DIAlogs" target="_blank" rel="noopener noreferrer">Email Malcolm</a>
 					</div>
-					<div className="col">  
-						<img src="" alt="Caitlin" />
+					<div className="col-md-3">  
+						<a href="https://www.linkedin.com/in/caitlin-rose-86552a54/" alt="Caitlin's LinkedIn" target="blank"><img src="https://i.imgur.com/B9FfmCSt.jpg" alt="Caitlin" className="rounded-circle"/></a>
 						<h3>Caitlin Rose</h3>
 						<a id="mail" href="mailto:cnrose02@gmail.com?Subject=DIAlogs" target="_blank" rel="noopener noreferrer">Email Caitlin</a>
 					</div>
 				</div>
-			</div>
-		</div>	
 	</div>;
 
 export default About;

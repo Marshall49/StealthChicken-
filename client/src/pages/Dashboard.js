@@ -5,6 +5,7 @@ import { Case, CaseList } from '../components/CaseList';
 import Button from '../components/Button';
 import { Link } from "react-router-dom";
 import API from "../utils/API";
+import './style.css';
 
 
 class Dashboard extends Component {

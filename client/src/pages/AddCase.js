@@ -3,6 +3,7 @@ import { FormBtn, Input, TextArea, FormSelect } from '../components/Form';
 import Button from '../components/Button';
 import { Link } from "react-router-dom";
 import API from "../utils/API";
+import './style.css';
 
 class AddCase extends Component {
 	constructor(props) {

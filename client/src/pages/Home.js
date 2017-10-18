@@ -3,9 +3,7 @@ import { FormBtn, Input, FormSelect } from '../components/Form';
 import Button from '../components/Button';
 import { Link } from "react-router-dom";
 import API from "../utils/API";
-var Dropdown = require('react-simple-dropdown');
-var DropdownTrigger = Dropdown.DropdownTrigger;
-var DropdownContent = Dropdown.DropdownContent;
+import './style.css';
 
 export default class Home extends Component {
     constructor(props) {

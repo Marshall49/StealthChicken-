@@ -5,12 +5,9 @@ import API from "../utils/API";
 import './style.css';
 
 class Login extends Component {
-	constructor(props) {
-		super(props);
-		this.state={
+	state={
 			username:"",
 			password: ""
-		}
 	}
 	// componentDidMount() {
 	// 	this.letMeIn();
@@ -20,16 +17,22 @@ class Login extends Component {
 	// 	//api call to check password & username
 	// };
 
-	handleInputChange(event) {
-		const { name, value } =event.target;
-
+	handleUserNameChange= (event)=>{
 		this.setState({
-			[name]: value
+			// [name]: value
+			username: event.target.value
 		});
 	};
 
-	handleFormSubmit(event){
-		event.preventDefault();
+	handlePasswordChange=(event)=> {
+		this.setState({
+			// [name]: value
+			password: event.target.value
+		});
+	};
+
+	handleFormSubmit=(event)=>{
+		// event.preventDefault();
 
 		if(this.state.userName && this.state.password) {
 			API.getUser({
@@ -43,6 +46,7 @@ class Login extends Component {
 
 	render() {
 		return(
+
 			<div className="container-fluid">
 
 			{/* box to contain login form */}
@@ -83,6 +87,7 @@ class Login extends Component {
 			</div>
 		</div>
 		)			
+
 	}
 }
 

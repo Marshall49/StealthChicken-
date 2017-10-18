@@ -15,7 +15,7 @@ const pAuth = new ClientOAuth2({
   clientSecret: 'jzmbcseSdEA9CKtA', //use environmental variable
   accessTokenUri: 'https://sandbox-api.dexcom.com/v1/oauth2/token', // https://api.dexcom.com/v1/oauth2/token is used for non sandox
   authorizationUri: 'https://sandbox-api.dexcom.com/v1/oauth2/login',
-  redirectUri: 'https://gtbmed.ngrok.io/API/auth/dexcom/callback', //Need to make a redirectUri
+  redirectUri: 'https://gtbmed.ngrok.io/auth/dexcom/callback',
   scopes: ['offline_access']
 });
 
@@ -61,7 +61,11 @@ router.get('/auth/dexcom/callback', function (req, res) {
 
           res.on("end", function () {
             var body = Buffer.concat(potato);
-            var entry = new Dexcom(body);
+            var stuff = body.toString();
+            //^^From Dexcom example
+            var more_stuff = JSON.parse(stuff);
+            console.log(more_stuff);
+            var entry = new Dexcom(more_stuff);
             entry.save(function(err, doc) {
               // Log any errors
               if (err) {
@@ -72,25 +76,13 @@ router.get('/auth/dexcom/callback', function (req, res) {
                 console.log(doc);
               }
             });
-            // console.log(body.toString());
           });
         });
       dreq.end();
     });
   });
 
-  // var torso = body.toString();
-  // var entry = new Dexcom(torso);
-  // entry.save(function(err, doc) {
-  //   // Log any errors
-  //   if (err) {
-  //     console.log(err);
-  //   }
-  //   // Or log the doc
-  //   else {
-  //     console.log(doc);
-  //   }
-  // });
+
 
 
 // Physician routes

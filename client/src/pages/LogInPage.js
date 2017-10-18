@@ -4,12 +4,9 @@ import { Input, FormBtn } from "../components/Form";
 import API from "../utils/API";
 
 class Login extends Component {
-	constructor(props) {
-		super(props);
-		this.state={
+	state={
 			username:"",
 			password: ""
-		}
 	}
 	// componentDidMount() {
 	// 	this.letMeIn();
@@ -19,16 +16,22 @@ class Login extends Component {
 	// 	//api call to check password & username
 	// };
 
-	handleInputChange(event) {
-		const { name, value } =event.target;
-
+	handleUserNameChange= (event)=>{
 		this.setState({
-			[name]: value
+			// [name]: value
+			username: event.target.value
 		});
 	};
 
-	handleFormSubmit(event){
-		event.preventDefault();
+	handlePasswordChange=(event)=> {
+		this.setState({
+			// [name]: value
+			password: event.target.value
+		});
+	};
+
+	handleFormSubmit=(event)=>{
+		// event.preventDefault();
 
 		if(this.state.userName && this.state.password) {
 			API.getUser({
@@ -47,9 +50,9 @@ class Login extends Component {
 				<form>
 					<label>
                         Username:
-                            <Input 
+                            <Input
                                 value={this.state.userName}
-                                onChange={this.handleInputChange}
+                                onChange={this.handleUserNameChange}
                                 name="userName"
                                 placeholder="Username"
                             />
@@ -57,21 +60,21 @@ class Login extends Component {
                     <br />
 					<label>
                         Password:
-                            <Input 
+                            <Input
                                 value={this.state.password}
-                                onChange={this.handleInputChange}
+                                onChange={this.handlePasswordChange}
                                 name="password"
                                 placeholder="Password"
                             />
                     </label>
-                    <br />	
-					<FormBtn 
+                    <br />
+					<FormBtn
 						disabled={!(this.state.username && this.state.password)}
 						onClick={this.handleFormSubmit}
 					> Log In </FormBtn>
 				</form>
 			</div>
-		)			
+		)
 	}
 }
 

@@ -4,7 +4,7 @@ export const FormSelect = (props) =>
     <div className="dropdown">
         <select required = "required" placeholder="Select...">
             <option value="Select">
-                {children}
+                {/* {this.props.children} */}
             </option>
         </select>
     </div>;

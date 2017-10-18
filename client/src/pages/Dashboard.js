@@ -9,18 +9,16 @@ import './style.css';
 
 
 class Dashboard extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            cases: [],
-            title: "",
-            dataCreated: "",
-            dexcom: {},
-            description: "",
-            comments:[]
-        }
-        this.loadCases = this.loadCases.bind(this);
+   
+    state = {
+        cases: [],
+        title: "",
+        dataCreated: "",
+        dexcom: {},
+        description: "",
+        comments:[]
     }
+     
 
     componentDidMount(){
         this.loadCases();

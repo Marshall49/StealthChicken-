@@ -7,20 +7,14 @@ import API from '../utils/API';
 import './style.css';
 
 class CaseDetail extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			icase: {}, 
-			comment: "",
-			physicianId: "",
-			caseId: ""
-		}
 
-		this.componentDidMount = this.componentDidMount.bind(this);
-		this.loadCase = this.loadCase.bind(this);
-		this.handleFormSubmit = this.handleFormSubmit.bind(this);
-	}
-
+	state = {
+        icase: {}, 
+        comment: "",
+        physicianId: "",
+        caseId: ""
+    };
+	
 	componentDidMount() {
     	this.loadCase();
   	};

@@ -82,3 +82,9 @@ Link {
     font-weight: 300;
     margin-bottom: 40px;
   }
+
+  /* Add Case Page */
+
+  .underline {
+    border-bottom: 2px #cebebe solid;
+  }

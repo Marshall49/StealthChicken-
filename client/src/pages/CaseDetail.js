@@ -9,7 +9,7 @@ import './style.css';
 class CaseDetail extends Component {
 
 	state = {
-        icase: {}, 
+        dCase: {}, 
         comment: "",
         physicianId: "",
         caseId: ""
@@ -22,7 +22,7 @@ class CaseDetail extends Component {
 
   	loadCase() {
   		API.getCase(this.props.match.params.id)
-      		.then(res => this.setState({ icase: res.data }))
+      		.then(res => this.setState({ dCase: res.data }))
       		.catch(err => console.log(err));
   	};
 
@@ -45,20 +45,20 @@ class CaseDetail extends Component {
     			<div className="row justify-content-md-center">
     				<div className="col col-lg-8">
     					<article>
-    						<h1>{this.state.icase.title}</h1>
-    						<p>{this.state.icase.dexcom}</p>
+    						<h1>{this.state.dCase.title}</h1>
+    						<p>{this.state.dCase.dexcom}</p>
     						<h3>Description: </h3>
-    						<p>{this.state.icase.description}</p>
+    						<p>{this.state.dCase.description}</p>
     						<h3>Past History: </h3>
-    						<p>{this.state.icase.pastHx}</p>
+    						<p>{this.state.dCase.pastHx}</p>
     						<h3>Recent Changes: </h3>
-    						<p>{this.state.icase.recentHx}</p>
+    						<p>{this.state.dCase.recentHx}</p>
     						<h3>Comments: </h3>
     							{this.state.comments.length ? (    
                             		<CommentFeed>
                                 		{this.state.comments.map(comment => (
                                     		<Comment key={comment._id}>
-                                        		{icase.comment}
+                                        		{dCase.comment}
                                     		</Comment>              
                                 		))}
                             		</CommentFeed>

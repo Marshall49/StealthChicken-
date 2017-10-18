@@ -6,6 +6,7 @@
 
 .container-fluid {
   width: 100%;
+  margin-top: 10px;
 }
 
 
@@ -16,18 +17,25 @@
   margin-right: auto;
   width: 100%;
   background-color: #fff;
-  margin-bottom: 0; 
+  margin-bottom: 0;
 }
 
-.jumbotron.jumbotron-fluid.logo {
-  background-color: #fff;
+.row .justify-content-center {
+  margin-top: 20px;
 }
 
 Link {
   padding-left: 10px;
 }
 
+.already {
+  border: 1px #1a1a1d solid;
+  padding-top: 20px;
+}
 
+.area {
+  align-content: center;
+}
 
 
 

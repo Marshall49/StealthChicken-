@@ -1,10 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway+Dots');
 
 form {
-    border: 2px hsl(198, 37%, 46%) solid;
     text-align: center;
-    width: 112.3%;
+    width: 112%;
     margin-top: 0;
-    margin-left: 46%;
+    margin-left: 46.25%;
     background-color: #eee;
+    padding: 20px;
 }
+
+.form-group {
+    width: 250px;
+    margin: auto;
+    padding: 10px;
+}
+/* 
+
+.form-control {
+    margin: auto;
+} */

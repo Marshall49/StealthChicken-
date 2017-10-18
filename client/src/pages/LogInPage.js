@@ -62,6 +62,7 @@ class Login extends Component {
 					<label>
                         Password:
                             <Input
+                            	type="password"
                                 value={this.state.password}
                                 onChange={this.handlePasswordChange}
                                 name="password"

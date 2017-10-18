@@ -14,6 +14,7 @@ export default class Home extends Component {
             password: "",
         }
         this.loadPhysician = this.loadPhysician.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     componentDidMount(){

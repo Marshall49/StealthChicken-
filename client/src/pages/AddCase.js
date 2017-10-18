@@ -3,6 +3,7 @@ import { FormBtn, Input, TextArea, FormSelect } from '../components/Form';
 import Button from '../components/Button';
 import { Link } from "react-router-dom";
 import API from "../utils/API";
+import './style.css';
 
 class AddCase extends Component {
 	constructor(props) {
@@ -64,13 +65,14 @@ class AddCase extends Component {
 		return(
 			<div className="container-fluid">
 
-				<div className="row justify-content-md-center">
-					<div className="col col-md-8">
+					<div className="col-md-6 col-md-offset-4">
 						{/* Form for adding a new case */}
-							<form>
+							<form onSubmit={this.handleFormSubmit}>
+								<h2 className="underline"><img src="https://vectr.com/champageonponce/aI2dP1Qsu.svg?width=273&height=275&select=aI2dP1Qsupage0" alt="nav logo" className="nav-logo" width="50"/>Drop your case here...</h2>
 								<label>
-				                    Brief title of the case:
+				                    Case title:
 				                        <Input
+											className="aCase"
 				                            value={this.state.title}
 				                            onChange={this.handleInputChange}
 				                            name="title"
@@ -81,6 +83,7 @@ class AddCase extends Component {
 				                <label>
 				                    Age of patient:
 				                        <Input
+											className="aCase"
 				                            value={this.state.age}
 				                            onChange={this.handleInputChange}
 				                            name="age"
@@ -88,32 +91,45 @@ class AddCase extends Component {
 				                        />
 				                </label>
 				                <br />
-				                <label>
+
+                                <div class="form-group">
+									<label for="ptsex">Sex of Patient:</label>
+									<br />
+                                    <select class="form-control" id="sex" >
+                                        <option disabled selected >Choose...</option>
+                                        <option>Female</option>
+                                        <option>Male</option>
+                                    </select>
+                                </div>
+				                {/* <label>
 				                    Sex of patient:
-				                        <FormSelect options={[
+				                        <FormSelect 
+											options={[
 											{ label: 'Female', value: 'female' },
 											{ label: 'Male', value: 'male' }
-										]} 
+											]} 
 				                            value={this.state.sex}
 				                            onChange={this.handleSelect}
 				                            name="sex"
-				                            placeholder="Choose"
+				                            placeholder="Choose.."
 				                        />
-				                </label>
+				                </label> */}
 				                <br />
 				                <label>
 				                    Detailed description of the case:
 				                        <Input
+										 	className="aCase"
 				                            value={this.state.description}
 				                            onChange={this.handleInputChange}
 				                            name="description"
-				                            placeholder="Describe what the current issue is."
+				                            placeholder="Describe current issue ..."
 				                        />
 				                </label>
 				                <br />
 				                 <label>
 				                    Pertinent patient history:
 				                        <TextArea
+											className="aCase"
 				                            value={this.state.pastHx}
 				                            onChange={this.handleInputChange}
 				                            name="pastHx"
@@ -124,6 +140,7 @@ class AddCase extends Component {
 				                <label>
 				                    Recent changes in patient health:
 				                        <TextArea
+											className="aCase"
 				                            value={this.state.recentHx}
 				                            onChange={this.handleInputChange}
 				                            name="recentHx"
@@ -134,6 +151,7 @@ class AddCase extends Component {
 				                 <label>
 				                    Current medications and drug allergies:
 				                        <TextArea
+											className="aCase"
 				                            value={this.state.drugs}
 				                            onChange={this.handleInputChange}
 				                            name="drugs"
@@ -144,6 +162,7 @@ class AddCase extends Component {
 				                 <label>
 				                    Import patient's Dexcom data with the patient's id:
 				                        <Input
+											className="aCase"
 				                            value={this.state.patientId}
 				                            onChange={this.handleInputChange}
 				                            name="patientId"
@@ -155,15 +174,17 @@ class AddCase extends Component {
 				                        </Button>      */}
 				                </label>
 				                <br />
-				                <FormBtn
-				                	disabled={!(this.state.title && this.state.description)}
-				                	onClick={this.handleFormSubmit}
-				                >
-				                	Save Case
-				                </FormBtn>
+								<label>
+									<FormBtn
+										disabled={!(this.state.title && this.state.description)}
+										onClick={this.handleFormSubmit}
+									>
+										Save Case
+									</FormBtn>
+								</label>
 				            </form>
 				    </div>
-				</div>
+
 			</div>
 		)
 	}

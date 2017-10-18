@@ -3,8 +3,8 @@ import Case from '../components/CaseList';
 import { Comment, CommentFeed } from '../components/CommentFeed';
 import { Link } from 'react-router-dom';
 import { TextArea, FormBtn } from '../components/Form';
-import Footer from '../components/Footer';
 import API from '../utils/API';
+import './style.css';
 
 class CaseDetail extends Component {
 	constructor(props) {

@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default {
 //pertaining to PHYSICIAN data
-    //Sends user data (Person, email, speciality, member since date, maybe pic) to backend for the LOGIN 
+    //Sends user data (Person, email, speciality, member since date, maybe pic) to backend for the LOGIN
 	sendUser: function(userData) {
 		return axios.get("/api/physician", userData);
     },
@@ -13,5 +13,6 @@ export default {
     //Save user to db
     saveUser: function(userData) {
         return axios.post("/api/physician", userData);
+				console.log("user posted")
     }
 };

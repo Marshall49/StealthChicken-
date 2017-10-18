@@ -3,51 +3,69 @@ import { FormBtn, Input, FormSelect } from '../components/Form';
 import Button from '../components/Button';
 import { Link } from "react-router-dom";
 import API from "../utils/API";
+import './style.css';
 
 export default class Home extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            userName: "",
-            email: "",
-            specialty: null,
-            password: "",
-        }
-        this.loadPhysician = this.loadPhysician.bind(this);
-        this.handleInputChange = this.handleInputChange.bind(this);
-    }
+  state = {
+    userName: "",
+    email: "",
+    specialty: null,
+    password: "",
+  }
+    //     this.loadPhysician = this.loadPhysician.bind(this);
+    // }
 
-    componentDidMount(){
-        this.loadPhysician();
-    }
+    // componentDidMount(){
+    //     this.loadPhysician();
+    // }
+    //
+    // loadPhysician(){
+    //     API.sendUser()
+    //         .then(res =>
+    //             this.setState({
+    //                 userName: res.data,
+    //                 email: "",
+    //                 specialty: null,
+    //                 password: "",
+    //             })
+    //         )
+    //         .catch(err => console.log(err));
+    // };
 
-    loadPhysician(){
-        API.sendUser()
-            .then(res =>
-                this.setState({
-                    userName: res.data,
-                    email: "",
-                    specialty: null,
-                    password: "",
-                })
-            )
-            .catch(err => console.log(err));
-    };
-
-    handleSelect (option, event) {
-		if (!this.props.onValueClick) return;
-		this.props.onValueClick(option, event);
-	}
-
-    handleInputChange = event => {
-        const { name, value } = event.target.value;
+    handleUserChange = event => {
+        // const { name, value } = event.target.value;
         this.setState({
-        [name]: value
+        // [name]: value
+        userName: event.target.value
         });
     };
 
-    handleFormSubmit(event) {
-        event.preventDefault();
+    handleEmailChange = event => {
+        // const { name, value } = event.target.value;
+        this.setState({
+        // [name]: value
+        email: event.target.value
+        });
+    };
+
+    handleSpecialtyChange = event => {
+        // const { name, value } = event.target.value;
+        this.setState({
+        // [name]: value
+        specialty: event.target.value
+        });
+    };
+
+    handlePassChange = event => {
+        // const { name, value } = event.target.value;
+        this.setState({
+        // [name]: value
+        password: event.target.value
+        });
+    };
+
+    handleFormSubmit=(event)=> {
+        // event.preventDefault();
         if ((this.state.userName && this.state.email && this.state.specialty && this.state.password)) {
             API.saveUser({
                 userName: this.state.userName,
@@ -78,53 +96,42 @@ export default class Home extends Component {
 
                         {/* //Here is where an account is created  */}
                         <form onSubmit={this.handleFormSubmit}>
+                        <div className="area">
                         <h3>Sign up below!</h3>
-                            <label>
-                                Username:
+
                                 <Input
                                     value={this.state.userName}
-                                    onChange={this.handleInputChange}
+                                    onChange={this.handleUserChange}
                                     name="userName"
                                     placeholder="Username"
                                 />
-                            </label>
-                            <br />
-                            <label>
-                                Email Address:
+                                
                                 <Input
                                     value={this.state.email}
-                                    onChange={this.handleInputChange}
+                                    onChange={this.handleEmailChange}
                                     name="email"
                                     placeholder="Email Address"
                                 />
-                            </label>
-                            <br />
-                            <label>
-                                Select Specialty:
-                                <FormSelect options={[
-                                        { label: 'Endocrinologist', value: 'endo' },
-                                        { label: 'Primary Care Physician', value: 'primary' },
-                                        { label: 'Cardiologist', value: 'cardio' },
-                                        { label: 'Certified Diabetes Educator', value: 'CDE' },
-                                    ]}
-                                        value={this.state.specialty}
-                                        onChange={this.handleSelect}
-                                        name="specialty"
-                                        placeholder="Choose"
-                                    />
-                            </label>
-                            <br/>
-                            <label>
-                                Create Password:
+
+                                <div class="form-group">
+                                    <select class="form-control" id="specialty">
+                                        <option disabled selected>Select Specialty...</option>
+                                        <option>Endocrinologist</option>
+                                        <option>Internal Medicince</option>
+                                        <option>Cardiologist</option>
+                                        <option>Certified Diabetes Educator</option>
+                                        <option>Other Physician</option>
+                                    </select>
+                                </div>
+          
                                 <Input
                                     type="password"
                                     value={this.state.password}
-                                    onChange={this.handleInputChange}
+                                    onChange={this.handlePassChange}
                                     name="password"
                                     placeholder="Password"
                                 />
-                            </label>
-                            <br />
+
                             <label>
                             <FormBtn
                                 disabled={!(this.state.userName && this.state.password)}
@@ -133,17 +140,19 @@ export default class Home extends Component {
                                 Create Account
                             </FormBtn>
                             </label>
+
                             <br />
                             <div className="already">
-                                <p>Already a member?   
+                                <div>
+                                    Already a member?   
                                     <Link to="/physician">
                                         <Button className="btn-dark">
                                             Sign In
                                         </Button>
                                     </Link>
-                                </p>
+                                </div>
                             </div>
-                            <br />
+                            </div>
                         </form>
                     </div>
 

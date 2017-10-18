@@ -138,7 +138,7 @@ nav li a {
   z-index: 1;
 }
 .shift ul li a:hover {
-  color: #FF1177;
+  color: rgb(255, 5, 38);
 }
 .shift ul li a:after {
   display: block;

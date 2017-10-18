@@ -1,5 +1,4 @@
 import React, { Component} from "react";
-import Footer from "../components/Footer";
 import { Input, FormBtn } from "../components/Form";
 // import { Link } from "react-router-dom";
 import API from "../utils/API";
@@ -45,27 +44,32 @@ class Login extends Component {
 		return(
 			<div className="wrapper">
 				<h3>Log In Now</h3>
-
-				{/* // Log in form */}
 				<form>
-					<Input
-						value={this.state.username}
-						onChange={this.handleInputChange}
-						name="username"
-						placeholder="Username (required)"
-					/>
-					<Input
-						value={this.state.password}	
-						onChange={this.handleInputChange}
-						name="password"
-						placeholder="Password (required)"
-					/>	
+					<label>
+                        Username:
+                            <Input 
+                                value={this.state.userName}
+                                onChange={this.handleInputChange}
+                                name="userName"
+                                placeholder="Username"
+                            />
+                    </label>
+                    <br />
+					<label>
+                        Password:
+                            <Input 
+                                value={this.state.password}
+                                onChange={this.handleInputChange}
+                                name="password"
+                                placeholder="Password"
+                            />
+                    </label>
+                    <br />	
 					<FormBtn 
 						disabled={!(this.state.username && this.state.password)}
 						onClick={this.handleFormSubmit}
-					/>
+					> Log In </FormBtn>
 				</form>
-				<Footer />
 			</div>
 		)			
 	}

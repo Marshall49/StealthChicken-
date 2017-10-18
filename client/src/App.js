@@ -11,6 +11,7 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import AddCase from "./pages/AddCase";
 import LogOut from "./pages/LogOutPage";
+import NoMatch from "./pages/NoMatch";
 
 const App = () =>
   <Router>
@@ -25,6 +26,7 @@ const App = () =>
         <Route exact path="/addcase" component={AddCase} />
         <Route exact path="/logout" component={LogOut} />
         {/* redirect to acct creation */}
+        <Route component={NoMatch}/>
         
       </Switch>
       <Footer />

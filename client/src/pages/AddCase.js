@@ -90,7 +90,17 @@ class AddCase extends Component {
 				                        />
 				                </label>
 				                <br />
-				                <label>
+
+                                <div class="form-group">
+									<label for="ptsex">Sex of Patient:</label>
+									<br />
+                                    <select class="form-control" id="sex" >
+                                        <option disabled selected >Choose...</option>
+                                        <option>Female</option>
+                                        <option>Male</option>
+                                    </select>
+                                </div>
+				                {/* <label>
 				                    Sex of patient:
 				                        <FormSelect 
 											options={[
@@ -102,7 +112,7 @@ class AddCase extends Component {
 				                            name="sex"
 				                            placeholder="Choose.."
 				                        />
-				                </label>
+				                </label> */}
 				                <br />
 				                <label>
 				                    Detailed description of the case:

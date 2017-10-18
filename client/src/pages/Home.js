@@ -3,6 +3,9 @@ import { FormBtn, Input, FormSelect } from '../components/Form';
 import Button from '../components/Button';
 import { Link } from "react-router-dom";
 import API from "../utils/API";
+var Dropdown = require('react-simple-dropdown');
+var DropdownTrigger = Dropdown.DropdownTrigger;
+var DropdownContent = Dropdown.DropdownContent;
 
 export default class Home extends Component {
     constructor(props) {
@@ -94,17 +97,16 @@ export default class Home extends Component {
                                     placeholder="Email Address"
                                 />
 
-                                <FormSelect options={[
-                                        { label: 'Endocrinologist', value: 'endo' },
-                                        { label: 'Primary Care Physician', value: 'primary' },
-                                        { label: 'Cardiologist', value: 'cardio' },
-                                        { label: 'Certified Diabetes Educator', value: 'CDE' },
-                                    ]}
-                                        value={this.state.specialty}
-                                        onChange={this.handleSelect}
-                                        name="specialty"
-                                        placeholder="Choose"
-                                    />
+                                <div class="form-group">
+                                    <select class="form-control" id="specialty">
+                                        <option disabled selected>Select Specialty...</option>
+                                        <option>Endocrinologist</option>
+                                        <option>Internal Medicince</option>
+                                        <option>Cardiologist</option>
+                                        <option>Certified Diabetes Educator</option>
+                                        <option>Other Physician</option>
+                                    </select>
+                                </div>
 
                                 <Input
                                     type="password"

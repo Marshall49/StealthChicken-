@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import "./UserInfo.css";
 
 const UserInfo = (props) => {
     return(

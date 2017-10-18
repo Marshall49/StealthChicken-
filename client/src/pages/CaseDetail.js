@@ -3,8 +3,8 @@ import Case from '../components/CaseList';
 import { Comment, CommentFeed } from '../components/CommentFeed';
 import { Link } from 'react-router-dom';
 import { TextArea, FormBtn } from '../components/Form';
-import Footer from '../components/Footer';
 import API from '../utils/API';
+import './style.css';
 
 class CaseDetail extends Component {
 	constructor(props) {
@@ -28,7 +28,7 @@ class CaseDetail extends Component {
 
   	loadCase() {
   		API.getCase(this.props.match.params.id)
-      		.then(res => this.setState({ : res.data }))
+      		.then(res => this.setState({ icase: res.data }))
       		.catch(err => console.log(err));
   	};
 

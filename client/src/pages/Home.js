@@ -3,6 +3,7 @@ import { FormBtn, Input, FormSelect } from '../components/Form';
 import Button from '../components/Button';
 import { Link } from "react-router-dom";
 import API from "../utils/API";
+import './style.css';
 
 export default class Home extends Component {
   state = {
@@ -77,76 +78,52 @@ export default class Home extends Component {
         }
     };
 
-    handleSelect(event) {
-
-    }
 
     render() {
         return (
             <div className="container-fluid">
-             {/* Sign In Button */}
-             <div className="row justify-content-center">
-
-                    <div className="jumbotron">
-                        <img src="https://vectr.com/champageonponce/a1ozpfdNiu.svg?width=851&height=315&select=b294J6uj5M" alt="dialog logo" className=""/>
+             {/* Sign In Button */} 
+                <div className="row justify-content-center">
+                    <div className="jumbotron-fluid logo">
+                        <img src="https://vectr.com/champageonponce/a1ozpfdNiu.svg" alt="dialog logo" className=""/>
                     </div>
-
-             </div>
-            <div className="row">
-                <div className="pull-right">
-                    <p>Already a member?</p>
-                    <Link to="/physician">
-                        <Button className="btn-dark">
-                            Sign In
-                        </Button>
-                    </Link>
                 </div>
-            </div>
 
             {/* box to contain sign up form */}
                 <div className="col-md-6 col-md-offset-4">
                     <div className="form">
-                        <h3>Sign up below!</h3>
+                        
 
                         {/* //Here is where an account is created  */}
                         <form onSubmit={this.handleFormSubmit}>
-                            <label>
-                                Username:
+                        <div className="area">
+                        <h3>Sign up below!</h3>
+
                                 <Input
                                     value={this.state.userName}
                                     onChange={this.handleUserChange}
                                     name="userName"
                                     placeholder="Username"
                                 />
-                            </label>
-                            <br />
-                            <label>
-                                Email Address:
+                                
                                 <Input
                                     value={this.state.email}
                                     onChange={this.handleEmailChange}
                                     name="email"
                                     placeholder="Email Address"
                                 />
-                            </label>
-                            <br />
-                            <label>
-                                Select Specialty:
-                                <FormSelect options={[
-                                        { label: 'Endocrinologist', value: 'endo' },
-                                        { label: 'Primary Care Physician', value: 'primary' },
-                                        { label: 'Cardiologist', value: 'cardio' },
-                                        { label: 'Certified Diabetes Educator', value: 'CDE' },
-                                    ]}
-                                        value={this.state.specialty}
-                                        onChange={this.handleSpecialtyChange}
-                                        name="specialty"
-                                        placeholder="Choose"
-                                    />
-                            </label>
-                            <br/>
-                            <label>
-                                Create Password:
+
+                                <div class="form-group">
+                                    <select class="form-control" id="specialty">
+                                        <option disabled selected>Select Specialty...</option>
+                                        <option>Endocrinologist</option>
+                                        <option>Internal Medicince</option>
+                                        <option>Cardiologist</option>
+                                        <option>Certified Diabetes Educator</option>
+                                        <option>Other Physician</option>
+                                    </select>
+                                </div>
+          
                                 <Input
                                     type="password"
                                     value={this.state.password}
@@ -154,19 +131,33 @@ export default class Home extends Component {
                                     name="password"
                                     placeholder="Password"
                                 />
-                            </label>
-                            <br />
-                            <br />
+
+                            <label>
                             <FormBtn
                                 disabled={!(this.state.userName && this.state.password)}
                                 onClick={this.handleFromSubmit}
                             >
                                 Create Account
                             </FormBtn>
+                            </label>
+
+                            <br />
+                            <div className="already">
+                                <div>
+                                    Already a member?   
+                                    <Link to="/physician">
+                                        <Button className="btn-dark">
+                                            Sign In
+                                        </Button>
+                                    </Link>
+                                </div>
+                            </div>
+                            </div>
                         </form>
                     </div>
 
                 </div>
+
             </div>
         )
     }

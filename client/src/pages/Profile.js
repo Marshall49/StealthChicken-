@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import UserInfo from "../components/UserInfo";
 import API from "../utils/API";
+import './style.css';
 
 export default class Profile extends Component {
     state = {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormBtn, Input, FormSelect } from '../components/Form';
+import { FormBtn, Input } from '../components/Form';
 import Button from '../components/Button';
 import { Link } from "react-router-dom";
 import API from "../utils/API";

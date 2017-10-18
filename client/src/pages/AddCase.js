@@ -1,30 +1,24 @@
 import React, { Component } from 'react';
-import { FormBtn, Input, TextArea, FormSelect } from '../components/Form';
-import Button from '../components/Button';
-import { Link } from "react-router-dom";
+import { FormBtn, Input, TextArea } from '../components/Form';
+// import { Link } from "react-router-dom";
 import API from "../utils/API";
 import './style.css';
 
 class AddCase extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			title: "",
-			dateCreated: "",
-			physianId: "",
-			description: "",
-			age: 0,
-			sex: "",
-			pastHx: "",
-			recentHx: "",
-			drugs: "",
-			dexcom: {},
-			patientId: ""
-		};
-		this.handleFormSubmit = this.handleFormSubmit.bind(this);
-		this.handleInputChange = this.handleInputChange.bind(this);
-		// this.getDexcom = this.getDexcom.bind(this);
-	}
+	
+	state = {
+		title: "",
+		dateCreated: "",
+		physianId: "",
+		description: "",
+		age: 0,
+		sex: "",
+		pastHx: "",
+		recentHx: "",
+		drugs: "",
+		dexcom: {},
+		patientId: ""
+	};	
 
 	/* Handle form change input */
 

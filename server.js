@@ -2,13 +2,13 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const routes = require("./routes");
+const routes = require("./routes/API/");
 const http = require('https');
 const morgan = require('morgan');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 //Mongoose Models
-const physician = require("./models/physician.js");
+const Physician = require("./models/physician.js");
 const dCase = require("./models/dCase.js");
 const dexcom = require("./models/dexcom.js");
 // Oauth2 library

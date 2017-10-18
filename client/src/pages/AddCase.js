@@ -67,9 +67,9 @@ class AddCase extends Component {
 					<div className="col-md-6 col-md-offset-4">
 						{/* Form for adding a new case */}
 							<form onSubmit={this.handleFormSubmit}>
-								<h2 className="underline">Drop your case here...</h2>
+								<h2 className="underline"><img src="https://vectr.com/champageonponce/aI2dP1Qsu.svg?width=273&height=275&select=aI2dP1Qsupage0" alt="nav logo" className="nav-logo" width="50"/>Drop your case here...</h2>
 								<label>
-				                    Brief title of the case:
+				                    Case title:
 				                        <Input
 											className="aCase"
 				                            value={this.state.title}
@@ -90,7 +90,17 @@ class AddCase extends Component {
 				                        />
 				                </label>
 				                <br />
-				                <label>
+
+                                <div class="form-group">
+									<label for="ptsex">Sex of Patient:</label>
+									<br />
+                                    <select class="form-control" id="sex" >
+                                        <option disabled selected >Choose...</option>
+                                        <option>Female</option>
+                                        <option>Male</option>
+                                    </select>
+                                </div>
+				                {/* <label>
 				                    Sex of patient:
 				                        <FormSelect 
 											options={[
@@ -102,7 +112,7 @@ class AddCase extends Component {
 				                            name="sex"
 				                            placeholder="Choose.."
 				                        />
-				                </label>
+				                </label> */}
 				                <br />
 				                <label>
 				                    Detailed description of the case:
@@ -111,7 +121,7 @@ class AddCase extends Component {
 				                            value={this.state.description}
 				                            onChange={this.handleInputChange}
 				                            name="description"
-				                            placeholder="Describe what the current issue is"
+				                            placeholder="Describe current issue ..."
 				                        />
 				                </label>
 				                <br />
@@ -163,12 +173,14 @@ class AddCase extends Component {
 				                        </Button>      */}
 				                </label>
 				                <br />
-				                <FormBtn
-				                	disabled={!(this.state.title && this.state.description)}
-				                	onClick={this.handleFormSubmit}
-				                >
-				                	Save Case
-				                </FormBtn>
+								<label>
+									<FormBtn
+										disabled={!(this.state.title && this.state.description)}
+										onClick={this.handleFormSubmit}
+									>
+										Save Case
+									</FormBtn>
+								</label>
 				            </form>
 				    </div>
 

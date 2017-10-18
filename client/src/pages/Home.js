@@ -77,29 +77,23 @@ export default class Home extends Component {
 
                         {/* //Here is where an account is created  */}
                         <form onSubmit={this.handleFormSubmit}>
+                        <div className="area">
                         <h3>Sign up below!</h3>
-                            <label>
-                                Username:
+
                                 <Input
                                     value={this.state.userName}
                                     onChange={this.handleInputChange}
                                     name="userName"
                                     placeholder="Username"
                                 />
-                            </label>
-                            <br />
-                            <label>
-                                Email Address:
+                                
                                 <Input
                                     value={this.state.email}
                                     onChange={this.handleInputChange}
                                     name="email"
                                     placeholder="Email Address"
                                 />
-                            </label>
-                            <br />
-                            <label>
-                                Select Specialty:
+
                                 <FormSelect options={[
                                         { label: 'Endocrinologist', value: 'endo' },
                                         { label: 'Primary Care Physician', value: 'primary' },
@@ -111,10 +105,7 @@ export default class Home extends Component {
                                         name="specialty"
                                         placeholder="Choose"
                                     />
-                            </label>
-                            <br/>
-                            <label>
-                                Create Password:
+
                                 <Input
                                     type="password"
                                     value={this.state.password}
@@ -122,8 +113,7 @@ export default class Home extends Component {
                                     name="password"
                                     placeholder="Password"
                                 />
-                            </label>
-                            <br />
+
                             <label>
                             <FormBtn
                                 disabled={!(this.state.userName && this.state.password)}
@@ -132,17 +122,19 @@ export default class Home extends Component {
                                 Create Account
                             </FormBtn>
                             </label>
+
                             <br />
                             <div className="already">
-                                <p>Already a member?   
+                                <div>
+                                    Already a member?   
                                     <Link to="/physician">
                                         <Button className="btn-dark">
                                             Sign In
                                         </Button>
                                     </Link>
-                                </p>
+                                </div>
                             </div>
-                            <br />
+                            </div>
                         </form>
                     </div>
 

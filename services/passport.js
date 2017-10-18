@@ -1,6 +1,6 @@
 // const passport = require('passport');
-// const User = require('../models/Physician');
-// // const config = require('../config');
+// const Physician = require('../models/physician.js');
+// const config = require('../config');
 // const JwtStrategy = require('passport-jwt').Strategy;
 // const ExtractJwt = require('passport-jwt').ExtractJwt;
 // const LocalStrategy = require('passport-local');
@@ -28,7 +28,7 @@
 // // create some jwt options
 // const jwtOptions = {
 //   jwtFromRequest: ExtractJwt.fromHeader('authorization'),
-//   // secretOrKey: config.secret
+//   secretOrKey: config.secret
 // };
 //
 // // create jwt strategy

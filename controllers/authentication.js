@@ -1,13 +1,34 @@
 // const jwt = require('jwt-simple');
-// const Physician  = require('../models/Physician');
-// // const config = require('../config');
-//
+
+// const Physician  = require('../models/physician.js');
+// const config = require('../config');
+
+
+
+
+
 // function tokenForUser(physician) {
 //   const timestamp = new Date().getTime();
 //   return jwt.encode({sub: user.id, iat:timestamp}, config.secret); // jwt is convention, sub means "subject"
 // }
 //
 // exports.signin = function(req, res, next) {
+
+//   Physician.findOne({
+//         email: req.body.email
+//     }, function(err, user) {
+//     if (err) throw err;
+//
+//     if (!physician) {
+//   res.status(401).send('Authentication failed. User not found.' );
+// }
+//
+//   var expires = Math.floor(Date.now() / 1000) + (60 * 60);
+//   var token = jwt.sign({
+//     expires: expires,
+//     data: user
+// }, config.secret);
+
 //   // User has already had their email and password auth'd
 //   // We just need to give them a token
 //   res.send({ token: tokenForUser(req.physician) });
@@ -32,19 +53,24 @@
 //       return res.status(422).send({ error: 'Email is in use' });
 //     }
 //
+
+//
 //     // If a user with email does NOT exist, create and save user record
-//     const doctor = new Physician({
+//     const physician = new Physician({
+
 //       username: username,
 //       email: email,
 //       password: password,
 //       specialty: specialty
 //     });
 //
-//     doctor.save(function(err) {
+
+//     physician.save(function(err) {
 //       if (err) { return next(err); }
 //
 //       // Repond to request indicating the user was created
-//       res.json({ token: tokenForUser(doctor) });
+//       res.json({ token: tokenForUser(physician) });
+
 //     });
 //   });
 // }

@@ -3,53 +3,69 @@ import { FormBtn, Input, FormSelect } from '../components/Form';
 import Button from '../components/Button';
 import { Link } from "react-router-dom";
 import API from "../utils/API";
-var Dropdown = require('react-simple-dropdown');
-var DropdownTrigger = Dropdown.DropdownTrigger;
-var DropdownContent = Dropdown.DropdownContent;
+import './style.css';
 
 export default class Home extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            userName: "",
-            email: "",
-            specialty: null,
-            password: "",
-        }
-        this.loadPhysician = this.loadPhysician.bind(this);
-    }
+  state = {
+    userName: "",
+    email: "",
+    specialty: null,
+    password: "",
+  }
+    //     this.loadPhysician = this.loadPhysician.bind(this);
+    // }
 
-    componentDidMount(){
-        this.loadPhysician();
-    }
+    // componentDidMount(){
+    //     this.loadPhysician();
+    // }
+    //
+    // loadPhysician(){
+    //     API.sendUser()
+    //         .then(res =>
+    //             this.setState({
+    //                 userName: res.data,
+    //                 email: "",
+    //                 specialty: null,
+    //                 password: "",
+    //             })
+    //         )
+    //         .catch(err => console.log(err));
+    // };
 
-    loadPhysician(){
-        API.sendUser()
-            .then(res =>
-                this.setState({
-                    userName: res.data,
-                    email: "",
-                    specialty: null,
-                    password: "",
-                })
-            )
-            .catch(err => console.log(err));
-    };
-
-    handleSelect (option, event) {
-		if (!this.props.onValueClick) return;
-		this.props.onValueClick(option, event);
-	}
-
-    handleInputChange = event => {
-        const { name, value } = event.target.value;
+    handleUserChange = event => {
+        // const { name, value } = event.target.value;
         this.setState({
-        [name]: value
+        // [name]: value
+        userName: event.target.value
         });
     };
 
-    handleFormSubmit(event) {
-        event.preventDefault();
+    handleEmailChange = event => {
+        // const { name, value } = event.target.value;
+        this.setState({
+        // [name]: value
+        email: event.target.value
+        });
+    };
+
+    handleSpecialtyChange = event => {
+        // const { name, value } = event.target.value;
+        this.setState({
+        // [name]: value
+        specialty: event.target.value
+        });
+    };
+
+    handlePassChange = event => {
+        // const { name, value } = event.target.value;
+        this.setState({
+        // [name]: value
+        password: event.target.value
+        });
+    };
+
+    handleFormSubmit=(event)=> {
+        // event.preventDefault();
         if ((this.state.userName && this.state.email && this.state.specialty && this.state.password)) {
             API.saveUser({
                 userName: this.state.userName,
@@ -85,14 +101,14 @@ export default class Home extends Component {
 
                                 <Input
                                     value={this.state.userName}
-                                    onChange={this.handleInputChange}
+                                    onChange={this.handleUserChange}
                                     name="userName"
                                     placeholder="Username"
                                 />
                                 
                                 <Input
                                     value={this.state.email}
-                                    onChange={this.handleInputChange}
+                                    onChange={this.handleEmailChange}
                                     name="email"
                                     placeholder="Email Address"
                                 />
@@ -107,11 +123,11 @@ export default class Home extends Component {
                                         <option>Other Physician</option>
                                     </select>
                                 </div>
-
+          
                                 <Input
                                     type="password"
                                     value={this.state.password}
-                                    onChange={this.handleInputChange}
+                                    onChange={this.handlePassChange}
                                     name="password"
                                     placeholder="Password"
                                 />

@@ -124,7 +124,8 @@ export default class Home extends Component {
                             </label>
 
                             <br />
-                            <div className="already">
+                            <div className="already"></div>
+                            <div>
                                 <div>
                                     Already a member?   
                                     <Link to="/physician">

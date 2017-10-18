@@ -68,7 +68,8 @@ class AddCase extends Component {
 					<div className="col-md-6 col-md-offset-4">
 						{/* Form for adding a new case */}
 							<form onSubmit={this.handleFormSubmit}>
-								<h2 className="underline"><img src="https://vectr.com/champageonponce/aI2dP1Qsu.svg?width=273&height=275&select=aI2dP1Qsupage0" alt="nav logo" className="nav-logo" width="50"/>Drop your case here...</h2>
+								<h2><img src="https://vectr.com/champageonponce/aI2dP1Qsu.svg?width=273&height=275&select=aI2dP1Qsupage0" alt="nav logo" className="nav-logo" width="50"/>Drop your case here...</h2>
+								<div className="underline"></div>
 								<label>
 				                    Case title:
 				                        <Input
@@ -101,19 +102,6 @@ class AddCase extends Component {
                                         <option>Male</option>
                                     </select>
                                 </div>
-				                {/* <label>
-				                    Sex of patient:
-				                        <FormSelect 
-											options={[
-											{ label: 'Female', value: 'female' },
-											{ label: 'Male', value: 'male' }
-											]} 
-				                            value={this.state.sex}
-				                            onChange={this.handleSelect}
-				                            name="sex"
-				                            placeholder="Choose.."
-				                        />
-				                </label> */}
 				                <br />
 				                <label>
 				                    Detailed description of the case:

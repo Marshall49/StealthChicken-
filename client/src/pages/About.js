@@ -17,7 +17,7 @@ const About = () =>
 				<h2 id="emphasize">Meet the Developers</h2>
 			</div>
 		</div>
-				<div class="row" id="developers">
+				<div className="row" id="developers">
 					<div className="col-md-3">  
 						<a href="https://www.linkedin.com/in/jessica-thompson-311b5647" alt="Jessica's LinkedIn" target="blank"><img src="https://i.imgur.com/H0NXyr7t.jpg" alt="Jessica" className="rounded-circle" /></a>
 						<h3 className="name">Jessica Thompson</h3>

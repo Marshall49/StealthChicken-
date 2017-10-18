@@ -18,8 +18,10 @@ form {
 }
 
 .underline {
-    padding: 10px;
+    padding: auto;
     border-bottom: 2px #1a1a1d solid;
+    filter: blur(1px);
+    margin: 10px;
   }
 
 .form-control {

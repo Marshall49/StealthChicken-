@@ -111,6 +111,7 @@ Link {
   font-weight: bold;
   font-size: 20px;
   text-align: justify;
+  margin-top: -2%;
 }
 
 #para {
@@ -132,7 +133,7 @@ Link {
 }
 
 .rounded-circle {
-  border: 2px #bb0a21 solid;
+  border: 2px rgb(255, 5, 38) solid;
 }
 
 .name {
@@ -163,16 +164,10 @@ p:nth-child(1) a {
 }
 
 p:nth-child(3) a:hover {
-  color: #FF1177;
+  color: rgb(255, 5, 38);
   -webkit-animation: none;
   -moz-animation: none;
   animation: none;
-}
-
-p:nth-child(2) a:hover {
-  -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
-  -moz-animation: neon2 1.5s ease-in-out infinite alternate;
-  animation: neon2 1.5s ease-in-out infinite alternate;
 }
 
 p:nth-child(3) a {

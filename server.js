@@ -39,6 +39,7 @@ db.once("open", function() {
   console.log("Mongoose connection successful.");
 });
 
+
 var testUser = new physician({
     username: 'jmar777',
     email: 'strong.malcolm@yahoo.com',

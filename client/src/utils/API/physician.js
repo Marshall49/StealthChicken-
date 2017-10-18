@@ -13,6 +13,6 @@ export default {
     //Save user to db
     saveUser: function(userData) {
         return axios.post("/api/physician", userData);
-				console.log("user posted")
+				// console.log("user posted")
     }
 };

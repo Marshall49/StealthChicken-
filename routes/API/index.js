@@ -7,7 +7,7 @@ const CLIENT_SECRET = process.env.DEXCOM_CLIENT_SECRET || "";
 const REDIRECT_URL = process.env.REDIRECT_URL || ''
 const CLIENT_ID = process.env.DEXCOM_CLIENT_ID || ''
 const ClientOAuth2 = require('client-oauth2');
-const dexcom = require("../../models/dexcom.js");
+const Dexcom = require("../../models/dexcom.js");
 const https = require('https');
 
 const pAuth = new ClientOAuth2({
@@ -23,7 +23,7 @@ const pAuth = new ClientOAuth2({
 router.get('/auth/dexcom', function (req, res) {
 console.log("IM OVER HERE!!!");
   var uri = pAuth.code.getUri();
-
+  // Redirect to Dexcom Authorization site
   res.redirect(302, uri);
 });
 
@@ -31,26 +31,18 @@ router.get('/auth/dexcom/callback', function (req, res) {
   pAuth.code.getToken(req.originalUrl)
     .then(function (user) {
       console.log(user) //=> { accessToken: '...', tokenType: 'bearer', ... }
-
       // Refresh the current users access token.
       user.refresh().then(function (updatedUser) {
         console.log(updatedUser !== user) //=> true
         console.log(updatedUser.accessToken)
-      })
-
-      // Sign API requests on behalf of the current user.
-      // user.sign({
-      //   method: 'get',
-      //   url: 'https://sandbox-api.dexcom.com/v1/users/self/egvs?startDate=2017-06-16T15:30:00&endDate=2017-06-17T15:45:00'
-      // })
-      // return res.send(user.accessToken)
+      });
 
       // API request
         var options = {
           "method": "GET",
           "hostname": "sandbox-api.dexcom.com",
           "port": null,
-          "path": "/v1/users/self/egvs?startDate=2017-06-16T15:30:00&endDate=2017-06-17T15:45:00", //testing with just one month data to show concept.  Future: ability to select dates, then later make API calls using user token
+          "path": "/v1/users/self/egvs?startDate=2017-06-16T15:30:00&endDate=2017-06-16T16:30:00", //testing with just one month data to show concept.  Future: ability to select dates, then later make API calls using user token
           "headers": {
             "authorization": "Bearer " + user.accessToken,
             }
@@ -58,65 +50,47 @@ router.get('/auth/dexcom/callback', function (req, res) {
 
         console.log(options.headers.authorization);
         // make API call with http request
-        https.request(options, function (res) {
-          if (err) throw (err);
+        var dreq = https.request(options, function (res) {
+
           // create an empty object to store the result
           var potato = [];
           // on receipt of the data, push it into "result"
           res.on("data", function (chunk) {
             potato.push(chunk);
           });
-          console.log(potato);
 
           res.on("end", function () {
             var body = Buffer.concat(potato);
-            console.log(body.toString());
+            var entry = new Dexcom(body);
+            entry.save(function(err, doc) {
+              // Log any errors
+              if (err) {
+                console.log(err);
+              }
+              // Or log the doc
+              else {
+                console.log(doc);
+              }
+            });
+            // console.log(body.toString());
           });
-          // fit the result data into the dexcom schema
-          // let newPat = new dexcom(result);
-          // // Save the data to the db
-          // newPat.save(function(err, doc) {
-          //   if (err) {
-          //     console.log(err);
-          //   }
-          //   else {
-          //     console.log(doc);
-          //   }
-          // });
-      // // We should store the token into a database.
-      //   return res.send(user.accessToken)
+        });
+      dreq.end();
     });
   });
-});
 
-//
-//       // var req = http.request(options, function (res) {
-//       //   var chunks = [];
-//       //
-//       //   res.on("data", function (chunk) {
-//       //     chunks.push(chunk);
-//       //   });
-//       //
-//       //   res.on("end", function () {
-//       //     var body = Buffer.concat(chunks);
-//       //     console.log(body.toString());
-//       //   });
-//       // });
-//
-
-//
-//         res.on("end", function () {
-//           var body = Buffer.concat(chunks);
-//           console.log(body.toString());
-//         });
-//       });
-//
-//       req.end();
-//
-//       // Should we store the token into a database?  Future feature allowing API calls from the app using stored tokens?
-//       // return res.send(user.accessToken)
-//     })
-// })
+  // var torso = body.toString();
+  // var entry = new Dexcom(torso);
+  // entry.save(function(err, doc) {
+  //   // Log any errors
+  //   if (err) {
+  //     console.log(err);
+  //   }
+  //   // Or log the doc
+  //   else {
+  //     console.log(doc);
+  //   }
+  // });
 
 
 // Physician routes

@@ -9,13 +9,11 @@
   margin-top: 10px;
 }
 
-
 .jumbotron img{
   display: block;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
   background-color: #fff;
   margin-bottom: 0;
 }
@@ -85,6 +83,6 @@ Link {
 
   /* Add Case Page */
 
-  .underline {
-    border-bottom: 2px #cebebe solid;
+.underline {
+    border-bottom: 2px #1a1a1d solid;
   }

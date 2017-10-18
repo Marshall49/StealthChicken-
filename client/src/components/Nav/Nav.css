@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway+Dots');
+@import url('https://fonts.googleapis.com/css?family=Raleway|Raleway+Dots|Roboto');
 
 /*header {
     margin-top: 5%;
@@ -101,7 +101,7 @@ nav li {
     display: inline-block;
     padding: 10px 10px;
     font-size: 18px;
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Raleway', sans-serif;
     z-index: 1;
 }
 
@@ -121,4 +121,9 @@ nav li a {
 .navbar-header {
     margin-right: 10px;
     z-index: 3;
+}
+
+.nav-logo {
+  margin-right: 10px;
+  margin-top: -5px;
 }

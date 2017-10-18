@@ -3,6 +3,7 @@ body {
   padding: 0;
   font-family: sans-serif;
   background-image: url("https://i.imgur.com/cfIfqdt.jpg");
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }

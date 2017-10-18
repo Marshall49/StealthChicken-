@@ -31,8 +31,9 @@ Link {
 }
 
 .already {
-  border: 1px #1a1a1d solid;
+  border-top: 2px #1a1a1d solid;
   padding-top: 20px;
+  filter: blur(1px);
 }
 
 .area {

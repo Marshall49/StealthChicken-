@@ -113,8 +113,8 @@ export default class Home extends Component {
                                     placeholder="Email Address"
                                 />
 
-                                <div class="form-group">
-                                    <select class="form-control" id="specialty">
+                                <div className="form-group">
+                                    <select className="form-control" id="specialty">
                                         <option disabled selected>Select Specialty...</option>
                                         <option>Endocrinologist</option>
                                         <option>Internal Medicince</option>

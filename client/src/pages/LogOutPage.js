@@ -5,22 +5,29 @@ import './style.css';
 
 
 const LogOut = () =>
-  <div>    
+  <div className="container-fluid">    
 
-    <div className="pull-right">
-        <p>Need to sign back in?</p>
-            <Link to="/physician">    
-                <Button className="btn-dark">
-                    Sign In
-                </Button>
-            </Link>    
+    <div className="row justify-content-center">
+        <div className="contain col-md-6">
+            <div className="out row col-md-6">
+                <h2 id="bye">
+                    <strong>
+                        Logged out!
+                    </strong>
+                </h2>
+            </div>
+
+            <div className="out row col-md-6">
+                <h4>Need to sign back in?</h4>
+                    <Link to="/user">    
+                        <Button className="btn-dark">
+                            Sign In
+                        </Button>
+                    </Link>    
+            </div>
+        </div>
     </div>
-        <h2>
-            <strong>
-                You have been logged out!
-            </strong>
-        </h2>
-  </div>
+</div>
 ;
 
 export default LogOut;

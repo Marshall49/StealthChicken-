@@ -63,14 +63,14 @@ class Dashboard extends Component {
                         <div className="content color">
                             {this.state.cases.length ? (    
                                 <CaseList>
-                                    {this.state.cases.map(icase => (
-                                        <Case key={icase._id}>
-                                            <Link to={"/cases/" + icase._id}>
+                                    {this.state.cases.map(dCase => (
+                                        <Case key={dCase._id}>
+                                            <Link to={"/dashboard/" + dCase._id}>
                                                 <strong>
-                                                    {icase.title}  
+                                                    {dCase.title}  
                                                 </strong>
                                                 <p>Description:    
-                                                    {icase.description}
+                                                    {dCase.description}
                                                 </p>    
                                             </Link> 
                                         </Case>              

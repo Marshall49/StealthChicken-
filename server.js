@@ -37,7 +37,7 @@ app.use(routes);
 
 //Here are the Heroku deploy "Mlab" Mongo URI for the Dexcom Client Secret and the mongo lab
 const CLIENT_SECRET = process.env.DEXCOM_CLIENT_SECRET || "";
-const mongoURL = process.env.MONGODB_URI || "mongodb://heroku_m4vrdwxk:alghmeaeeeudopt16qkh0kik2p@ds163294.mlab.com:63294/heroku_m4vrdwxk";
+// const mongoURL = process.env.MONGODB_URI || "mongodb://heroku_m4vrdwxk:alghmeaeeeudopt16qkh0kik2p@ds163294.mlab.com:63294/heroku_m4vrdwxk";
 // mongoose.connect('mongodb://heroku_m4vrdwxk:alghmeaeeeudopt16qkh0kik2p@ds163294.mlab.com:63294/heroku_m4vrdwxk');
 
 // Configure body parser

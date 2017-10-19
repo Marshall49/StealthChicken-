@@ -4,21 +4,20 @@
 
 // //Case Routes
 // router.route('/dashboard')
-//     .get(caseHandlers.list_all_cases);
-//     // .post(physician.loginRequired, caseHandlers.create_a_case);
+//     .get(caseHandlers.getCases);
 
 
-// router.route('/dashboard/:caseId')
-//     .get(caseHandlers.read_a_case)
-//     .put(caseHandlers.update_a_case)
-//     .delete(caseHandlers.delete_a_case);
+// router.route('/dashboard/:id')
+//     .get(caseHandlers.getCase)
+//     .put(caseHandlers.saveCase)
+//     .delete(caseHandlers.deleteCase);
 
 
-// router.route('/auth/register')
-//     .post(physician.register);
+// // router.route('/auth/register')
+// //     .post(physician.register);
 
-// app.route('/auth/sign_in')
-//     .post(physician.sign_in);
+// // app.route('/auth/sign_in')
+// //     .post(physician.sign_in);
 
 
 // module.exports = router;

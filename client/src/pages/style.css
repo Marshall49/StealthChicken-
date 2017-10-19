@@ -130,6 +130,28 @@ Link {
     border-bottom: 2px #1a1a1d solid;
   } */
 
+/* no match page */
+.btn-danger {
+  font-family: 'Raleway', sans-serif;
+  color: #cebebe;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-left: 22%;
+  /* margin: auto; */
+}
+
+.uh-oh {
+  margin-left: 20%;
+}
+
+.faticorn {
+  margin-left: -15%;
+  font-family: 'Raleway Dots', cursive;
+  font-weight: bold;
+  font-size: 40px;  
+  color: #cebebe;
+}
+
 /* About us page */
 .col-md-3 {
   display: inline-block;

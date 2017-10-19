@@ -2,6 +2,13 @@ import React, { Component} from "react";
 import { Input, FormBtn } from "../components/Form";
 // import { Link } from "react-router-dom";
 import API from "../utils/API";
+import {
+	BrowserRouter as Router,
+	Route,
+	Link,
+	Redirect,
+	withRouter
+  } from 'react-router-dom'
 import './style.css';
 
 class Login extends Component {
@@ -86,7 +93,13 @@ class Login extends Component {
 						<FormBtn 
 							/* disabled={!this.state.email || !this.state.password} */
 							onClick={this.handleFormSubmit}
-						> Log In </FormBtn>
+							>
+							{/* <Redirect to={{
+								pathname: '/dashboard',
+								// state: { from: props.location }
+							}}/>  */}
+							Log In 
+							</FormBtn>
 						</label>
 					</form>
 				</div>

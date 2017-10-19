@@ -19,19 +19,18 @@ const App = () =>
       <Nav />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/physician" component={LogInPage} />
-        <Route exact path="/physician/:id" component={Profile} />
+        <Route exact path="/User" component={LogInPage} />
+        <Route exact path="/User/:id" component={Profile} />
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/about" component={About} />
         <Route exact path="/addcase" component={AddCase} />
         <Route exact path="/logout" component={LogOut} />
         {/* redirect to acct creation */}
         <Route component={NoMatch}/>
-        
+
       </Switch>
       <Footer />
     </div>
   </Router>;
 
 export default App;
-

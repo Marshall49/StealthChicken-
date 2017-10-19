@@ -12,3 +12,6 @@ Here at DIAlogs we are looking to START a dialog for physicians that are having 
 2. Fill out the form with information that other doctors need to know as well as upload your patient's pertinent Dexcom data.
 3. Click submit and wait for other DIAloggers to join in the conversation.
 
+---
+
+A MERN fullstack application by 

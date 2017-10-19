@@ -39,16 +39,27 @@ class Dashboard extends Component {
 
     render() {
         return(
-            <div className="wrapper">
+            <div className="container-fluid">
 
                 <div className="row justify-content-md-center">    
                     <h1>Welcome to DIAlogs</h1>
+                </div> 
+
+                {/* Add New Case Button */}
+                <div className="row justify-content-md-center">
+                    <Link to="/addcase">
+                        <Button className="btn-dark btn-lg">
+                            New Case
+                        </Button>
+                    </Link>
                 </div>
                
                 {/* List of Cases */}
                 <div className="row row-flex">
-                    <div className="col-sm-6">
-                        <div className="content color-1">
+
+                    {/* Display case list */}
+                    <div className="col-md-8">
+                        <div className="content color">
                             {this.state.cases.length ? (    
                                 <CaseList>
                                     {this.state.cases.map(icase => (
@@ -65,21 +76,12 @@ class Dashboard extends Component {
                                     ))}
                                 </CaseList>
                             ) : (
-                                <h3>There are currently no cases to display. Click the button the left to add a new one!</h3>
+                                <h3>There are currently no cases to display.  Start the conversation by clicking the button the right to add a new one!</h3>
                             )}
                         </div>  
                     </div>
                 </div>  
-
-                {/* Add New Case Button */}
-                <div className="col col-md-4">
-                    <Link to="/addcase">
-                        <Button className="btn-primary btn-lg">
-                            Add a New Case
-                        </Button>
-                    </Link>
-                </div>
-            </div>                     
+            </div>                   
         );
     }
 };

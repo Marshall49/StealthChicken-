@@ -24,4 +24,4 @@ A MERN fullstack application by
 
 	-Caitlin Rose: [GitHub](https://github.com/cnrose), [LinkedIn](https://www.linkedin.com/in/caitlin-rose-86552a54/)
 
----
+

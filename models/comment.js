@@ -2,9 +2,9 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const CommentSchema = new Schema({
-    physicianId: {
+    userId: {
         type: Schema.Types.ObjectId,
-        ref: "Physician"
+        ref: "User"
     },
     dateCreated: {
         type: Date,
@@ -14,12 +14,13 @@ const CommentSchema = new Schema({
         type: String
     },
     dCaseId: {
-      type:mongoose.Schema.Types.ObjectId, ref: 'dCase'
+      type:mongoose.Schema.Types.ObjectId, 
+      ref: 'dCase'
     }
 });
 
 
-const Comment = mongoose.model("Comment", CommentSchema, "Comment");
+const Comments = mongoose.model("Comments", CommentSchema, "Comments");
 
 
-module.exports = Comment;
+module.exports = Comments;

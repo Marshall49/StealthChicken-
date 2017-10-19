@@ -1,34 +1,37 @@
-const db = require("../models");
+const dbComment = require("../models/comment");
 
 // Defining methods for the CommentController
 module.exports = {
   findAll: function(req, res) {
-    db.Comment
+    dbComment
       .find(req.query)
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
-    db.Comment
+    dbComment
       .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    db.Comment
-      .create(req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
+    dbComment
+    .create(req.body, function(err) {
+      if (err) {
+        return res.status(200).json({ success: true, message: 'Successfully Created Comment.'});
+      }
+        return res.status(422).json({ success: false, message: 'Error Creating Comment'});
+      });
+    };
   update: function(req, res) {
-    db.Comment
+    dbComment
       .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
-    db.Comment
+    dbComment
       .findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))

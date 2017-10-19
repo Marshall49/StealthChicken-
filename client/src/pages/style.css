@@ -43,12 +43,27 @@ Link {
 
 /* Dashboard Display */
 /* display this row with flex and use wrap (= respect columns' widths) */
+#dash_me {
+  display: inline-block;
+  font-family: 'Raleway Dots', cursive;
+  font-weight: 300px;
+  font-size: 100px;
+  margin-bottom: 5px;
+  color: #cebebe;
+  
+}
 
 .row-flex {
     display: flex;
     flex-wrap: wrap;
+    position: relative;
+    margin-left: 25%;
   }
-  
+
+  .btn-dark {
+    font-weight: bold;
+    font-size: 20px;
+  }
   
   /* vertical spacing between columns */
   
@@ -60,13 +75,12 @@ Link {
   .content {
     height: 100%;
     padding: 20px 20px 10px;
-    color: #fff;
+    margin: auto;
+    font-family: 'Raleway', sans-serif;
+    color: #cebebe;
   }
   
-  
-  /* Case backgrounds and styling*/
-  
-  .color-1 {
+  .color {
     background: #483C46;
     color: #fff;
   }

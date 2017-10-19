@@ -1,84 +1,18 @@
-# Create React Express App
+# Welcome to DIAlogs
 
-## About This Boilerplate
+Here at DIAlogs we are looking to START a dialog for physicians that are having difficulties with their patients with diabetes. We want physicians to have a place to display anonymous data and receive feedback from other physicians who may have experienced the same issues.
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+### Steps to join the DIAlog
+1. Create a user account. Be sure to include your specialty so others know who you are!
+2. Load up your dashboard with all the latest cases.
+3. Click on the case you want to learn more about then join the conversation through the comments.
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+### Add your own case
+1. From your dashboard click on the Add Case button. 
+2. Fill out the form with information that other doctors need to know as well as upload your patient's pertinent Dexcom data.
+3. Click submit and wait for other DIAloggers to join in the conversation.
 
-## Starting the app locally
+---
 
-Start by installing front and backend dependencies. While in this directory, run the following commands:
-
-```
-yarn install
-cd client
-yarn install
-cd ..
-``
-
-After both installations complete, run the following command in your terminal:
-
-```
-yarn start
-```
-
-That's it, your app should be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
-
-## Deployment (Heroku)
-
-### Create a Git Repo
-
-Once you're ready to deploy, start by making sure your project is a git repository. If so, proceed to the next section, otherwise run the following commands in your terminal:
-
-```
-git init
-git add .
-git commit -m "Initial commit"
-```
-
-### Heroku
-
-Make sure that you have a Heroku app created for this project. If so, proceed to the next section, otherwise run the following command in your terminal:
-
-```
-heroku create
-```
-
-Optionally add an argument for your application's name after `create`, e.g.
-
-```
-heroku myawesomeapp
-```
-
-### Deploying
-
-#### Option 1
-
-Use the deploy script inside of the outer `package.json`
-
-After confirming that you have an up to date git repository and a Heroku app created, run the following command to deploy:
-
-```
-yarn deploy
-```
-
-If all previous steps were followed correctly, your application should be deployed to Heroku!
-
-#### Option 2
-
-Manually deploy 
-
-After confirming that you have an up to date git repository and a Heroku app created, complete the following:
-
-1. Build the React app for production by running the following command:
-
-```
-yarn build
-```
-
-2. Add and commit all changes to git
-
-3. Push to Heroku
-
-If all previous steps were followed correctly, your application should be deployed to Heroku!
+A MERN fullstack application by 
+	- Malcolm Strong: [GitHub](https://github.com/Marshall49), [LinkedIn](https://www.linkedin.com/in/malcolm-strong-78088a105/)

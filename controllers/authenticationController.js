@@ -1,7 +1,8 @@
-const User = require('../models/user.js');
-const mongoose = require('mongoose');
+const User = require('../models/user');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const config = require('../config/config');
+const passport = require('passport');
 
 module.exports = {
 
@@ -30,17 +31,23 @@ module.exports = {
             if (err) throw err;
             if (!user) {
                 return res.status(404).send({ message: 'Authentication failed. User Not Found.' });
-            } else if (user) {
-                if (!user.comparePassword(req.body.password)) {
-                res.status(401).send({ message: 'Authentication failed. Wrong Password.' });
-                } else {
-                    return res.status(200).json({token: jwt.sign({ email: User.email, username: User.username, specialty: User.specialty, _id: User._id}, 'WORKING')});
+            } else {
+              user.comparePassword(req.body.password, function(err, isMacth) {
+                if (isMatch && !err) {
+                  const token = jwt.sign({ data: user }, config.secret, {
+                    expiresIn: 20080
+                  });
+                    return res.json({ token: 'Bearer' + token, message: 'Authentication Successful'});
                 }
+                else {
+                  res.status(401).send('Authentication failed. Wrong Credentials');
+                }
+              });
             }
         });
     },
 
-    loginRequired: function(req, res, next) {
+    verifyLogin: function(req, res, next) {
         console.log("Verifying");
         var token = req.params.token || req.body.token || req.headers['x-access-token'];
         if (token) {

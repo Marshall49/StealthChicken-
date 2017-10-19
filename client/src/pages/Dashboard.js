@@ -42,7 +42,7 @@ class Dashboard extends Component {
             <div className="container-fluid">
 
                 <div className="row justify-content-md-center">    
-                    <h1>Welcome to DIAlogs</h1>
+                    <h1 id="dash_me">Welcome to DIAlogs</h1>
                 </div> 
 
                 {/* Add New Case Button */}

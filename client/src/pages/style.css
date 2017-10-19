@@ -43,6 +43,15 @@ Link {
 
 /* Dashboard Display */
 /* display this row with flex and use wrap (= respect columns' widths) */
+#dash_me {
+  display: inline-block;
+  font-family: 'Raleway Dots', cursive;
+  font-weight: 300px;
+  font-size: 100px;
+  margin-bottom: 5px;
+  color: #cebebe;
+  
+}
 
 .row-flex {
     display: flex;

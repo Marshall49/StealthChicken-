@@ -5,7 +5,7 @@ const dCase = require('../../controllers/caseController.js')
 //Case Routes
 app.route('/dashboard')
     .get(caseHandlers.list_all_cases)
-    .post(physician.loginRequired, caseHandlers.create_a_case);
+    .post(user.loginRequired, caseHandlers.create_a_case);
 
 app.route('/dashboard/:caseId')
     .get(caseHandlers.read_a_case)
@@ -13,9 +13,9 @@ app.route('/dashboard/:caseId')
     .delete(caseHandlers.delete_a_case);
 
 app.route('/auth/register')
-    .post(physician.register);
+    .post(user.register);
 
 app.route('/auth/sign_in')
-    .post(physician.sign_in);
+    .post(user.sign_in);
 
 module.exports = router;

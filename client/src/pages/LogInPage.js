@@ -8,7 +8,7 @@ class Login extends Component {
 	state={
 			userName:"",
 			password: "",
-			cases: 
+			cases: {}
 	}
 
 	componentDidMount(){
@@ -19,8 +19,8 @@ class Login extends Component {
         API.getCases()
             .then(res =>
                 this.setState({
-                   cases: res.redirect('/Dashboard')
-				})
+                   cases: res.data
+                })
             )
             .catch(err => console.log(err));
     };
@@ -44,7 +44,7 @@ class Login extends Component {
 				userName: this.state.userName,
 				password: this.state.password
 			})
-				.then(res => this.loadDashboard())
+				.then(res => this.loadDashboard(res.redirect('/dashboard')))
 				.catch(err => console.log(err))
 		}
 	};

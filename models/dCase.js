@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const CaseSchema = new Schema({
   title: { type: String, required: false },
   dateCreated: { type: Date, default: Date.now },
-  physicianId: { type: String, required: true, ref: '' },
+  userId: { type: String, required: true, ref: 'user' },
   dexcom: {}, // get data from dexcom.js?
   description: { type: String },
   comment: [{

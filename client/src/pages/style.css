@@ -102,23 +102,25 @@ Link {
 
 /* log out page */
 .out {
-  height: 100%;
-  padding: 20px 20px 10px;
+  text-align: center; 
+  /* height: 100%; */
+  padding: 10px 10px 10px 10px;
   margin: auto;
   font-family: 'Raleway', sans-serif;
   color: #1a1a1d;
-  display: inline-block;
+  display: block;
+
 }
 
 .contain {
   background: #cebebe;
-  display: inline-block;
+  display: block;
 }
 
 #bye {
   font-family: 'Raleway', sans-serif;
   color: #1a1a1d;
-  margin-top: -10px;
+  margin: 20px;
 
 }
 

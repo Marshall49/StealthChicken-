@@ -9,7 +9,7 @@ const Nav = () =>
                 
                 <div className="container-fluid">
                     <div className="navbar-header shift">
-                        <a className="navbar-brand" href="/Dashboard"><img src="https://vectr.com/champageonponce/aI2dP1Qsu.svg?width=273&height=275&select=aI2dP1Qsupage0" alt="nav logo" className="nav-logo" width="30"/>DIAlogs</a>
+                        <a className="navbar-brand" href="/"><img src="https://vectr.com/champageonponce/aI2dP1Qsu.svg?width=273&height=275&select=aI2dP1Qsupage0" alt="nav logo" className="nav-logo" width="30"/>DIAlogs</a>
                     
                         <ul className="nav nav-pills">
                             <li><a href='/Dashboard'>Home</a></li>

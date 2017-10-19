@@ -1,5 +1,6 @@
 module.exports = {
   'secret':'HHAHAHAHA'
+  'expires':''
 };
 
 

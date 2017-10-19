@@ -8,7 +8,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 //Mongoose Models
-const Physician = require("./models/physician.js");
+const User = require("./models/user.js");
 const dCase = require("./models/dCase.js");
 const dexcom = require("./models/dexcom.js");
 // Oauth2 library

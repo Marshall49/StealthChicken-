@@ -5,23 +5,26 @@ const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
+
 // Routes
 const routes = require("./routes/API");
 
 // Authorization & security dependencies
+
 const http = require('https');
 const morgan = require('morgan');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 
 //Mongoose Models
-const User = require("./models/physician.js");
+const User = require("./models/user.js");
 const dCase = require("./models/dCase.js");
 const Dexcom = require("./models/dexcom.js");
 const Comment = require('./models/comment');
 
 // Oauth2 library
 const ClientOAuth2 = require('client-oauth2');
+
 
 // PORT address
 const PORT = process.env.PORT || 3001;
@@ -50,6 +53,7 @@ app.use(function(req, res, next) {
 //Here are the Heroku deploy "Mlab" Mongo URI for the Dexcom Client Secret and the mongo lab
 const CLIENT_SECRET = process.env.DEXCOM_CLIENT_SECRET || "";
 const MONGODB_URI = process.env.PROD_MONGODB || 'mongodb://localhost/Stealth_Chicken'
+
 // Set up promises with mongoose
 mongoose.Promise = global.Promise;
 //Set up default mongoose connection
@@ -65,7 +69,6 @@ db.once("open", function() {
   console.log("Mongoose connection successful.");
 });
 
-
 var testUser = {
     username: 'malcolm',
     password: 'hahahahah',
@@ -74,19 +77,6 @@ var testUser = {
 };
 // save user to database
 Physician.create(testUser)
-
-
-// app.get("/api/dashboard", function(req, res) {
-//   Physician.find({})
-//     .exec(function(err, doc) {
-//       if (err) {
-//         console.log(err);
-//       }
-//       else {
-//         res.send(doc);
-//       }
-//     });
-// });
 
 // Start the API server
 app.listen(PORT, function() {

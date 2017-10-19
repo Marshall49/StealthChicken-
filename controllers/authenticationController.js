@@ -1,40 +1,40 @@
-const Physician = require('../models/physician.js');
+const User = require('../models/user.js');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 module.exports = {
-    
+
     register: function(req, res) {
-        const newPhysician = new Physician(req.body);
-        newPhysician.password = brcypt.hashSync(req.body.password, 10);
-        newPhysician.save(function(err, physician) {
+        const newUser = new User(req.body);
+        newUser.password = brcypt.hashSync(req.body.password, 10);
+        newUser.save(function(err, user) {
             if (err) {
             return res.status(400).json({
                 success: false,
                 message: 'Email already exists.'
             });
             } else {
-            physician.password = undefined;
-            return res.status(200).json({ 
-                success: true, 
+            User.password = undefined;
+            return res.status(200).json({
+                success: true,
                 message: 'New user created.' })
             }
         });
     },
 
     sign_in: function(req, res) {
-        Physician.findOne({
+        User.findOne({
             email: req.body.email
-        }, function(err, physician) {
+        }, function(err, user) {
             if (err) throw err;
-            if (!physician) {
+            if (!user) {
                 return res.status(404).send({ message: 'Authentication failed. User Not Found.' });
-            } else if (physician) {
-                if (!physician.comparePassword(req.body.password)) {
+            } else if (user) {
+                if (!user.comparePassword(req.body.password)) {
                 res.status(401).send({ message: 'Authentication failed. Wrong Password.' });
                 } else {
-                    return res.status(200).json({token: jwt.sign({ email: physician.email, username: physician.username, specialty: physician.specialty, _id: physician._id}, 'WORKING')});
+                    return res.status(200).json({token: jwt.sign({ email: User.email, username: User.username, specialty: User.specialty, _id: User._id}, 'WORKING')});
                 }
             }
         });
@@ -42,7 +42,7 @@ module.exports = {
 
     loginRequired: function(req, res, next) {
         console.log("Verifying");
-        var token = req.params.token || req.body.token || req.headers['x-access-token']; 
+        var token = req.params.token || req.body.token || req.headers['x-access-token'];
         if (token) {
             jwt.verify(token.replace("JWT", ""), config.secret, function(eff, decoded) {
             if(err) {

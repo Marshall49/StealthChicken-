@@ -15,4 +15,13 @@ Here at DIAlogs we are looking to START a dialog for physicians that are having 
 ---
 
 A MERN fullstack application by 
+
 	- Malcolm Strong: [GitHub](https://github.com/Marshall49), [LinkedIn](https://www.linkedin.com/in/malcolm-strong-78088a105/)
+
+	-Jessica Thompson: [GitHub](https://github.com/jsscthomp), [LinkedIn](https://www.linkedin.com/in/jessica-thompson-311b5647/)
+
+	-John Barson: [GitHub](https://github.com/gtbmed), [LinkedIn](https://www.linkedin.com/in/johnbarson/)
+
+	-Caitlin Rose: [GitHub](https://github.com/cnrose), [LinkedIn](https://www.linkedin.com/in/caitlin-rose-86552a54/)
+
+---

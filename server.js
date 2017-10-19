@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-
+const passport = require("passport");
 
 // Routes
 const routes = require("./routes/API");
@@ -37,26 +37,32 @@ app.use(routes);
 
 //Here are the Heroku deploy "Mlab" Mongo URI for the Dexcom Client Secret and the mongo lab
 const CLIENT_SECRET = process.env.DEXCOM_CLIENT_SECRET || "";
-const MONGODB_URI = process.env.PROD_MONGODB || 'mongodb://localhost/Stealth_Chicken'
-mongoose.connect('mongodb://heroku_m4vrdwxk:alghmeaeeeudopt16qkh0kik2p@ds163294.mlab.com:63294/heroku_m4vrdwxk')
+const mongoURL = process.env.MONGODB_URI || "mongodb://localhost/Stealth_Chicken";
+// mongoose.connect('mongodb://heroku_m4vrdwxk:alghmeaeeeudopt16qkh0kik2p@ds163294.mlab.com:63294/heroku_m4vrdwxk');
 
-// Set up promises with mongoose
-mongoose.Promise = global.Promise;
-//Set up default mongoose connection
-mongoose.connect(MONGODB_URI, {
-  useMongoClient: true
-});
-//Get the default connection
-var db = mongoose.connection;
-//Bind connection to error event (to get notification of connection errors)
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-//Once the mongodb is rendered it will console.log successful
-db.once("open", function() {
-  console.log("Mongoose connection successful.");
-});
+// Configure body parser
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// Serve up static assets
+app.use(express.static("client/build"));
+
+// Add routes
+app.use(routes);
+
+app.use(passport.initialize());
+// Set mongoose to use promises
+mongoose.Promise = Promise;
+// Connect to MongoDB
+mongoose.connect(
+    mongoURL,
+    {
+        useMongoClient: true
+    }
+);
 
 var testUser = {
-    username: 'malcolm',
+    username: 'lame',
     password: 'hahahahah',
     email: 'strong.malcolm@y.com',
     specialty: 'cardiologist'

@@ -15,3 +15,4 @@ Here at DIAlogs we are looking to START a dialog for physicians that are having 
 ---
 
 A MERN fullstack application by 
+	- Malcolm Strong: [GitHub](https://github.com/Marshall49), [LinkedIn](https://www.linkedin.com/in/malcolm-strong-78088a105/)

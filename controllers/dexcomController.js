@@ -33,5 +33,37 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  //Method to get dexcom egv values and put in an array
+  getX: function(req, res) {
+    db.dexcom
+    .find({req.query},
+          { _id: 0} )
+    .select( 'egvs.value' )
+    .exec(function(err, docs){
+        docs = docs.map(function(doc) { return doc.egvs.value; });
+        if(err){
+            res.json(err)
+        } else {
+            res.json(docs)
+        }
+    })
+    .catch(err => res.status(422).json(err));
+  },
+  //Method to get dexcom egv displayTImes and put in an array
+  getY:function(req, res) {
+    db.dexcom
+    .find({req.query},
+          { _id: 0} )
+    .select( 'egvs.displayTime' )
+    .exec(function(err, docs){
+        docs = docs.map(function(doc) { return doc.egvs.displayTime; });
+        if(err){
+            res.json(err)
+        } else {
+            res.json(docs)
+        }
+    })
+    .catch(err => res.status(422).json(err));
   }
 };

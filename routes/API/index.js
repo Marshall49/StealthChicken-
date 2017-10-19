@@ -19,7 +19,7 @@ const pAuth = new ClientOAuth2({
   clientSecret: 'jzmbcseSdEA9CKtA', //use environmental variable
   accessTokenUri: 'https://sandbox-api.dexcom.com/v1/oauth2/token', // https://api.dexcom.com/v1/oauth2/token is used for non sandox
   authorizationUri: 'https://sandbox-api.dexcom.com/v1/oauth2/login',
-  redirectUri: 'https://gtbmed.ngrok.io/auth/dexcom/callback',
+  redirectUri: 'https://vast-refuge-19207.herokuapp.com/auth/dexcom/callback',
   scopes: ['offline_access']
 });
 

@@ -35,22 +35,24 @@ app.use(express.static("client/build"));
 // Add routes, both API and view
 app.use(routes);
 
-app.use(function(req, res, next) {
-  if (req.headers && req.headers.authorization && req.headers.authorization.split(' ')[0] === 'JWT') {
-    jwt.verify(req.headers.authorization.split(' ')[1], 'Stealth_Chicken', function(err, decode) {
-      if (err) req.user = undefined;
-      req.user = decode;
-      next();
-    });
-  } else {
-    req.user = undefined;
-    next();
-  }
-});
+
+// app.use(function(req, res, next) {
+//   if (req.headers && req.headers.authorization && req.headers.authorization.split(' ')[0] === 'JWT') {
+//     jwt.verify(req.headers.authorization.split(' ')[1], 'Stealth_Chicken', function(err, decode) {
+//       if (err) req.user = undefined;
+//       req.user = decode;
+//       next();
+//     });
+//   } else {
+//     req.user = undefined;
+//     next();
+//   }
+// });
 
 //Here are the Heroku deploy "Mlab" Mongo URI for the Dexcom Client Secret and the mongo lab
 const CLIENT_SECRET = process.env.DEXCOM_CLIENT_SECRET || "";
 const MONGODB_URI = process.env.PROD_MONGODB || 'mongodb://localhost/Stealth_Chicken'
+mongoose.connect('mongodb://heroku_m4vrdwxk:alghmeaeeeudopt16qkh0kik2p@ds163294.mlab.com:63294/heroku_m4vrdwxk')
 
 // Set up promises with mongoose
 mongoose.Promise = global.Promise;

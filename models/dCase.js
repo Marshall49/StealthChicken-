@@ -8,8 +8,7 @@ const CaseSchema = new Schema({
   dexcom: {}, // get data from dexcom.js?
   description: { type: String },
   comment: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Comment',
+    type:mongoose.Schema.Types.ObjectId, ref:'Comment'
   }],
   age: { type: Number, required: true },
   sex: {type: String, required: true },

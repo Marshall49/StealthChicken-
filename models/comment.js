@@ -12,8 +12,14 @@ const CommentSchema = new Schema({
     },
     body: {
         type: String
+    },
+    dCaseId: {
+      type:mongoose.Schema.Types.ObjectId, ref: 'dCase'
     }
 });
 
+
 const Comment = mongoose.model("Comment", CommentSchema, "Comment");
+
+
 module.exports = Comment;

@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway|Raleway+Dots|Roboto');
+
+form {
+    text-align: center;
+    width: 112%;
+    margin-top: 0;
+    margin-left: 46.25%;
+    background-color: #cebebe;
+    padding: 20px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.form-group {
+    width: 250px;
+    margin: auto;
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.underline {
+    padding: auto;
+    border-bottom: 2px #1a1a1d solid;
+    filter: blur(1px);
+    margin: 10px;
+  }
+
+.form-control {
+    margin-top: 2px;
+}
+
+  .form-group .aCase {
+      margin-left: -80%;
+      width: 600px;
+      font-family: 'Raleway Dots', cursive;
+  }
+

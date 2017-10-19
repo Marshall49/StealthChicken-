@@ -6,6 +6,7 @@ var bcrypt = require('bcrypt-nodejs');
 const UserSchema = new Schema({
   username: { type: String, required: true, index: { unique: true } },
   password: { type: String, required: true },
+
   email: { type: String, required: true, match: [/.+\@.+\..+/, "Please Enter a valid Email"]},
   specialty: { type: String, required: true},
   case: { type: Schema.Types.ObjectId, ref: "dCase" }

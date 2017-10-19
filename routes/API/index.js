@@ -10,7 +10,7 @@ router.use('/auth', authRoutes);
 router.use('/users', userRoutes);
 
 // user routes to dashboard with cases
-router.use('/dashboard', dCaseRoutes);
+// router.use('/dashboard', dCaseRoutes);
 
 
 // =============Patient Authentication=================================

@@ -1,46 +1,51 @@
 import React, { Component} from "react";
 import { Input, FormBtn } from "../components/Form";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import API from "../utils/API";
 import './style.css';
 
 class Login extends Component {
 	state={
-			username:"",
-			password: ""
+			userName:"",
+			password: "",
+			cases: {}
 	}
-	// componentDidMount() {
-	// 	this.letMeIn();
-	// };
 
-	// letMeIn() {
-	// 	//api call to check password & username
-	// };
+	componentDidMount(){
+        this.loadDashboard();
+    }
+    
+    loadDashboard(){
+        API.getCases()
+            .then(res =>
+                this.setState({
+                   cases: res.data
+                })
+            )
+            .catch(err => console.log(err));
+    };
+
 
 	handleUserNameChange= (event)=>{
 		this.setState({
-			// [name]: value
-			username: event.target.value
+			userName: event.target.value
 		});
 	};
 
 	handlePasswordChange=(event)=> {
 		this.setState({
-			// [name]: value
 			password: event.target.value
 		});
 	};
 
 	handleFormSubmit=(event)=>{
-		// event.preventDefault();
-
 		if(this.state.userName && this.state.password) {
 			API.getUser({
-				username: this.state.username,
+				userName: this.state.userName,
 				password: this.state.password
 			})
-				.then(res => console.log(this.state.username))
-				.catch(err => console.log(err));
+				.then(res => this.loadDashboard(res.redirect('/dashboard')))
+				.catch(err => console.log(err))
 		}
 	};
 
@@ -60,7 +65,7 @@ class Login extends Component {
 							Username:
 								<Input 
 									value={this.state.userName}
-									onChange={this.handleInputChange}
+									onChange={this.handleUserNameChange}
 									name="userName"
 									placeholder="Username"
 								/>
@@ -69,8 +74,9 @@ class Login extends Component {
 						<label>
 							Password:
 								<Input 
+									type="password"
 									value={this.state.password}
-									onChange={this.handleInputChange}
+									onChange={this.handlePasswordChange}
 									name="password"
 									placeholder="Password"
 								/>
@@ -78,7 +84,7 @@ class Login extends Component {
 						<br />	
 						<label>
 						<FormBtn 
-							disabled={!(this.state.username && this.state.password)}
+							/* disabled={!this.state.email || !this.state.password} */
 							onClick={this.handleFormSubmit}
 						> Log In </FormBtn>
 						</label>

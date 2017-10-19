@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const physicianRoutes = require("./physician");
+const userRoutes = require("./user");
 const authRoute = require('./auth');
 
 // auth route
@@ -90,6 +90,6 @@ router.get('/auth/dexcom/callback', function (req, res) {
 
 
 // Physician routes
-router.use("/physician", physicianRoutes);
+router.use("/user", userRoutes);
 // router.use("/oauth2", oauth2Routes);
 module.exports = router;

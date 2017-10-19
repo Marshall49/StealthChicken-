@@ -1,5 +1,4 @@
 // dependencies
-
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
@@ -10,7 +9,6 @@ const mongoose = require("mongoose");
 const routes = require("./routes/API");
 
 // Authorization & security dependencies
-
 const http = require('https');
 const morgan = require('morgan');
 const cors = require('cors');
@@ -76,7 +74,7 @@ var testUser = {
     specialty: 'cardiologist'
 };
 // save user to database
-Physician.create(testUser)
+User.create(testUser)
 
 // Start the API server
 app.listen(PORT, function() {

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const dCase = require('../controllers/caseController.js')
+const dCase = require('../../controllers/caseController.js')
 
 
 //Case Routes
@@ -18,4 +18,4 @@ app.route('/auth/register')
 app.route('/auth/sign_in')
     .post(physician.sign_in);
 
-};
+module.exports = router;

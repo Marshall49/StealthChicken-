@@ -30,7 +30,7 @@ export default class Profile extends Component {
                 {this.state.userName.map(userName => (
                     <UserInfo key={userName._id}>
                         <img src="" alt="DIAlog logo" />
-                        <Link to={"/physician/:id"}>
+                        <Link to={"/user/:id"}>
                             <strong>
                                 {userName}
                                 <br />

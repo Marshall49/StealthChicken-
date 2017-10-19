@@ -22,7 +22,7 @@ const Nav = () =>
                     <ul className="nav nav-pills">
 
                         <li><a href='/logout'>Log out</a></li>
-                        <li><a href="/physician">Login</a></li>
+                        <li><a href="/user">Login</a></li>
 
                     </ul>
                     

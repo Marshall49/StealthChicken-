@@ -7,7 +7,7 @@ Here at DIAlogs we are looking to START a dialog for physicians that are having 
 2. Load up your dashboard with all the latest cases.
 3. Click on the case you want to learn more about then join the conversation through the comments.
 
-### Add your own case!
+### Add your own case
 1. From your dashboard click on the Add Case button. 
 2. Fill out the form with information that other doctors need to know as well as upload your patient's pertinent Dexcom data.
 3. Click submit and wait for other DIAloggers to join in the conversation.

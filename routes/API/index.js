@@ -19,13 +19,12 @@ const pAuth = new ClientOAuth2({
   clientSecret: 'jzmbcseSdEA9CKtA', //use environmental variable
   accessTokenUri: 'https://sandbox-api.dexcom.com/v1/oauth2/token', // https://api.dexcom.com/v1/oauth2/token is used for non sandox
   authorizationUri: 'https://sandbox-api.dexcom.com/v1/oauth2/login',
-  redirectUri: 'https://gtbmed.ngrok.io/auth/dexcom/callback',
+  redirectUri: 'https://vast-refuge-19207.herokuapp.com/auth/dexcom/callback',
   scopes: ['offline_access']
 });
 
 // Redirect to Dexcom Auth --> Use hard code link instead
 router.get('/auth/dexcom', function (req, res) {
-console.log("IM OVER HERE!!!");
   var uri = pAuth.code.getUri();
   // Redirect to Dexcom Authorization site
   res.redirect(302, uri);
@@ -68,7 +67,6 @@ router.get('/auth/dexcom/callback', function (req, res) {
             var stuff = body.toString();
             //^^From Dexcom example
             var more_stuff = JSON.parse(stuff);
-            console.log(more_stuff);
             var entry = new Dexcom(more_stuff);
             entry.save(function(err, doc) {
               // Log any errors

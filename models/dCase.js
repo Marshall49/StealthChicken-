@@ -149,6 +149,6 @@ const CaseSchema = new Schema({
   }
 });
 
-const dCase = mongoose.model("dCase", CaseSchema);
+const dCase = mongoose.model("dCase", CaseSchema, "dCase");
 
 module.exports = dCase;

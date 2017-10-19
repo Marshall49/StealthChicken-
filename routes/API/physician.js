@@ -1,3 +1,4 @@
+
 const router = require('express').Router();
 // const caseHandlers = require('../controllers/caseController.js');
 const physician = require('../controllers/physicianController.js');
@@ -16,3 +17,4 @@ router
   .delete(physicianController.remove);
 
 module.exports = router;
+

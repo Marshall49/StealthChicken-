@@ -1,6 +1,3 @@
-module.exports = {
-  Dexcom: require("./dexcom")
-};
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;

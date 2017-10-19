@@ -18,7 +18,7 @@ export default class Profile extends Component {
         API.getUser()
             .then(res =>
                 this.setState({ 
-                    username: res.data, 
+                    userName: res.data, 
                     date: '' 
                 })
             ).catch(err => console.log(err));
@@ -27,14 +27,14 @@ export default class Profile extends Component {
     render() {
         return (
             <div className="container-fluid">
-                {this.state.userName.map(username => (
-                    <UserInfo key={username._id}>
+                {this.state.userName.map(userName => (
+                    <UserInfo key={userName._id}>
                         <img src="" alt="DIAlog logo" />
                         <Link to={"/physician/:id"}>
                             <strong>
-                                {username}
+                                {userName}
                                 <br />
-                                Member since: {username.date}
+                                Member since: {userName.date}
                             </strong>
                         </Link>
                     </UserInfo>

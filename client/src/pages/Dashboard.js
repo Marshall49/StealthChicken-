@@ -31,7 +31,8 @@ class Dashboard extends Component {
                     cases: res.data,
                     title: "",
                     dateCreated: "",
-                    description: ""
+                    description: "",
+                    comments: []
                 })
             )
             .catch(err => console.log(err));

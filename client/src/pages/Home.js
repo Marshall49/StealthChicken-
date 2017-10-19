@@ -6,66 +6,52 @@ import API from "../utils/API";
 import './style.css';
 
 export default class Home extends Component {
-  state = {
-    userName: "",
-    email: "",
-    specialty: null,
-    password: "",
-  }
-    //     this.loadPhysician = this.loadPhysician.bind(this);
-    // }
+    state = {
+        userName: "",
+        email: "",
+        specialty: null,
+        password: "",
+        cases: {}
+    }
+    componentDidMount(){
+        this.loadDashboard();
+    }
+    
+    loadDashboard(){
+        API.getCases()
+            .then(res =>
+                this.setState({
+                   cases: res.data
+                })
+            )
+            .catch(err => console.log(err));
+    };
 
-    // componentDidMount(){
-    //     this.loadPhysician();
-    // }
-    //
-    // loadPhysician(){
-    //     API.sendUser()
-    //         .then(res =>
-    //             this.setState({
-    //                 userName: res.data,
-    //                 email: "",
-    //                 specialty: null,
-    //                 password: "",
-    //             })
-    //         )
-    //         .catch(err => console.log(err));
-    // };
-
-    handleUserChange = event => {
-        // const { name, value } = event.target.value;
+    handleUserChange = (event) => {
         this.setState({
-        // [name]: value
         userName: event.target.value
         });
     };
 
-    handleEmailChange = event => {
-        // const { name, value } = event.target.value;
+    handleEmailChange = (event) => {
         this.setState({
-        // [name]: value
         email: event.target.value
         });
     };
 
-    handleSpecialtyChange = event => {
-        // const { name, value } = event.target.value;
+    handleSpecialtyChange = (event) => {
         this.setState({
-        // [name]: value
         specialty: event.target.value
         });
     };
 
-    handlePassChange = event => {
-        // const { name, value } = event.target.value;
+    handlePassChange = (event) => {
         this.setState({
-        // [name]: value
         password: event.target.value
         });
     };
 
     handleFormSubmit=(event)=> {
-        // event.preventDefault();
         if ((this.state.userName && this.state.email && this.state.specialty && this.state.password)) {
             API.saveUser({
                 userName: this.state.userName,
@@ -73,7 +59,7 @@ export default class Home extends Component {
                 specialty: this.state.specialty,
                 password: this.state.password,
             })
-            .then(res => this.loadPhysician())
+            .then(res => this.loadDashboard())
             .catch(err => console.log(err));
         }
     };
@@ -134,7 +120,7 @@ export default class Home extends Component {
 
                             <label>
                             <FormBtn
-                                disabled={!(this.state.userName && this.state.password)}
+                                /* disabled={!this.state.email || !this.state.password} */
                                 onClick={this.handleFromSubmit}
                             >
                                 Create Account
@@ -146,7 +132,7 @@ export default class Home extends Component {
                             <div>
                                 <div>
                                     Already a member?   
-                                    <Link to="/user">
+                                    <Link to="/physician">
                                         <Button className="btn-dark">
                                             Sign In
                                         </Button>

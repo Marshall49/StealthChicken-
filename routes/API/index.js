@@ -26,18 +26,18 @@ const pAuth = new ClientOAuth2({
   clientSecret: 'jzmbcseSdEA9CKtA', //use environmental variable
   accessTokenUri: 'https://sandbox-api.dexcom.com/v1/oauth2/token', // https://api.dexcom.com/v1/oauth2/token is used for non sandox
   authorizationUri: 'https://sandbox-api.dexcom.com/v1/oauth2/login',
-  redirectUri: 'https://vast-refuge-19207.herokuapp.com/auth/dexcom/callback',
+  redirectUri: 'https://vast-refuge-19207.herokuapp.com/patient/dexcom/callback',
   scopes: ['offline_access']
 });
 
 // Redirect to Dexcom Auth --> Use hard code link instead
-router.get('/auth/dexcom', function (req, res) {
+router.get('/patient/dexcom', function (req, res) {
   var uri = pAuth.code.getUri();
   // Redirect to Dexcom Authorization site
   res.redirect(302, uri);
 });
 
-router.get('/auth/dexcom/callback', function (req, res) {
+router.get('/patient/dexcom/callback', function (req, res) {
   pAuth.code.getToken(req.originalUrl)
     .then(function (user) {
       console.log(user) //=> { accessToken: '...', tokenType: 'bearer', ... }

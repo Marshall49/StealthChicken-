@@ -1,5 +1,9 @@
 const router = require("express").Router();
 const physicianRoutes = require("./physician");
+const authRoute = require('./auth');
+
+// auth route
+router.use('/auth', authRoute);
 
 
 // =============Patient Authentication=================================

@@ -1,7 +1,3 @@
-module.exports = {
-  dCase: require("./dCase")
-};
-
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 

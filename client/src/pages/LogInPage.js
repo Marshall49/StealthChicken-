@@ -5,6 +5,7 @@ import API from "../utils/API";
 import './style.css';
 
 class Login extends Component {
+	
 	state={
 			username:"",
 			password: ""
@@ -32,7 +33,7 @@ class Login extends Component {
 	};
 
 	handleFormSubmit=(event)=>{
-		// event.preventDefault();
+		event.preventDefault();
 
 		if(this.state.userName && this.state.password) {
 			API.getUser({

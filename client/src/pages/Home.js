@@ -12,54 +12,46 @@ export default class Home extends Component {
     specialty: null,
     password: "",
   }
-    //     this.loadPhysician = this.loadPhysician.bind(this);
-    // }
+
 
     // componentDidMount(){
     //     this.loadPhysician();
     // }
     //
-    // loadPhysician(){
-    //     API.sendUser()
-    //         .then(res =>
-    //             this.setState({
-    //                 userName: res.data,
-    //                 email: "",
-    //                 specialty: null,
-    //                 password: "",
-    //             })
-    //         )
-    //         .catch(err => console.log(err));
-    // };
+
+    linkHome(){
+        API.getUser()
+            .then(res =>
+                this.setState({
+                    userName: res.data,
+                    email: "",
+                    specialty: null,
+                    password: "",
+                })
+            )
+            .catch(err => console.log(err));
+    };
 
     handleUserChange = event => {
-        // const { name, value } = event.target.value;
         this.setState({
-        // [name]: value
         userName: event.target.value
         });
     };
 
     handleEmailChange = event => {
-        // const { name, value } = event.target.value;
         this.setState({
-        // [name]: value
         email: event.target.value
         });
     };
 
     handleSpecialtyChange = event => {
-        // const { name, value } = event.target.value;
         this.setState({
-        // [name]: value
         specialty: event.target.value
         });
     };
 
     handlePassChange = event => {
-        // const { name, value } = event.target.value;
         this.setState({
-        // [name]: value
         password: event.target.value
         });
     };

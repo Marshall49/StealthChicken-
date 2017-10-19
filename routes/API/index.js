@@ -1,9 +1,16 @@
 const router = require("express").Router();
 const userRoutes = require("./user");
-const authRoute = require('./auth');
+const authRoutes = require('./auth');
+const dCaseRoutes = require('./dCase');
 
 // auth route
-router.use('/auth', authRoute);
+router.use('/auth', authRoutes);
+
+// user routes
+router.use('/users', userRoutes);
+
+// user routes to dashboard with cases
+// router.use('/dashboard', dCaseRoutes);
 
 
 // =============Patient Authentication=================================

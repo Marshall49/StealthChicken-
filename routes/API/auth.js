@@ -10,7 +10,7 @@ router.route('/authenticate')
     .post(authController.authenticate);
 
 router.route('/:token')
-    .get(authController.loginRequired);
+    .get(authController.verifyLogin);
 
 router.route('/logout')
     .get(authController.logout);
@@ -21,4 +21,3 @@ router.route('/dashboard')
     });
 
 module.exports = router;
-

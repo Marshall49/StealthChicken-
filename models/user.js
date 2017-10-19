@@ -6,8 +6,7 @@ var bcrypt = require('bcrypt-nodejs');
 const UserSchema = new Schema({
   username: { type: String, required: true, index: { unique: true } },
   password: { type: String, required: true },
-
-  email: { type: String, required: true, },
+  email: { type: String, required: true, unique: true },
   specialty: { type: String, required: true},
   case: { type: Schema.Types.ObjectId, ref: "dCase" },
   date: { type: Date, default: Date.now }
@@ -43,5 +42,5 @@ UserSchema.methods.comparePassword = function(candidatePassword, cb) {
 };
 
 
-const User = mongoose.model("Users", UserSchema, "users");
+const User = mongoose.model("User", UserSchema, "User");
 module.exports = User;

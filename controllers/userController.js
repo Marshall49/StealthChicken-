@@ -1,4 +1,4 @@
-const dbUser = require("../models/user");
+const dbUser = require("../models/User");
 const jwt = require('jsonwebtoken');
 const config = require('../config/config');
 
@@ -25,7 +25,8 @@ module.exports = {
         }
           return res.status(422).json({ success: false, message: 'Email Already Exists'});
         });
-      };
+      },
+
   update: function(req, res) {
     dbUser
       .findOneAndUpdate({ _id: req.params.id }, req.body)

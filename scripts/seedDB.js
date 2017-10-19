@@ -5,7 +5,7 @@ mongoose.Promise = global.Promise;
 // This file empties the Cases collection and inserts the dummy cases below
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist",
+  process.env.MONGODB_URI || "mongodb://heroku_m4vrdwxk:alghmeaeeeudopt16qkh0kik2p@ds163294.mlab.com:63294/heroku_m4vrdwxk",
   {
     useMongoClient: true
   }

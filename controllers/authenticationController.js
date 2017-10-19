@@ -23,7 +23,7 @@ module.exports = {
         });
     },
 
-    sign_in: function(req, res) {
+    authenticate: function(req, res) {
         User.findOne({
             email: req.body.email
         }, function(err, user) {

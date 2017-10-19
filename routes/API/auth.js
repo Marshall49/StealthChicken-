@@ -10,7 +10,7 @@ router.route('/authenticate')
     .post(authController.authenticate);
 
 router.route('/:token')
-    .get(authController.verifyToken);
+    .get(authController.loginRequired);
 
 router.route('/logout')
     .get(authController.logout);

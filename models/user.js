@@ -9,8 +9,8 @@ const UserSchema = new Schema({
 
   email: { type: String, required: true, },
   specialty: { type: String, required: true},
-  case: { type: Schema.Types.ObjectId, ref: "dCase" }
-  date: { type: Date, default: Date.now },
+  case: { type: Schema.Types.ObjectId, ref: "dCase" },
+  date: { type: Date, default: Date.now }
 });
 
 UserSchema.pre('save', function(next) {

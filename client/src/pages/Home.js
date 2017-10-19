@@ -132,7 +132,7 @@ export default class Home extends Component {
                             <div>
                                 <div>
                                     Already a member?   
-                                    <Link to="/physician">
+                                    <Link to="/user">
                                         <Button className="btn-dark">
                                             Sign In
                                         </Button>

@@ -23,7 +23,7 @@ module.exports = {
       }
         return res.status(422).json({ success: false, message: 'Error Creating Case'});
       });
-    };
+    },
   update: function(req, res) {
     dbCase
       .findOneAndUpdate({ _id: req.params.id }, req.body)

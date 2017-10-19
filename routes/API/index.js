@@ -23,7 +23,7 @@ router.get('/auth/dexcom', function (req, res) {
   res.redirect(uri);
 });
 
-app.get('/auth/dexcom/callback', function (req, res) {
+router.get('/auth/dexcom/callback', function (req, res) {
   pAuth.code.getToken(req.originalUrl)
     .then(function (user) {
       console.log(user); //=> { accessToken: '...', tokenType: 'bearer', ... }

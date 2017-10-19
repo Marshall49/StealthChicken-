@@ -1,37 +1,37 @@
-const db = require("../models/comment.js");
+const db = require("../models");
 
-// Defining methods for the commentController
+// Defining methods for the CommentController
 module.exports = {
   findAll: function(req, res) {
-    db.comment
+    db.Comment
       .find(req.query)
       .sort({ date: -1 })
-      .then(dbcomment => res.json(dbcomment))
+      .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
-    db.comment
+    db.Comment
       .findById(req.params.id)
-      .then(dbcomment => res.json(dbcomment))
+      .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    db.comment
+    db.Comment
       .create(req.body)
-      .then(dbcomment => res.json(dbcomment))
+      .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
-    db.comment
+    db.Comment
       .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbcomment => res.json(dbcomment))
+      .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
-    db.comment
+    db.Comment
       .findById({ _id: req.params.id })
-      .then(dbcomment => dbcomment.remove())
-      .then(dbcomment => res.json(dbcomment))
+      .then(dbModel => dbModel.remove())
+      .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
 };

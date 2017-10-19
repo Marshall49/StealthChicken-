@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const routes = require("./routes");
+const routes = require("./routes/API");
 const http = require('https');
 const morgan = require('morgan');
 const cors = require('cors');
@@ -19,12 +19,8 @@ const PORT = process.env.PORT || 3001;
 const CLIENT_SECRET = process.env.DEXCOM_CLIENT_SECRET || "";
 const MONGODB_URI = process.env.PROD_MONGODB || 'mongodb://localhost/Stealth_Chicken'
 // Configure body parser for AJAX requests
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-// Serve up static assets
-app.use(express.static("client/build"));
-// Add routes, both API and view
-app.use(routes);
 
 app.use(function(req, res, next) {
   if (req.headers && req.headers.authorization && req.headers.authorization.split(' ')[0] === 'JWT') {
@@ -38,6 +34,10 @@ app.use(function(req, res, next) {
     next();
   }
 });
+// Serve up static assets
+app.use(express.static("client/build"));
+// Add routes, both API and view
+app.use(routes);
 // Set up promises with mongoose
 mongoose.Promise = global.Promise;
 //Set up default mongoose connection
@@ -54,27 +54,30 @@ db.once("open", function() {
 });
 
 var testUser = {
-    username: 'anna',
-    email: 'strong.malcolm@yahoo.com',
-    password: 'malcolm',
+    username: 'malcolm',
+    password: 'hahahahah',
+    email: 'strong.malcolm@y.com',
     specialty: 'cardiologist'
 };
 // save user to database
 physician.create(testUser)
 
-app.get("/api/dashboard", function(req, res) {
-  Physician.find({})
-    .exec(function(err, doc) {
-      if (err) {
-        console.log(err);
-      }
-      else {
-        res.send(doc);
-      }
-    });
-});
+
+// app.get("/api/dashboard", function(req, res) {
+//   Physician.find({})
+//     .exec(function(err, doc) {
+//       if (err) {
+//         console.log(err);
+//       }
+//       else {
+//         res.send(doc);
+//       }
+//     });
+// });
 
 // Start the API server
 app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
+
+module.exports = app;

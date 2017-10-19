@@ -6,9 +6,9 @@ import './style.css';
 const NoMatch = () =>
 	<div className="container-fluid">
 		<div className="row justify-content-md-center">
-				<div className="jumbotron">
-					<h1>Uh Oh! It appears the unicorn has eaten this page!</h1>
-					<img src="../../images/fat-unicorn.png" alt="fat-unicorn" />
+				<div className="uh-oh">
+					<h1 className="faticorn">Uh Oh! It appears a unicorn has eaten this page!</h1>
+					<img src="https://i.imgur.com/5ajO8MH.jpg" alt="fat-unicorn" className="fat-unicorn"/>
 					
 					<div>
 					<Link to="/">
